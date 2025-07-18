@@ -1,6 +1,4 @@
-import { JSX } from 'solid-js';
-
-const Card= (props: any): JSX.Element => {
+const Card = (props: any) => {
   return (
     <div 
       class={`rounded-lg border border-gray-200 p-6 shadow-sm bg-white m-1 transition hover:shadow-md ${props.className || 'w-sm'}`}

@@ -7,4 +7,8 @@ export default defineConfig({
     solid(),
     tailwindcss()
   ],
+  build: {
+    target: 'esnext',
+    outDir: 'dist', // 👈 Important for Cloudflare Pages
+  },
 })
