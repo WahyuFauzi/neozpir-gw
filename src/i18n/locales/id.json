@@ -4,7 +4,12 @@
       "home": "Beranda",
       "about": "Tentang kami",
       "services": "Layanan",
-      "blog": "Blog"
+      "blog": "Blog",
+      "language": "Bahasa",
+      "languageOptions": {
+        "en": "Inggris",
+        "id": "Indonesia"
+      }
     },
     "banner": {
       "mainText": "Ubah Bisnis Anda dengan Bantuan Ahli",

@@ -26,26 +26,26 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div class={`w-full md:block md:w-auto ${menuOpen() ? 'block' : 'hidden'}`} id="navbar-default">
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+        <div class={`w-full md:block md:w-auto absolute md:relative ${menuOpen() ? 'block top-20' : 'hidden'}`} id="navbar-default">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             <li>
-              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.home')}</a>
+              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.home')}</a>
             </li>
             <li>
-              <a href="/services" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.services')}</a>
+              <a href="/services" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.services')}</a>
             </li>
             <li>
-              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.about')}</a>
+              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.about')}</a>
             </li>
             <li class={`relative ${menuOpen() ? 'block' : 'hidden'}`}>
               <button id="dropdownButton" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setLanguageDropdown(!languageDropdown())}>
-                Language
+                {t('navbar.language')}
               </button>
               <Show when={languageDropdown()}>
                 <div id="dropdownMenu" class="absolute mt-2 w-32 bg-white rounded shadow-md z-10">
                   <ul class="text-sm text-gray-700">
-                    <li onClick={() => {changeLang('id'); setMenuOpen(false); setLanguageDropdown(false);}}><p class="block px-4 py-2 hover:bg-green-100">Indonesia</p></li>
-                    <li onClick={() => {changeLang('en-US'); setMenuOpen(false); setLanguageDropdown(false);}}><p class="block px-4 py-2 hover:bg-green-100">English</p></li>
+                    <li onClick={() => {changeLang('id'); setMenuOpen(false); setLanguageDropdown(false);}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.id')}</p></li>
+                    <li onClick={() => {changeLang('en-US'); setMenuOpen(false); setLanguageDropdown(false);}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.en')}</p></li>
                   </ul>
                 </div>
               </Show>
@@ -59,8 +59,8 @@ const Navbar = () => {
           <Show when={languageDropdown()}>
             <div id="dropdownMenu" class="absolute mt-2 w-32 bg-white rounded shadow-md z-10">
               <ul class="text-sm text-gray-700">
-                <li onClick={() => changeLang('id')}><p class="block px-4 py-2 hover:bg-green-100">Indonesia</p></li>
-                <li onClick={() => changeLang('en-US')}><p class="block px-4 py-2 hover:bg-green-100">English</p></li>
+                <li onClick={() => changeLang('id')}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.id')}</p></li>
+                <li onClick={() => changeLang('en-US')}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.en')}</p></li>
               </ul>
             </div>
           </Show>
