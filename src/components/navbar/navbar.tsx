@@ -54,7 +54,7 @@ const Navbar = () => {
         </div>
         <div class="hidden relative md:block">
           <button id="dropdownButton" class="border border-gray-600 rounded px-4 py-2 cursor-pointer hover:bg-gray-500" onClick={() => setLanguageDropdown(!languageDropdown())}>
-            Language
+            {t('navbar.language')}
           </button>
           <Show when={languageDropdown()}>
             <div id="dropdownMenu" class="absolute mt-2 w-32 bg-white rounded shadow-md z-10">
