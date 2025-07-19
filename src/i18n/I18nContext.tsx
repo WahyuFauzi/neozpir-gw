@@ -6,14 +6,15 @@ import indonesiaJson from './locales/id.json'
 const I18nContext = createContext();
 
 export function I18nProvider(props: any) {
+  const userLang = navigator.language || 'en';
   const [isReady, setIsReady] = createSignal(false);
-  
+
   onMount(async () => {
     await i18next.init({
-      lng: 'id',
+      lng: userLang,
       debug: import.meta.env.MODE !== 'production',
       resources: {
-        en: englishJson,
+        'en-US': englishJson,
         id: indonesiaJson,
       }
     });
