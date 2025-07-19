@@ -1,0 +1,89 @@
+{
+  "translation": {
+    "navbar": {
+      "home": "Beranda",
+      "about": "Tentang kami",
+      "services": "Layanan",
+      "blog": "Blog"
+    },
+    "banner": {
+      "mainText": "Ubah Bisnis Anda dengan Bantuan Ahli",
+      "secondaryText": "Kami membantu organisasi memanfaatkan teknologi untuk mendorong pertumbuhan, meningkatkan efisiensi, dan tetap terdepan dalam persaingan.",
+      "CTAText": "Mulai Perjalanan Anda"
+    },
+    "serviceSection": {
+      "title": "Layanan Kami",
+      "description": "Kami menawarkan solusi teknologi komprehensif agar bisnis Anda berkembang dan tumbuh di era digital",
+      "cards": {
+        "ecommerce": {
+          "title": "eCommerce",
+          "desc": "Jangan biarkan platform mengendalikan Anda, Bebaslah dengan situs web eCommerce Anda sendiri"
+        },
+        "enterprise": {
+          "title": "Perangkat Lunak Perusahaan",
+          "desc": "Menggunakan CRM, ERP, atau Perangkat Lunak Perusahaan lainnya untuk merampingkan Proses Bisnis Anda"
+        },
+        "automation": {
+          "title": "Otomatisasi",
+          "desc": "Gunakan alat untuk mengotomatiskan tugas seperti mengirim SMS ke pelanggan"
+        },
+        "custom": {
+          "title": "Layanan Kustom",
+          "desc": "Permintaan apa pun, hubungi kami!"
+        }
+      }
+    },
+    "whyChooseSection": {
+      "title": "Mengapa Memilih Neozpir?",
+      "description": "Kami telah membantu bisnis mengubah operasi mereka melalui teknologi.",
+      "points": {
+        "team": "Tim yang memahami masalah Anda dan Tumbuh bersama Anda.",
+        "solutions": "Solusi yang disesuaikan untuk setiap bisnis",
+        "support": "Siap untuk dukungan dan pemeliharaan"
+      }
+    },
+    "CTASection": {
+      "title": "Siap Mengubah Bisnis Anda?",
+      "desc": "Mari diskusikan bagaimana kami dapat membantu Anda mencapai tujuan teknologi Anda.",
+      "button": "Jadwalkan Konsultasi"
+    },
+    "about": {
+      "title": "Tentang Neozpir",
+      "description": "Mengubah bisnis melalui solusi konsultasi TI yang inovatif. Kami menjembatani kesenjangan antara teknologi dan kesuksesan bisnis.",
+      "whatWeDo": {
+        "title": "Apa yang ingin kami lakukan?",
+        "cards": {
+          "growth": {
+            "title": "Percepat Pertumbuhan",
+            "desc": "Kami percaya bahwa kesuksesan Anda juga merupakan kesuksesan kami"
+          },
+          "focus": {
+            "title": "Fokus pada Hal yang Penting",
+            "desc": "Jangan biarkan masalah teknologi memperlambat Anda, Fokuslah untuk menyelesaikan masalah bisnis Anda terlebih dahulu"
+          }
+        }
+      }
+    },
+    "footer": {
+      "brand": "Neozpir",
+      "tagline": "Mengubah bisnis melalui solusi konsultasi TI yang inovatif.",
+      "services": {
+        "title": "Layanan",
+        "items": [
+          "Situs Web eCommerce",
+          "Perangkat Lunak Perusahaan",
+          "Pengembangan Kustom"
+        ]
+      },
+      "company": {
+        "title": "Perusahaan",
+        "about": "Tentang Kami"
+      },
+      "contact": {
+        "title": "Kontak",
+        "email": "support@neozpir.com",
+        "phone": "+62 89670377077"
+      }
+    }
+  }
+}

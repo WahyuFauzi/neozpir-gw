@@ -1,4 +1,6 @@
+import { useI18n } from "../../i18n/I18nContext";
 const Navbar = () => {
+  const { t } = useI18n()
   return (
     <nav class="bg-white border-gray-200">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -14,13 +16,13 @@ const Navbar = () => {
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             <li>
-              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm">Home</a>
+              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm">{t('navbar.home')}</a>
             </li>
             <li>
-              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm">About</a>
+              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm">{t('navbar.about')}</a>
             </li>
             <li>
-              <a href="/services" class="block py-2 px-3 text-gray-900 rounded-sm">Services</a>
+              <a href="/services" class="block py-2 px-3 text-gray-900 rounded-sm">{t('navbar.services')}</a>
             </li>
           </ul>
         </div>

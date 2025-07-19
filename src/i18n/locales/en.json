@@ -1,0 +1,93 @@
+{
+  "translation": {
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "blog": "Blog"
+    },
+    "banner": {
+      "mainText": "Transform Your Business with Expert IT Consulting",
+      "secondaryText": "We help organizations leverage technology to drive growth, improve efficiency, and stay ahead of the competition.",
+      "CTAText": "Start Your Journey"
+    },
+    "serviceSection": {
+      "title": "Our Services",
+      "description": "We offer comprehensive technological solution for your business to thrive and growth in digital era",
+      "cards": {
+        "ecommerce": {
+          "title": "eCommerce",
+          "desc": "Don't let platform controls you, Be free with your own ecommerce website"
+        },
+        "enterprise": {
+          "title": "Enterprise Software",
+          "desc": "Using CRM, ERP or any other Enterprise Software to streamline your Business Process"
+        },
+        "automation": {
+          "title": "Automation",
+          "desc": "Use tools to automate task like sending SMS to customer"
+        },
+        "custom": {
+          "title": "Custom Service",
+          "desc": "Any request, just contact us!"
+        }
+      }
+    },
+    "whyChooseSection": {
+      "title": "Why Choose Neozpir?",
+      "description": "We've helped businesses transform their operations through technology.",
+      "points": {
+        "team": "Team that understand your problem and Grow with you.",
+        "solutions": "Customized solutions for every business",
+        "support": "Ready for support and maintenance"
+      }
+    },
+    "CTASection": {
+      "title": "Ready to Transform Your Business?",
+      "desc": "Let's discuss how we can help you achieve your technology goals.",
+      "button": "Schedule Consultation"
+    },
+    "about": {
+      "title": "About Neozpir",
+      "description": "Transforming businesses through innovative IT consulting solutions. We bridge the gap between technology and business success.",
+      "whatWeDo": {
+        "title": "What we want to do?",
+        "cards": {
+          "growth": {
+            "title": "Accelerate Growth",
+            "desc": "We believe that your success is also our success"
+          },
+          "focus": {
+            "title": "Focus on Whats Matter",
+            "desc": "Dont let any technological problems slow you down, Focus on solving your business problem first"
+          }
+        }
+      }
+    },
+    "service": {
+      "mainText": "Transform Your Business with Expert IT Consulting",
+      "secondaryText": "We help organizations leverage technology to drive growth, improve efficiency, and stay ahead of the competition."
+    },
+    "footer": {
+      "brand": "Neozpir",
+      "tagline": "Transforming businesses through innovative IT consulting solutions.",
+      "services": {
+        "title": "Services",
+        "items": [
+          "Ecommerce Website",
+          "Enterprise Software",
+          "Custom Development"
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "about": "About Us"
+      },
+      "contact": {
+        "title": "Contact",
+        "email": "support@neozpir.com",
+        "phone": "+62 89670377077"
+      }
+    }
+  }
+}
