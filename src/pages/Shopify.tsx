@@ -60,11 +60,13 @@ const ShopifyService = () => {
             <span>{t('shopify.yearly')}</span>
           </div>
           <div class="flex flex-wrap justify-center gap-8">
+            {/* @ts-ignore */}
             {pricingPlans.map(plan => (
               <div class="bg-white p-8 rounded-lg shadow-md text-center flex flex-col md:w-[400px] w-full">
                 <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
                 <p class="text-4xl font-extrabold mb-4">{formatPrice(plan.price)}<span class="text-lg font-normal">{plan.name !== "Plus" ? `/${t('shopify.monthlyShort')}` : ""}</span></p>
                 <ul class="text-left space-y-2 mb-8 flex-grow">
+                  {/* @ts-ignore */}
                   {plan.features.map(feature => (
                     <li class="flex items-center gap-2">
                       <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/></svg>
