@@ -11,4 +11,13 @@ export default defineConfig({
     target: 'esnext',
     outDir: 'dist', // 👈 Important for Cloudflare Pages
   },
+  server: {
+    proxy: {
+      // Proxy /api requests to our Cloudflare Worker
+      '/api': {
+        target: 'http://localhost:8788', // Default wrangler port
+        changeOrigin: true,
+      },
+    },
+  },
 })
