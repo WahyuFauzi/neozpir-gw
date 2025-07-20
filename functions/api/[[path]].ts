@@ -7,7 +7,7 @@ const app = new Hono();
 // Hono only needs to handle the rest of the path.
 app.get('/api/hello', (c) => {
   return c.json({
-    message: 'Hello from Hono!',
+    message: 'solution',
   });
 });
 

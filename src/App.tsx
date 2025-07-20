@@ -5,6 +5,23 @@ import Service from "./pages/Services";
 import Navbar from './components/navbar/navbar';
 import Footer from "./components/footer/footer";
 import { I18nProvider } from "./i18n/I18nContext";
+import { createResource } from "solid-js";
+
+// @ts-ignore
+const ApiTest = () => {
+  const [apiMessage] = createResource(() =>
+    fetch("/api/hello")
+      .then((res) => res.json())
+      .then((data) => data.message)
+  );
+
+  return (
+    <div style={{ "text-align": "center", "padding": "20px", "background-color": "#f0f0f0" }}>
+      <h2>A new way to find <strong>{apiMessage.loading ? "Loading..." : apiMessage()}</strong></h2>
+    </div>
+  );
+};
+
 function App() {
   return (
     <I18nProvider>
@@ -18,6 +35,7 @@ function App() {
         </Router>
         <Footer></Footer>
       </div>
+      <ApiTest></ApiTest>
     </I18nProvider>
   )
 }
