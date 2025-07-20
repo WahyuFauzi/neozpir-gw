@@ -1,4 +1,4 @@
-import startUpLogo from '../../assets/startup-life-amico.png';
+import startUpLogo from '../../assets/startup-life-amico.webp';
 import { useI18n } from "../../i18n/I18nContext";
 
 const Banner = () => {

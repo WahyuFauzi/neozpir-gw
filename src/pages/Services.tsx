@@ -1,9 +1,10 @@
 import Card from '../components/card/card';
-import serviceLogo from '../assets/contact-us-amico.png'
-import shopifyLogo from '../assets/shopify.png';
-import softwareLogo from '../assets/software.png';
-import configurationLogo from '../assets/configuration.png';
-import speechBubbleLogo from '../assets/speech-bubble.png';
+import { CTASchedule } from '../components/cta/cta';
+import serviceLogo from '../assets/contact-us-amico.webp'
+import shopifyLogo from '../assets/shopify.webp';
+import softwareLogo from '../assets/software.webp';
+import configurationLogo from '../assets/configuration.webp';
+import speechBubbleLogo from '../assets/speech-bubble.webp';
 import { useI18n } from '../i18n/I18nContext';
 
 function Service() {
@@ -37,24 +38,8 @@ function Service() {
           <Card imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
         </div>
       </section>
-      <section class="bg-gray-900 text-white py-16 text-center px-4">
-        <h2 class="text-2xl md:text-3xl font-semibold mb-4">
-          {t('CTASection.title')}
-        </h2>
-        <p class="text-gray-300 mb-8 max-w-xl mx-auto">
-          {t('CTASection.desc')}
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <a
-            href="https://wa.me/6289670377077"
-            class="bg-[#3DDC97] text-[#2C2C2C] font-medium px-6 py-3 rounded hover:bg-gray-200 transition"
-          >
-            {t('CTASection.button')}
-          </a>
-         </div>
-      </section>
+      <CTASchedule></CTASchedule>
     </div>
-
   )
 }
 

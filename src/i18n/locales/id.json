@@ -1,9 +1,10 @@
 {
   "translation": {
+    "selectedLanguage": "id",
     "navbar": {
       "home": "Beranda",
       "about": "Tentang kami",
-      "services": "Layanan",
+      "services": "Produk Kami",
       "blog": "Blog",
       "language": "Bahasa",
       "languageOptions": {
@@ -89,6 +90,71 @@
         "email": "support@neozpir.com",
         "phone": "+62 89670377077"
       }
+    },
+    "shopify": {
+      "title": "Mengapa Menggunakan Shopify?",
+      "description": "Shopify adalah platform eCommerce terkemuka yang memungkinkan Anda memulai, mengembangkan, dan mengelola bisnis. Ini memberi Anda semua alat yang Anda butuhkan untuk menjual secara online, di media sosial, atau secara langsung.",
+      "services": {
+        "title": "Mengapa Memilih Layanan Kami?",
+        "setup": {
+          "title": "Pengaturan Toko oleh Ahli",
+          "description": "Kami menyediakan pengaturan dan kustomisasi toko Shopify profesional untuk membantu Anda memulai dengan cepat dan memastikan toko Anda mencerminkan identitas merek Anda."
+        },
+        "development": {
+          "title": "Pengembangan Aplikasi Kustom",
+          "description": "Butuh fungsionalitas unik? Kami mengembangkan aplikasi Shopify kustom untuk memenuhi kebutuhan bisnis spesifik Anda dan meningkatkan kemampuan toko Anda."
+        }
+      },
+      "pricingTitle": "Harga Shopify",
+      "monthly": "Bulanan",
+      "yearly": "Tahunan (Hemat 3 bulan)",
+      "monthlyShort": "bulan",
+      "getStarted": "Mulai",
+      "pricingPlans": [
+        {
+          "name": "Basic",
+          "price": {
+            "monthly": 429000
+          },
+          "features": [
+            "Situs Web eCommerce",
+            "Produk Tidak Terbatas",
+            "2 Akun Staf",
+            "Biaya transaksi 2,9% + 30¢"
+          ]
+        },
+        {
+          "name": "Shopify",
+          "price": {
+            "monthly": 1099000
+          },
+          "features": [
+            "Laporan Profesional",
+            "Kartu Hadiah",
+            "5 Akun Staf",
+            "Biaya transaksi 2,6% + 30¢"
+          ]
+        },
+        {
+          "name": "Advanced",
+          "price": {
+            "monthly": 6699000
+          },
+          "features": [
+            "Pelaporan Lanjutan",
+            "Biaya Transaksi Lebih Rendah",
+            "15 Akun Staf",
+            "Biaya transaksi 2,4% + 30¢"
+          ]
+        },
+        {
+          "name": "Plus",
+          "price": "Hubungi Tim Kami",
+          "features": [
+            "Semua yang ada di Advance dengan fitur tambahan sesuai kebutuhan klien"
+          ]
+        }
+      ]
     }
   }
 }

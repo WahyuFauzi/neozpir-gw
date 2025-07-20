@@ -59,8 +59,8 @@ const Navbar = () => {
           <Show when={languageDropdown()}>
             <div id="dropdownMenu" class="absolute mt-2 w-32 bg-white rounded shadow-md z-10">
               <ul class="text-sm text-gray-700">
-                <li onClick={() => changeLang('id')}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.id')}</p></li>
-                <li onClick={() => changeLang('en-US')}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.en')}</p></li>
+                <li onClick={() => {changeLang('id'); setLanguageDropdown(false)}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.id')}</p></li>
+                <li onClick={() => {changeLang('en-US'); setLanguageDropdown(false)}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.en')}</p></li>
               </ul>
             </div>
           </Show>

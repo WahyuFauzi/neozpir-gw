@@ -24,7 +24,7 @@ export function I18nProvider(props: any) {
 
   const t = (key: string) => {
     version(); // Depend on the version signal for reactivity
-    return i18next.t(key);
+    return i18next.t(key, { returnObjects: true });
   };
 
   const changeLang = async (lang: string) => {

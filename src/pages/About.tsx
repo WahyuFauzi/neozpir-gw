@@ -1,8 +1,9 @@
 import Card from '../components/card/card';
-import neozpirLogo from '../assets/working-remotely-amico.png';
-import diagramLogo from '../assets/diagram.png';
-import focusLogo from '../assets/focus.png';
+import neozpirLogo from '../assets/working-remotely-amico.webp';
+import diagramLogo from '../assets/diagram.webp';
+import focusLogo from '../assets/focus.webp';
 import { useI18n } from '../i18n/I18nContext';
+import { CTASchedule } from '../components/cta/cta';
 
 function About() {
   const { t } = useI18n();
@@ -30,22 +31,7 @@ function About() {
           <Card imgSrc={focusLogo} imgAlt="focus-icon" title={t('about.whatWeDo.cards.focus.title')} text={t('about.whatWeDo.cards.focus.desc')} className="w-2xl h-[16rem]"></Card>
         </div>
       </section>
-      <section class="bg-gray-900 text-white py-16 text-center px-4">
-        <h2 class="text-2xl md:text-3xl font-semibold mb-4">
-          {t('CTASection.title')}
-        </h2>
-        <p class="text-gray-300 mb-8 max-w-xl mx-auto">
-          {t('CTASection.desc')}
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <a
-            href="https://wa.me/6289670377077"
-            class="bg-[#3DDC97] text-[#2C2C2C] font-medium px-6 py-3 rounded hover:bg-gray-200 transition"
-          >
-            {t('CTASection.button')}
-          </a>
-         </div>
-      </section>
+      <CTASchedule></CTASchedule>
     </div>
   )
 }

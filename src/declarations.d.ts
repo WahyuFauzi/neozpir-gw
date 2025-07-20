@@ -1,5 +1,5 @@
 // src/declarations.d.ts
-declare module '*.png' {
+declare module '*.webp' {
   const value: string;
   export default value;
 }

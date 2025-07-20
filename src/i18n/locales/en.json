@@ -1,9 +1,10 @@
 {
   "translation": {
+    "selectedLanguage": "en-US",
     "navbar": {
       "home": "Home",
       "about": "About",
-      "services": "Services",
+      "services": "Products",
       "blog": "Blog",
       "language": "Language",
       "languageOptions": {
@@ -93,6 +94,71 @@
         "email": "support@neozpir.com",
         "phone": "+62 89670377077"
       }
+    },
+    "shopify": {
+      "title": "Why Use Shopify?",
+      "description": "Shopify is a leading eCommerce platform that allows you to start, grow, and manage a business. It provides you with all the tools you need to sell online, on social media, or in person.",
+      "services": {
+        "title": "Why Choose Our Services?",
+        "setup": {
+          "title": "Expert Store Setup",
+          "description": "We provide professional Shopify store setup and customization to get you started quickly and ensure your store reflects your brand identity."
+        },
+        "development": {
+          "title": "Custom App Development",
+          "description": "Need unique functionality? We develop custom Shopify apps to meet your specific business requirements and enhance your store's capabilities."
+        }
+      },
+      "pricingTitle": "Shopify Pricing",
+      "monthly": "Monthly",
+      "yearly": "Yearly (Save 3 months)",
+      "monthlyShort": "month",
+      "getStarted": "Get Started",
+      "pricingPlans": [
+        {
+          "name": "Basic",
+          "price": {
+            "monthly": 25 
+          },
+          "features": [
+            "eCommerce Website",
+            "Unlimited Products",
+            "2 Staff Accounts",
+            "2.9% + 30¢ transaction fee"
+          ]
+        },
+        {
+          "name": "Shopify",
+          "price": {
+            "monthly": 65
+          },
+          "features": [
+            "Professional Reports",
+            "Gift Cards",
+            "5 Staff Accounts",
+            "2.6% + 30¢ transaction fee"
+          ]
+        },
+        {
+          "name": "Advanced",
+          "price": {
+            "monthly": 399
+          },
+          "features": [
+            "Advanced Reporting",
+            "Lower Transaction Fees",
+            "15 Staff Accounts",
+            "2.4% + 30¢ transaction fee"
+          ]
+        },
+        {
+          "name": "Plus",
+          "price": "Contact Our Team",
+          "features": [
+            "Everything in Advanced with additional features according to client needs"
+          ]
+        }
+      ]
     }
   }
 }
