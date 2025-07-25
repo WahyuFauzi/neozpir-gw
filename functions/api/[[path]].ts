@@ -11,4 +11,17 @@ app.get('/api/hello', (c) => {
   });
 });
 
+app.get('/api/my-element.js', (c) => {
+  return c.text(`
+      class MyElement extends HTMLElement {
+        connectedCallback() {
+          this.innerHTML = "<p style='color: limegreen;'>Hi from Web Component 🎉</p>";
+        }
+      }
+      customElements.define('my-element', MyElement);
+    `, 200, {
+      'Content-Type': 'application/javascript; charset=utf-8',
+    })
+})
+
 export const onRequest = handle(app);
