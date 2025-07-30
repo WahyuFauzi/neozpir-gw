@@ -1,6 +1,6 @@
 {
   "translation": {
-    "selectedLanguage": "id",
+    "selectedLanguage": "id-ID",
     "navbar": {
       "home": "Beranda",
       "about": "Tentang kami",
@@ -105,56 +105,16 @@
           "description": "Butuh fungsionalitas unik? Kami mengembangkan aplikasi Shopify kustom untuk memenuhi kebutuhan bisnis spesifik Anda dan meningkatkan kemampuan toko Anda."
         }
       },
-      "pricingTitle": "Harga Shopify",
+      "pricingTitle": "Harga Pembuatan Situs Ecommerce",
+      "promotionalPrice": "Hanya bayar Rp. 17.000 per bulan untuk 3 bulan pertama",
       "monthly": "Bulanan",
       "yearly": "Tahunan (Hemat 3 bulan)",
       "monthlyShort": "bulan",
-      "getStarted": "Mulai",
-      "pricingPlans": [
-        {
-          "name": "Basic",
-          "price": {
-            "monthly": 429000
-          },
-          "features": [
-            "Situs Web eCommerce",
-            "Produk Tidak Terbatas",
-            "2 Akun Staf",
-            "Biaya transaksi 2,9% + 30¢"
-          ]
-        },
-        {
-          "name": "Shopify",
-          "price": {
-            "monthly": 1099000
-          },
-          "features": [
-            "Laporan Profesional",
-            "Kartu Hadiah",
-            "5 Akun Staf",
-            "Biaya transaksi 2,6% + 30¢"
-          ]
-        },
-        {
-          "name": "Advanced",
-          "price": {
-            "monthly": 6699000
-          },
-          "features": [
-            "Pelaporan Lanjutan",
-            "Biaya Transaksi Lebih Rendah",
-            "15 Akun Staf",
-            "Biaya transaksi 2,4% + 30¢"
-          ]
-        },
-        {
-          "name": "Plus",
-          "price": "Hubungi Tim Kami",
-          "features": [
-            "Semua yang ada di Advance dengan fitur tambahan sesuai kebutuhan klien"
-          ]
-        }
-      ]
+      "getStarted": "Mulai"
+    },
+    "notFound": {
+      "message": "Halaman yang Anda cari tidak ada.",
+      "goHome": "Kembali ke Beranda"
     }
   }
 }

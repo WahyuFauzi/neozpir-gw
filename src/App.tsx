@@ -2,7 +2,8 @@ import { Router, Route } from "@solidjs/router";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Service from "./pages/Services";
-import ShopifyService from "./pages/Shopify";
+import eCommerceService from "./pages/Ecommerce";
+import NotFound from "./pages/404";
 import Navbar from './components/navbar/navbar';
 import Footer from "./components/footer/footer";
 import { I18nProvider } from "./i18n/I18nContext";
@@ -16,9 +17,10 @@ function App() {
         <Router>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/services" component={Service} />
-          <Route path="/products/shopify" component={ShopifyService} />
+          <Route path="/products" component={Service} />
+          <Route path="/products/ecommerce" component={eCommerceService} />
           <Route path="/contact" component={Home} />
+          <Route path="*" component={NotFound} />
         </Router>
         <Footer></Footer>
       </div>

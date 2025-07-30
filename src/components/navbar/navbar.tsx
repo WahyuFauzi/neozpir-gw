@@ -1,6 +1,5 @@
-import { Show } from "solid-js";
 import { useI18n } from "../../i18n/I18nContext";
-import { createSignal } from "solid-js";
+import { Show, createSignal } from "solid-js";
 
 const Navbar = () => {
   const { t, changeLang } = useI18n()

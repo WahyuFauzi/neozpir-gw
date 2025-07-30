@@ -109,56 +109,16 @@
           "description": "Need unique functionality? We develop custom Shopify apps to meet your specific business requirements and enhance your store's capabilities."
         }
       },
-      "pricingTitle": "Shopify Pricing",
+      "pricingTitle": "Ecommerce Website Pricing",
+      "promotionalPrice": "Only Pay 1$ per month for the first 3 Months",
       "monthly": "Monthly",
       "yearly": "Yearly (Save 3 months)",
       "monthlyShort": "month",
-      "getStarted": "Get Started",
-      "pricingPlans": [
-        {
-          "name": "Basic",
-          "price": {
-            "monthly": 25 
-          },
-          "features": [
-            "eCommerce Website",
-            "Unlimited Products",
-            "2 Staff Accounts",
-            "2.9% + 30¢ transaction fee"
-          ]
-        },
-        {
-          "name": "Shopify",
-          "price": {
-            "monthly": 65
-          },
-          "features": [
-            "Professional Reports",
-            "Gift Cards",
-            "5 Staff Accounts",
-            "2.6% + 30¢ transaction fee"
-          ]
-        },
-        {
-          "name": "Advanced",
-          "price": {
-            "monthly": 399
-          },
-          "features": [
-            "Advanced Reporting",
-            "Lower Transaction Fees",
-            "15 Staff Accounts",
-            "2.4% + 30¢ transaction fee"
-          ]
-        },
-        {
-          "name": "Plus",
-          "price": "Contact Our Team",
-          "features": [
-            "Everything in Advanced with additional features according to client needs"
-          ]
-        }
-      ]
+      "getStarted": "Get Started"
+    },
+    "notFound": {
+      "message": "The page you are looking for does not exist.",
+      "goHome": "Go back to Home"
     }
   }
 }
