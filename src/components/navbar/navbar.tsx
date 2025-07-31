@@ -31,7 +31,7 @@ const Navbar = () => {
               <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.home')}</a>
             </li>
             <li>
-              <a href="/services" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.services')}</a>
+              <a href="/products" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.services')}</a>
             </li>
             <li>
               <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.about')}</a>

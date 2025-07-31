@@ -32,10 +32,10 @@ function Service() {
           {t('serviceSection.description')}
         </p>
         <div class="flex flex-wrap w-full justify-center">
-          <Card imgSrc={shopifyLogo} imgAlt="shopify-icon" title={t('serviceSection.cards.ecommerce.title')} text={t('serviceSection.cards.ecommerce.desc')} ></Card>
-          <Card imgSrc={softwareLogo} imgAlt="software-icon" title={t('serviceSection.cards.enterprise.title')} text={t('serviceSection.cards.enterprise.desc')} ></Card>
-          <Card imgSrc={configurationLogo} imgAlt="configuration-icon" title={t('serviceSection.cards.automation.title')} text={t('serviceSection.cards.automation.desc')}></Card>
-          <Card imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
+          <Card href="/products/ecommerce" imgSrc={shopifyLogo} imgAlt="shopify-icon" title={t('serviceSection.cards.ecommerce.title')} text={t('serviceSection.cards.ecommerce.desc')} ></Card>
+          <Card href="/products/enterprise" imgSrc={softwareLogo} imgAlt="software-icon" title={t('serviceSection.cards.enterprise.title')} text={t('serviceSection.cards.enterprise.desc')} ></Card>
+          <Card href="/products/automation" imgSrc={configurationLogo} imgAlt="configuration-icon" title={t('serviceSection.cards.automation.title')} text={t('serviceSection.cards.automation.desc')}></Card>
+          <Card href="/contact" imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
         </div>
       </section>
       <CTASchedule></CTASchedule>

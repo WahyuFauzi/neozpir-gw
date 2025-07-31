@@ -1,13 +1,13 @@
 import { createSignal, createResource, For, createEffect } from 'solid-js';
-import { CTASchedule } from '../components/cta/cta';
-import shopifyLogo from '../assets/shopify.webp';
-import { useI18n } from '../i18n/I18nContext';
-import { getAllPlans } from '../service/product.service';
+import { CTASchedule } from '../../components/cta/cta';
+import enterpriseLogo from '../../assets/software.webp';
+import { useI18n } from '../../i18n/I18nContext';
+import { getEnterprisePlans } from '../../service/product.service';
 
-const ShopifyService = () => {
+const EnterpriseService = () => {
   const { t }  = useI18n();
   const [isYearly, setIsYearly] = createSignal(false);
-  const [productList] = createResource(() => t('selectedLanguage'), getAllPlans);
+  const [productList] = createResource(() => t('selectedLanguage'), getEnterprisePlans);
 
   // Optional: Effect to log language changes, without causing re-fetch loop
   createEffect(() => {
@@ -28,27 +28,27 @@ const ShopifyService = () => {
       <section class="bg-white py-12 px-4">
         <div class="max-w-7xl h-[48rem] mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div class="w-full lg:w-1/2 flex justify-center">
-            <img src={shopifyLogo} alt="Shopify Logo" class="w-[24rem] h-[24rem] object-contain" />
+            <img src={enterpriseLogo} alt="Enterprise Logo" class="w-[24rem] h-[24rem] object-contain" />
           </div>
           <div class="text-center lg:text-left max-w-xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{t('shopify.title')}</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{t('enterprise.title')}</h2>
             <p class="text-gray-600 mb-6 text-lg">
-              {t('shopify.description')}
+              {t('enterprise.description')}
             </p>
           </div>
         </div>
       </section>
       <section class="bg-gray-50 py-12 px-4">
         <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('shopify.services.title')}</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('enterprise.services.title')}</h2>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-white p-8 rounded-lg shadow-sm">
-              <h3 class="text-2xl font-semibold mb-4">{t('shopify.services.setup.title')}</h3>
-              <p>{t('shopify.services.setup.description')}</p>
+              <h3 class="text-2xl font-semibold mb-4">{t('enterprise.services.custom.title')}</h3>
+              <p>{t('enterprise.services.custom.description')}</p>
             </div>
             <div class="bg-white p-8 rounded-lg shadow-sm">
-              <h3 class="text-2xl font-semibold mb-4">{t('shopify.services.development.title')}</h3>
-              <p>{t('shopify.services.development.description')}</p>
+              <h3 class="text-2xl font-semibold mb-4">{t('enterprise.services.integration.title')}</h3>
+              <p>{t('enterprise.services.integration.description')}</p>
             </div>
           </div>
         </div>
@@ -56,23 +56,23 @@ const ShopifyService = () => {
 
       <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('shopify.pricingTitle')}</h2>
-          <h3 class="text-xl md:text-xl font-bold text-[#3DDC97] mb-8 text-center">{t('shopify.promotionalPrice')}</h3>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('enterprise.pricingTitle')}</h2>
+          <h3 class="text-xl md:text-xl font-bold text-[#3DDC97] mb-8 text-center">{t('enterprise.promotionalPrice')}</h3>
           <div class="flex justify-center items-center space-x-4 mb-8">
-            <span>{t('shopify.monthly')}</span>
+            <span>{t('enterprise.monthly')}</span>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" checked={isYearly()} onChange={() => setIsYearly(!isYearly())} class="sr-only peer" />
               <div class="w-14 h-8 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
-            <span>{t('shopify.yearly')}</span>
+            <span>{t('enterprise.yearly')}</span>
           </div>
-          <div id="shopify-pricingplan" class="relative">
+          <div id="enterprise-pricingplan" class="relative">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <For each={productList()}>
                 {(plan) => (
                   <div class="bg-white p-8 rounded-lg shadow-md text-center flex flex-col h-full">
                     <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
-                    <p class="text-4xl font-extrabold mb-4">{formatPrice(plan.price)}<span class="text-lg font-normal">{plan.name !== "Plus" ? `/${t('shopify.monthlyShort')}` : ""}</span></p>
+                    <p class="text-4xl font-extrabold mb-4">{formatPrice(plan.price)}<span class="text-lg font-normal">{plan.name !== "Plus" ? `/${t('enterprise.monthlyShort')}` : ""}</span></p>
                     <ul class="text-left space-y-2 mb-8 flex-grow">
                       <For each={plan.features}>
                         {(feature) => (
@@ -84,7 +84,7 @@ const ShopifyService = () => {
                       </For>
                     </ul>
                     <a href="/contact" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition mt-auto">
-                      {t('shopify.getStarted')}
+                      {t('enterprise.getStarted')}
                     </a>
                   </div>
                 )}
@@ -99,4 +99,4 @@ const ShopifyService = () => {
   );
 };
 
-export default ShopifyService;
+export default EnterpriseService;

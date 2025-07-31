@@ -1,0 +1,50 @@
+[
+  {
+    "name": "CRM & Penjualan Dasar",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Manajemen Prospek & Peluang",
+      "Catatan Pelanggan",
+      "Pembuatan Penawaran & Pesanan Penjualan",
+      "Pelaporan Penjualan Dasar"
+    ]
+  },
+  {
+    "name": "Akuntansi & Keuangan Inti",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Buku Besar Umum",
+      "Piutang/Hutang",
+      "Laporan Keuangan Dasar (Laba Rugi, Neraca)",
+      "Dukungan Multi-mata Uang"
+    ]
+  },
+  {
+    "name": "HR & Penggajian Ringan",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Data Induk Karyawan",
+      "Manajemen Cuti",
+      "Pelacakan Kehadiran",
+      "Pemrosesan Penggajian Dasar"
+    ]
+  },
+  {
+    "name": "Manajemen Proyek Dasar",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Manajemen Tugas",
+      "Pelacakan Proyek",
+      "Entri Lembar Waktu",
+      "Pelaporan Proyek Dasar"
+    ]
+  }
+]

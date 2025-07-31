@@ -112,6 +112,44 @@
       "monthlyShort": "bulan",
       "getStarted": "Mulai"
     },
+    "enterprise": {
+      "title": "Solusi Perangkat Lunak Perusahaan Kustom",
+      "description": "Kami membangun perangkat lunak perusahaan yang skalabel dan kuat yang disesuaikan dengan kebutuhan bisnis spesifik Anda. Dari CRM hingga ERP, kami siap membantu Anda.",
+      "services": {
+        "title": "Layanan Perusahaan Kami",
+        "custom": {
+          "title": "Pengembangan Perangkat Lunak Kustom",
+          "description": "Kami merancang dan mengembangkan aplikasi perusahaan kustom dari awal, memastikan aplikasi tersebut selaras sempurna dengan proses bisnis Anda."
+        },
+        "integration": {
+          "title": "Integrasi Sistem",
+          "description": "Kami mengintegrasikan sistem dan aplikasi Anda yang ada untuk meningkatkan aliran data dan merampingkan operasi Anda."
+        }
+      },
+      "pricingTitle": "Harga Perangkat Lunak Perusahaan",
+      "promotionalPrice": "Hubungi kami untuk penawaran khusus",
+      "monthly": "Bulanan",
+      "yearly": "Tahunan",
+      "monthlyShort": "bulan",
+      "getStarted": "Mulai"
+    },
+    "automation": {
+      "title": "Rampingkan Bisnis Anda dengan Otomatisasi",
+      "description": "Otomatiskan tugas dan alur kerja berulang untuk meningkatkan efisiensi dan mengurangi kesalahan manusia. Kami menyediakan solusi otomatisasi khusus yang disesuaikan dengan bisnis Anda.",
+      "services": {
+        "title": "Layanan Otomatisasi Kami",
+        "process": {
+          "title": "Otomatisasi Proses Bisnis",
+          "description": "Kami menganalisis proses bisnis Anda dan mengidentifikasi peluang untuk otomatisasi, menerapkan solusi yang menghemat waktu dan uang Anda."
+        },
+        "integration": {
+          "title": "Integrasi Aplikasi",
+          "description": "Kami menghubungkan aplikasi Anda untuk mengotomatiskan transfer data dan alur kerja, memastikan komunikasi yang lancar antara sistem Anda."
+        }
+      },
+      "pricingTitle": "Harga Otomatisasi",
+      "getStarted": "Hubungi kami"
+    },
     "notFound": {
       "message": "Halaman yang Anda cari tidak ada.",
       "goHome": "Kembali ke Beranda"

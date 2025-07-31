@@ -116,6 +116,44 @@
       "monthlyShort": "month",
       "getStarted": "Get Started"
     },
+    "enterprise": {
+      "title": "Custom Enterprise Software Solutions",
+      "description": "We build scalable and robust enterprise software tailored to your specific business needs. From CRM to ERP, we've got you covered.",
+      "services": {
+        "title": "Our Enterprise Services",
+        "custom": {
+          "title": "Custom Software Development",
+          "description": "We design and develop custom enterprise applications from scratch, ensuring they align perfectly with your business processes."
+        },
+        "integration": {
+          "title": "System Integration",
+          "description": "We integrate your existing systems and applications to improve data flow and streamline your operations."
+        }
+      },
+      "pricingTitle": "Enterprise Software Pricing",
+      "promotionalPrice": "Contact us for a custom quote",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "monthlyShort": "month",
+      "getStarted": "Get Started"
+    },
+    "automation": {
+      "title": "Streamline Your Business with Automation",
+      "description": "Automate repetitive tasks and workflows to improve efficiency and reduce human error. We provide custom automation solutions tailored to your business.",
+      "services": {
+        "title": "Our Automation Services",
+        "process": {
+          "title": "Business Process Automation",
+          "description": "We analyze your business processes and identify opportunities for automation, implementing solutions that save you time and money."
+        },
+        "integration": {
+          "title": "Application Integration",
+          "description": "We connect your applications to automate data transfer and workflows, ensuring seamless communication between your systems."
+        }
+      },
+      "pricingTitle": "Automation Pricing",
+      "getStarted": "Contact Us"
+    },
     "notFound": {
       "message": "The page you are looking for does not exist.",
       "goHome": "Go back to Home"
