@@ -14,19 +14,19 @@ function Home() {
     <div>
       <Banner></Banner>
       <section class="w-full h-[12rem]"></section>
-      <section class="w-full">
+      <section class="px-24">
         <h3 class="my-12 text-center text-5xl" >{t('serviceSection.title')}</h3>
         <p class="text-gray text-center text-xl mb-8">
           {t('serviceSection.description')}
         </p>
-        <div class="flex flex-wrap w-full justify-center">
+        <div class="flex flex-wrap w-full justify-center gap-y-4">
           <Card href="/products/ecommerce" imgSrc={shopifyLogo} imgAlt="shopify-icon" title={t('serviceSection.cards.ecommerce.title')} text={t('serviceSection.cards.ecommerce.desc')} ></Card>
           <Card href="/products/enterprise" imgSrc={softwareLogo} imgAlt="software-icon" title={t('serviceSection.cards.enterprise.title')} text={t('serviceSection.cards.enterprise.desc')} ></Card>
           <Card href="/products/automation" imgSrc={configurationLogo} imgAlt="configuration-icon" title={t('serviceSection.cards.automation.title')} text={t('serviceSection.cards.automation.desc')}></Card>
-          <Card href="/contact" imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
+          <Card href="/products/custom" imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
         </div>
       </section>
-      <section class="py-20 px-4 bg-white">
+      <section class="py-20 px-8 bg-white">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div class="w-full md:w-1/2 flex justify-center">
             <div class="w-full h-64 md:h-80 bg-gray-300 rounded-lg flex items-center justify-center text-gray-500 text-sm">

@@ -153,6 +153,26 @@
     "notFound": {
       "message": "Halaman yang Anda cari tidak ada.",
       "goHome": "Kembali ke Beranda"
+    },
+    "customService": {
+      "title": "Layanan Kustom",
+      "description": "Punya ide unik atau kebutuhan bisnis spesifik? Kami menyediakan layanan pengembangan khusus untuk mewujudkan visi Anda. Tim kami siap mengatasi tantangan apa pun dan memberikan solusi yang sesuai dengan kebutuhan Anda.",
+      "whatWeOffer": {
+        "title": "Apa yang Kami Tawarkan",
+        "consultation": {
+          "title": "Konsultasi Gratis",
+          "description": "Kami memulai dengan konsultasi gratis untuk memahami kebutuhan dan tujuan Anda. Kami akan membahas proyek Anda secara detail dan memberi Anda peta jalan yang jelas dan penawaran yang transparan."
+        },
+        "development": {
+          "title": "Pengembangan Siklus Penuh",
+          "description": "Dari perencanaan dan desain hingga pengembangan, pengujian, dan penerapan, kami menangani seluruh proses pengembangan. Kami memastikan proyek Anda selesai tepat waktu dan sesuai anggaran."
+        }
+      },
+      "getStarted": {
+        "title": "Siap Memulai?",
+        "description": "Mari diskusikan proyek Anda dan bagaimana kami dapat membantu Anda mencapai tujuan Anda. Hubungi kami hari ini untuk konsultasi gratis.",
+        "cta": "Hubungi kami"
+      }
     }
   }
 }

@@ -1,9 +1,9 @@
 import { useI18n } from "../../i18n/I18nContext";
 import { Show, createSignal } from "solid-js";
+import i18next from "i18next";
 
 const Navbar = () => {
   const { t, changeLang } = useI18n()
-  const [languageDropdown, setLanguageDropdown] = createSignal(false);
   const [menuOpen, setMenuOpen] = createSignal(false);
 
   return (
@@ -13,6 +13,14 @@ const Navbar = () => {
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-[#3DDC97]">Neozpir</span>
         </a>
         <div class="flex md:hidden">
+          <div class="flex md:hidden items-center mr-8">
+            <span class="mr-2 text-sm font-medium text-gray-900">ID</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" value="" class="sr-only peer" onClick={() => changeLang(i18next.language === 'id' ? 'en-US' : 'id')} checked={i18next.language !== 'id'} />
+              <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-400"></div>
+            </label>
+            <span class="ml-2 text-sm font-medium text-gray-900">EN</span>
+          </div>
           <button
             onClick={() => setMenuOpen(!menuOpen())}
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -28,41 +36,23 @@ const Navbar = () => {
         <div class={`w-full md:block md:w-auto absolute md:relative ${menuOpen() ? 'block top-20' : 'hidden'}`} id="navbar-default">
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             <li>
-              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.home')}</a>
+              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.home')}</a>
             </li>
             <li>
-              <a href="/products" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.services')}</a>
+              <a href="/products" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.services')}</a>
             </li>
             <li>
-              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false); setLanguageDropdown(false)}}>{t('navbar.about')}</a>
-            </li>
-            <li class={`relative ${menuOpen() ? 'block' : 'hidden'}`}>
-              <button id="dropdownButton" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setLanguageDropdown(!languageDropdown())}>
-                {t('navbar.language')}
-              </button>
-              <Show when={languageDropdown()}>
-                <div id="dropdownMenu" class="absolute mt-2 w-32 bg-white rounded shadow-md z-10">
-                  <ul class="text-sm text-gray-700">
-                    <li onClick={() => {changeLang('id'); setMenuOpen(false); setLanguageDropdown(false);}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.id')}</p></li>
-                    <li onClick={() => {changeLang('en-US'); setMenuOpen(false); setLanguageDropdown(false);}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.en')}</p></li>
-                  </ul>
-                </div>
-              </Show>
+              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.about')}</a>
             </li>
           </ul>
         </div>
-        <div class="hidden relative md:block">
-          <button id="dropdownButton" class="border border-gray-600 rounded px-4 py-2 cursor-pointer hover:bg-gray-500" onClick={() => setLanguageDropdown(!languageDropdown())}>
-            {t('navbar.language')}
-          </button>
-          <Show when={languageDropdown()}>
-            <div id="dropdownMenu" class="absolute mt-2 w-32 bg-white rounded shadow-md z-10">
-              <ul class="text-sm text-gray-700">
-                <li onClick={() => {changeLang('id'); setLanguageDropdown(false)}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.id')}</p></li>
-                <li onClick={() => {changeLang('en-US'); setLanguageDropdown(false)}}><p class="block px-4 py-2 hover:bg-green-100">{t('navbar.languageOptions.en')}</p></li>
-              </ul>
-            </div>
-          </Show>
+        <div class="hidden md:flex items-center">
+          <span class="mr-2 text-sm font-medium text-gray-900">ID</span>
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer" onClick={() => changeLang(i18next.language === 'id' ? 'en-US' : 'id')} checked={i18next.language !== 'id'} />
+            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-400"></div>
+          </label>
+          <span class="ml-2 text-sm font-medium text-gray-900">EN</span>
         </div>
       </div>
     </nav>

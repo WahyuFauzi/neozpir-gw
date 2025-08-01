@@ -157,6 +157,26 @@
     "notFound": {
       "message": "The page you are looking for does not exist.",
       "goHome": "Go back to Home"
+    },
+    "customService": {
+      "title": "Custom Service",
+      "description": "Have a unique idea or a specific business need? We provide custom development services to bring your vision to life. Our team is ready to tackle any challenge and deliver a solution that fits your requirements.",
+      "whatWeOffer": {
+        "title": "What We Offer",
+        "consultation": {
+          "title": "Free Consultation",
+          "description": "We start with a free consultation to understand your needs and goals. We'll discuss your project in detail and provide you with a clear roadmap and a transparent quote."
+        },
+        "development": {
+          "title": "Full-Cycle Development",
+          "description": "From planning and design to development, testing, and deployment, we handle the entire development process. We ensure your project is delivered on time and within budget."
+        }
+      },
+      "getStarted": {
+        "title": "Ready to Get Started?",
+        "description": "Let's discuss your project and how we can help you achieve your goals. Contact us today for a free consultation.",
+        "cta": "Contact Us"
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ import { useI18n } from '../../i18n/I18nContext';
 function CTASchedule() {
   const { t } = useI18n();
   return(
-    <section class="bg-gray-900 text-white py-16 text-center px-4">
+    <section class="bg-gray-900 text-white py-16 text-center px-8">
       <h2 class="text-2xl md:text-3xl font-semibold mb-4">
         {t('CTASection.title')}
       </h2>

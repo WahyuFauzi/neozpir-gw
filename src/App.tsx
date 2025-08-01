@@ -5,6 +5,7 @@ import Service from "./pages/Services";
 import eCommerceService from "./pages/products/Ecommerce";
 import EnterpriseService from "./pages/products/Enterprise";
 import AutomationService from "./pages/products/Automation";
+import CustomService from "./pages/products/Custom";
 import NotFound from "./pages/404";
 import Navbar from './components/navbar/navbar';
 import Footer from "./components/footer/footer";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/products/ecommerce" component={eCommerceService} />
           <Route path="/products/enterprise" component={EnterpriseService} />
           <Route path="/products/automation" component={AutomationService} />
+          <Route path="/products/custom" component={CustomService} />
           <Route path="/contact" component={Home} />
           <Route path="*" component={NotFound} />
         </Router>

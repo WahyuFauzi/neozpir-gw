@@ -26,7 +26,7 @@ function About() {
       </section>
       <section>
         <h3 class="my-12 text-center text-5xl"> {t('about.whatWeDo.title')} </h3>
-        <div class="flex flex-wrap my-16 w-full justify-center ">
+        <div class="flex flex-wrap my-16 w-full justify-center gap-y-4">
           <Card imgSrc={diagramLogo} imgAlt="growth-icon" title={t('about.whatWeDo.cards.growth.title')} text={t('about.whatWeDo.cards.growth.desc')} className="w-2xl h-[16rem]"></Card>
           <Card imgSrc={focusLogo} imgAlt="focus-icon" title={t('about.whatWeDo.cards.focus.title')} text={t('about.whatWeDo.cards.focus.desc')} className="w-2xl h-[16rem]"></Card>
         </div>

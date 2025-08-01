@@ -31,11 +31,11 @@ function Service() {
         <p class="text-gray text-center text-xl mb-8">
           {t('serviceSection.description')}
         </p>
-        <div class="flex flex-wrap w-full justify-center">
+        <div class="flex flex-wrap w-full justify-center gap-y-4">
           <Card href="/products/ecommerce" imgSrc={shopifyLogo} imgAlt="shopify-icon" title={t('serviceSection.cards.ecommerce.title')} text={t('serviceSection.cards.ecommerce.desc')} ></Card>
           <Card href="/products/enterprise" imgSrc={softwareLogo} imgAlt="software-icon" title={t('serviceSection.cards.enterprise.title')} text={t('serviceSection.cards.enterprise.desc')} ></Card>
           <Card href="/products/automation" imgSrc={configurationLogo} imgAlt="configuration-icon" title={t('serviceSection.cards.automation.title')} text={t('serviceSection.cards.automation.desc')}></Card>
-          <Card href="/contact" imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
+          <Card href="/products/custom" imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')}></Card>
         </div>
       </section>
       <CTASchedule></CTASchedule>
