@@ -26,6 +26,7 @@ const ShopifyService = () => {
   const basePrice = () => {
     if (productList.loading || !productList()) return '...';
     const planName = t('selectedLanguage') === 'id-ID' ? 'Dasar' : 'Basic';
+    // @ts-ignore
     const basicPlan = productList().find(p => p.name === planName);
     if (!basicPlan || typeof basicPlan.price === 'string') return '';
     
