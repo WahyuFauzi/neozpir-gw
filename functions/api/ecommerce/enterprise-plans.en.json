@@ -9,7 +9,8 @@
       "Customer Records",
       "Quotation & Sales Order Creation",
       "Basic Sales Reporting"
-    ]
+    ],
+    "demoUrl": "https://frappecrm-demo.frappe.cloud/crm"
   },
   {
     "name": "Inventory & Purchasing",
@@ -21,7 +22,8 @@
       "Purchase Order Management",
       "Supplier Management",
       "Basic Warehouse Operations"
-    ]
+    ],
+    "demoUrl": "https://frappe.io/books"
   },
   {
     "name": "HR & Payroll Lite",
@@ -33,7 +35,8 @@
       "Leave Management",
       "Attendance Tracking",
       "Basic Payroll Processing"
-    ]
+    ],
+    "demoUrl": "https://frappe.io/hr"
   },
   {
     "name": "Project Management Basic",
@@ -45,6 +48,7 @@
       "Project Tracking",
       "Timesheet Entry",
       "Basic Project Reporting"
-    ]
+    ],
+    "demoUrl": "https://erpnext-demo.frappe.cloud/app/home"
   }
 ]

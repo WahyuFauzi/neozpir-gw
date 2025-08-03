@@ -114,7 +114,8 @@
       "monthly": "Monthly",
       "yearly": "Yearly (Save 3 months)",
       "monthlyShort": "month",
-      "getStarted": "Get Started"
+      "getStarted": "Get Started",
+      "viewDemo": "View Demo"
     },
     "enterprise": {
       "title": "Custom Enterprise Software Solutions",

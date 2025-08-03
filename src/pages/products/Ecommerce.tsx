@@ -23,6 +23,18 @@ const ShopifyService = () => {
     return (t('selectedLanguage') == "id-ID") ? `Rp.${formattedPrice.toLocaleString('id-ID')}k` : `$${formattedPrice}`;
   };
 
+  const basePrice = () => {
+    if (productList.loading || !productList()) return '...';
+    const planName = t('selectedLanguage') === 'id-ID' ? 'Dasar' : 'Basic';
+    const basicPlan = productList().find(p => p.name === planName);
+    if (!basicPlan || typeof basicPlan.price === 'string') return '';
+    
+    const price = basicPlan.price.monthly;
+    return t('selectedLanguage') === 'id-ID'
+      ? `Bayar Rp${price.toLocaleString('id-ID')}k`
+      : `Pay ${price}$`;
+  };
+
   return (
     <div>
       <section class="bg-white py-12 px-4">
@@ -35,6 +47,12 @@ const ShopifyService = () => {
             <p class="text-gray-600 mb-6 text-lg">
               {t('shopify.description')}
             </p>
+            <div class="mt-8">
+                <a href="https://b2bdemoexperience.myshopify.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C3.732 4.943 7.522 3 10 3s6.268 1.943 9.542 7c-3.274 5.057-7.03 7-9.542 7S3.732 15.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                    {t('shopify.viewDemo')}
+                </a>
+            </div>
           </div>
         </div>
       </section>
@@ -57,7 +75,10 @@ const ShopifyService = () => {
       <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('shopify.pricingTitle')}</h2>
-          <h3 class="text-xl md:text-xl font-bold text-[#3DDC97] mb-8 text-center">{t('shopify.promotionalPrice')}</h3>
+          <h3 class="text-xl md:text-xl font-bold text-center mb-8">
+            <span class="text-gray-500 line-through">{basePrice()}</span><br/>
+            <span class="text-[#3DDC97] ml-2">{t('shopify.promotionalPrice')}</span>
+          </h3>
           <div class="flex justify-center items-center space-x-4 mb-8">
             <span>{t('shopify.monthly')}</span>
             <label class="relative inline-flex items-center cursor-pointer">

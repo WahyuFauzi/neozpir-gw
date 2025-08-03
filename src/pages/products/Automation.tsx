@@ -54,10 +54,10 @@ const AutomationService = () => {
         <div class="max-w-7xl mx-auto">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('automation.pricingTitle')}</h2>
           <div id="automation-pricingplan" class="relative">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="flex flex-wrap justify-center gap-8">
               <For each={productList()}>
                 {(plan) => (
-                  <div class="bg-white p-8 rounded-lg shadow-md text-center flex flex-col h-full">
+                  <div class="bg-white p-8 rounded-lg shadow-md text-center flex flex-col h-full w-full md:w-1/2 lg:w-1/4">
                     <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
                     <p class="text-4xl font-extrabold mb-4">{formatPrice(plan.price)}</p>
                     <ul class="text-left space-y-2 mb-8 flex-grow">

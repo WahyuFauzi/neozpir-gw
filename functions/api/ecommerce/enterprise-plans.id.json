@@ -9,7 +9,8 @@
       "Catatan Pelanggan",
       "Pembuatan Penawaran & Pesanan Penjualan",
       "Pelaporan Penjualan Dasar"
-    ]
+    ],
+    "demoUrl": "https://frappecrm-demo.frappe.cloud/crm"
   },
   {
     "name": "Akuntansi & Keuangan Inti",
@@ -21,7 +22,8 @@
       "Piutang/Hutang",
       "Laporan Keuangan Dasar (Laba Rugi, Neraca)",
       "Dukungan Multi-mata Uang"
-    ]
+    ],
+    "demoUrl": "https://frappe.io/books"
   },
   {
     "name": "HR & Penggajian Ringan",
@@ -33,7 +35,8 @@
       "Manajemen Cuti",
       "Pelacakan Kehadiran",
       "Pemrosesan Penggajian Dasar"
-    ]
+    ],
+    "demoUrl": "https://frappe.io/hr"
   },
   {
     "name": "Manajemen Proyek Dasar",
@@ -45,6 +48,7 @@
       "Pelacakan Proyek",
       "Entri Lembar Waktu",
       "Pelaporan Proyek Dasar"
-    ]
+    ],
+    "demoUrl": "https://erpnext-demo.frappe.cloud/app/home"
   }
 ]

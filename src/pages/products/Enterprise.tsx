@@ -1,4 +1,4 @@
-import { createSignal, createResource, For, createEffect } from 'solid-js';
+import { createSignal, createResource, For, createEffect, Show } from 'solid-js';
 import { CTASchedule } from '../../components/cta/cta';
 import enterpriseLogo from '../../assets/software.webp';
 import { useI18n } from '../../i18n/I18nContext';
@@ -21,6 +21,12 @@ const EnterpriseService = () => {
     const priceInK =  selectedPrice;
     const formattedPrice = isYearly() ? Math.ceil(priceInK) : priceInK;
     return (t('selectedLanguage') == "id-ID") ? `Rp.${formattedPrice.toLocaleString('id-ID')}k` : `$${formattedPrice}`;
+  };
+
+  const basePrice = () => {
+    return t('selectedLanguage') === 'id-ID'
+      ? `Bayar Rp. 20.000.000 tanpa maintenance`
+      : `Pay $1500 without maintenance`;
   };
 
   return (
@@ -57,7 +63,10 @@ const EnterpriseService = () => {
       <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('enterprise.pricingTitle')}</h2>
-          <h3 class="text-xl md:text-xl font-bold text-[#3DDC97] mb-8 text-center">{t('enterprise.promotionalPrice')}</h3>
+          <h3 class="text-xl md:text-xl font-bold text-center mb-8">
+            <span class="text-gray-500 line-through">{basePrice()}</span><br/>
+            <span class="text-[#3DDC97] ml-2">{t('enterprise.promotionalPrice')}</span>
+          </h3>
           <div class="flex justify-center items-center space-x-4 mb-8">
             <span>{t('enterprise.monthly')}</span>
             <label class="relative inline-flex items-center cursor-pointer">
@@ -83,9 +92,17 @@ const EnterpriseService = () => {
                         )}
                       </For>
                     </ul>
-                    <a href="/contact" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition mt-auto">
-                      {t('enterprise.getStarted')}
-                    </a>
+                    <div class="flex flex-col mt-auto">
+                      <a href="/contact" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition">
+                        {t('enterprise.getStarted')}
+                      </a>
+                      <Show when={plan.demoUrl}>
+                        <a href={plan.demoUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+                          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C3.732 4.943 7.522 3 10 3s6.268 1.943 9.542 7c-3.274 5.057-7.03 7-9.542 7S3.732 15.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                          {t('shopify.viewDemo')}
+                        </a>
+                      </Show>
+                    </div>
                   </div>
                 )}
               </For>
@@ -100,3 +117,4 @@ const EnterpriseService = () => {
 };
 
 export default EnterpriseService;
+

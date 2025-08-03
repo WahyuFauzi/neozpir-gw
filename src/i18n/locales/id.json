@@ -106,11 +106,12 @@
         }
       },
       "pricingTitle": "Harga Pembuatan Situs Ecommerce",
-      "promotionalPrice": "Hanya bayar Rp. 17.000 per bulan untuk 3 bulan pertama",
+      "promotionalPrice": "Hanya bayar Rp. 20.000 per bulan untuk 3 bulan pertama",
       "monthly": "Bulanan",
       "yearly": "Tahunan (Hemat 3 bulan)",
       "monthlyShort": "bulan",
-      "getStarted": "Mulai"
+      "getStarted": "Mulai",
+      "viewDemo": "Lihat Demo"
     },
     "enterprise": {
       "title": "Solusi Perangkat Lunak Perusahaan Kustom",

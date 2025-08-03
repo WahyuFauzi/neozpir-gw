@@ -1,0 +1,32 @@
+# Project Maintainability Improvements TODO
+
+## 1. Testing
+- [ ] Introduce a testing framework like Vitest.
+- [ ] Add unit tests for components, especially those with complex logic.
+- [ ] Write tests for services (e.g., product.service.ts).
+- [ ] Implement tests for serverless functions in the `functions` directory.
+- [ ] Consider E2E (End-to-End) testing with Cypress or Playwright for user flows.
+
+## 2. Code Consistency and Quality
+- [ ] Integrate ESLint and Prettier to enforce a consistent code style.
+- [ ] Create shared configurations (.eslintrc.js, .prettierrc).
+- [ ] Set up a pre-commit hook with Husky and lint-staged to automate linting and formatting.
+- [ ] Standardize file extensions to .tsx for all React components.
+
+## 3. Project Configuration
+- [ ] Configure absolute imports in `tsconfig.json` to avoid long relative paths (e.g., `@/*`).
+- [ ] Use `.env` files for environment-specific variables (API keys, etc.) and add `.env` to `.gitignore`.
+
+## 4. Component Structure
+- [ ] For complex components, co-locate related files (styles, tests) within the component's folder.
+- [ ] Consider using Storybook for developing and documenting components in isolation.
+
+## 5. Data Management in Serverless Functions
+- [ ] For frequently updated data (like pricing plans), consider moving it from static JSON files to a headless CMS (e.g., Strapi, Contentful) or a database.
+- [ ] Update serverless functions to fetch this data from the new source.
+
+## 6. Styling Strategy
+- [ ] Define a clear styling strategy:
+  - Use Tailwind CSS for most utility-based styling.
+  - Use CSS Modules for component-specific, complex styles.
+  - Reserve global CSS (index.css) for base styles, fonts, and CSS variables only.

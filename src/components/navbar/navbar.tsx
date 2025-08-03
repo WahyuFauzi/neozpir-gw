@@ -1,6 +1,8 @@
 import { useI18n } from "../../i18n/I18nContext";
-import { Show, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 import i18next from "i18next";
+import indonesiaFlag from "../../assets/indonesia.webp";
+import ukFlag from "../../assets/united-kingdom-flag.webp";
 
 const Navbar = () => {
   const { t, changeLang } = useI18n()
@@ -13,13 +15,13 @@ const Navbar = () => {
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-[#3DDC97]">Neozpir</span>
         </a>
         <div class="flex md:hidden">
-          <div class="flex md:hidden items-center mr-8">
-            <span class="mr-2 text-sm font-medium text-gray-900">ID</span>
-            <label class="inline-flex items-center cursor-pointer">
+          <div class="flex items-center p-2 rounded-md bg-gray-200 mr-2">
+            <img src={indonesiaFlag} alt="Indonesia Flag" class="w-6 h-4 bg-gray-200" />
+            <label class="inline-flex items-center cursor-pointer mx-2">
               <input type="checkbox" value="" class="sr-only peer" onClick={() => changeLang(i18next.language === 'id' ? 'en-US' : 'id')} checked={i18next.language !== 'id'} />
               <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-400"></div>
             </label>
-            <span class="ml-2 text-sm font-medium text-gray-900">EN</span>
+            <img src={ukFlag} alt="United Kingdom Flag" class="w-6 h-4" />
           </div>
           <button
             onClick={() => setMenuOpen(!menuOpen())}
@@ -46,13 +48,13 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div class="hidden md:flex items-center">
-          <span class="mr-2 text-sm font-medium text-gray-900">ID</span>
-          <label class="inline-flex items-center cursor-pointer">
+        <div class="hidden md:flex items-center p-2 rounded-md bg-gray-200">
+          <img src={indonesiaFlag} alt="Indonesia Flag" class="w-6 h-4 bg-gray-200" />
+          <label class="inline-flex items-center cursor-pointer mx-2">
             <input type="checkbox" value="" class="sr-only peer" onClick={() => changeLang(i18next.language === 'id' ? 'en-US' : 'id')} checked={i18next.language !== 'id'} />
             <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-400"></div>
           </label>
-          <span class="ml-2 text-sm font-medium text-gray-900">EN</span>
+          <img src={ukFlag} alt="United Kingdom Flag" class="w-6 h-4" />
         </div>
       </div>
     </nav>
