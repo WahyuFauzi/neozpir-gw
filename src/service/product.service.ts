@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const baseUrl = ''; // You might want to configure this properly, e.g., from environment variables

@@ -9,6 +9,8 @@ import CustomService from "./pages/products/Custom";
 import NotFound from "./pages/404";
 import Navbar from './components/navbar/navbar';
 import Footer from "./components/footer/footer";
+import Blog from "./pages/Blog";
+import BlogList from "./pages/BlogList";
 import { I18nProvider } from "./i18n/I18nContext";
 
 
@@ -25,7 +27,9 @@ function App() {
           <Route path="/products/enterprise" component={EnterpriseService} />
           <Route path="/products/automation" component={AutomationService} />
           <Route path="/products/custom" component={CustomService} />
-          <Route path="/contact" component={Home} />
+          <Route path="/blog" component={BlogList} />
+          <Route path="/blog/:langkey" component={BlogList} />
+          <Route path="/blog/:langkey/:title" component={Blog} />
           <Route path="*" component={NotFound} />
         </Router>
         <Footer></Footer>

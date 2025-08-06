@@ -4,8 +4,8 @@ compatibility_date = "2024-04-05" # Use a recent date
 # D1 database binding
 [[d1_databases]]
 binding = "DB"
-database_name = "neozpir"
-database_id = "f306269c-6433-4ed3-94b9-44574d24d9da"
+database_name = "neozpir-solid-blog"
+database_id = "eeabd6cf-839f-4b84-bbdc-8f10f78649c2"
 
 [pages_build]
 upload_dir = "dist"

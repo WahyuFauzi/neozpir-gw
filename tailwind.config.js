@@ -15,5 +15,7 @@ export default defineConfig({
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 });

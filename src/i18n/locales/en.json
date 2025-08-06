@@ -178,6 +178,13 @@
         "description": "Let's discuss your project and how we can help you achieve your goals. Contact us today for a free consultation.",
         "cta": "Contact Us"
       }
+    },
+    "blog": {
+      "title": "Our Blog",
+      "loading": "Loading blog posts...",
+      "fetchError": "Failed to load blog posts. Please try again later.",
+      "notFound": "No blog posts found for this language.",
+      "noPosts": "No blog posts available yet."
     }
   }
 }
