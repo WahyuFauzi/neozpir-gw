@@ -46,6 +46,9 @@ const Navbar = () => {
             <li>
               <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.about')}</a>
             </li>
+            <li>
+              <a href="/blog" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.blog')}</a>
+            </li>
           </ul>
         </div>
         <div class="hidden md:flex items-center p-2 rounded-md bg-gray-200">

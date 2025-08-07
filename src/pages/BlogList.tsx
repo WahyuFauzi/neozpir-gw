@@ -1,16 +1,8 @@
-import { createSignal, createResource, For, createEffect } from 'solid-js';
-import { useParams } from '@solidjs/router';
+import { createResource, For, createEffect } from 'solid-js';
 import { useI18n } from '../i18n/I18nContext';
 import { getBlogByLangkey } from '../service/blog.service';
 import defaultThumbnail from '../assets/default-thumbnail.jpeg';
 import { A } from '@solidjs/router';
-
-interface BlogPost {
-  id: number;
-  title: string;
-  langkey: string;
-  content_markdown: string;
-}
 
 const formatTitleForDisplay = (title: string) => {
   let formattedTitle = title.replace(/(?<!\\)-/g, ' ');

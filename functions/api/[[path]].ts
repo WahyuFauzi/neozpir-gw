@@ -39,7 +39,7 @@ app.get('/api/product/:product', async (c) => {
 app.get('/api/blog/:langkey', async (c) => {
   const db = c.env.DB // 👈 grab the D1 binding
   const langkey = c.req.param ('langkey')
-  const { results } = await db.prepare(`SELECT * FROM blog WHERE langkey LIKE \"${langkey}\"`).all();
+  const { results } = await db.prepare(`SELECT * FROM blog WHERE langkey LIKE \"${langkey}\" AND is_publish = 1`).all();
   if (results.length === 0) {
     return c.notFound();
   }
@@ -50,7 +50,7 @@ app.get('/api/blog/:langkey/:title', async (c) => {
   const db = c.env.DB // 👈 grab the D1 binding
   const langkey = c.req.param ('langkey')
   const title = c.req.param ('title')
-  const { results } = await db.prepare(`SELECT * FROM blog WHERE langkey LIKE \"${langkey}\" AND title LIKE \"${title}\"`).all();
+  const { results } = await db.prepare(`SELECT * FROM blog WHERE langkey LIKE \"${langkey}\" AND title LIKE \"${title}\" AND is_publish = 1`).all();
 
   const html = await marked(results[0].content_markdown);
   return new Response(html, {
