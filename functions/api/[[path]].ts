@@ -39,33 +39,62 @@ app.get('/api/product/:product', async (c) => {
 })
 
 app.get('/api/blog/:langkey', async (c) => {
-  const db = c.env.DB // 👈 grab the D1 binding
-  const langkey = c.req.param('langkey')
-  const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND is_publish = 1")
-    .bind(langkey)
-    .all();
-  if (results.length === 0) {
-    return c.notFound();
+  console.log("Attempting to access DB binding...");
+  const db = c.env.DB;
+  if (!db) {
+    console.error("DB binding not found. Check wrangler.toml configuration.");
+    return c.text("Database binding not configured", 500);
   }
-  return c.json(results)
+  console.log("DB binding accessed. Preparing query.");
+
+  const langkey = c.req.param('langkey');
+  try {
+    console.log(`Executing query for langkey: ${langkey}`);
+    const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND is_publish = 1")
+      .bind(langkey)
+      .all();
+    
+    console.log(`Query returned ${results.length} results.`);
+    if (results.length === 0) {
+      return c.notFound();
+    }
+    return c.json(results);
+  } catch (e) {
+    console.error("Error executing query for langkey:", e);
+    return c.text("Error fetching data", 500);
+  }
 })
 
 app.get('/api/blog/:langkey/:title', async (c) => {
-  const db = c.env.DB // 👈 grab the D1 binding
-  const langkey = c.req.param('langkey')
-  const title = c.req.param('title')
-  const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND title = ?2 AND is_publish = 1")
-    .bind(langkey, title)
-    .all();
-
-  if (!results || results.length === 0) {
-    return c.notFound();
+  console.log("Attempting to access DB binding...");
+  const db = c.env.DB;
+  if (!db) {
+    console.error("DB binding not found. Check wrangler.toml configuration.");
+    return c.text("Database binding not configured", 500);
   }
+  console.log("DB binding accessed. Preparing query.");
 
-  const html = await marked(results[0].content_markdown);
-  return new Response(html, {
-    headers: { "content-type": "text/html;charset=UTF-8" },
-  });
+  const langkey = c.req.param('langkey');
+  const title = c.req.param('title');
+  try {
+    console.log(`Executing query for langkey: ${langkey}, title: ${title}`);
+    const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND title = ?2 AND is_publish = 1")
+      .bind(langkey, title)
+      .all();
+
+    console.log(`Query returned ${results ? results.length : 0} results.`);
+    if (!results || results.length === 0) {
+      return c.notFound();
+    }
+
+    const html = await marked(results[0].content_markdown);
+    return new Response(html, {
+      headers: { "content-type": "text/html;charset=UTF-8" },
+    });
+  } catch (e) {
+    console.error("Error executing query for langkey/title:", e);
+    return c.text("Error fetching data", 500);
+  }
 })
 
 export const onRequest = handle(app);
