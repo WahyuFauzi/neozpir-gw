@@ -11,7 +11,9 @@ import { marked } from 'marked';
 const app = new Hono();
 
 const getBlogContent = async () => {
-  const markdown = `# Aduh Gantengnya \n Jangan marah Azril \n \`\`\`javascript \n console.log("Aduh hitamnya"); \n\`\`\``;
+  const markdown = `# Aduh Gantengnya \n Jangan marah Azril \n 
+  console.log("Aduh hitamnya"); 
+`;
   return marked(markdown);
 };
 
@@ -38,8 +40,10 @@ app.get('/api/product/:product', async (c) => {
 
 app.get('/api/blog/:langkey', async (c) => {
   const db = c.env.DB // 👈 grab the D1 binding
-  const langkey = c.req.param ('langkey')
-  const { results } = await db.prepare(`SELECT * FROM blog WHERE langkey LIKE \"${langkey}\" AND is_publish = 1`).all();
+  const langkey = c.req.param('langkey')
+  const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND is_publish = 1")
+    .bind(langkey)
+    .all();
   if (results.length === 0) {
     return c.notFound();
   }
@@ -48,9 +52,15 @@ app.get('/api/blog/:langkey', async (c) => {
 
 app.get('/api/blog/:langkey/:title', async (c) => {
   const db = c.env.DB // 👈 grab the D1 binding
-  const langkey = c.req.param ('langkey')
-  const title = c.req.param ('title')
-  const { results } = await db.prepare(`SELECT * FROM blog WHERE langkey LIKE \"${langkey}\" AND title LIKE \"${title}\" AND is_publish = 1`).all();
+  const langkey = c.req.param('langkey')
+  const title = c.req.param('title')
+  const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND title = ?2 AND is_publish = 1")
+    .bind(langkey, title)
+    .all();
+
+  if (!results || results.length === 0) {
+    return c.notFound();
+  }
 
   const html = await marked(results[0].content_markdown);
   return new Response(html, {
