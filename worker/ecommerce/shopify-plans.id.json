@@ -1,45 +1,35 @@
 [
   {
-    "name": "Dasar",
+    "name": "Vendure",
     "price": {
-      "monthly": 425
+      "monthly": 150 
     },
     "features": [
-      "Situs Web eCommerce",
+      "Situs Web menggunakan Vendure",
       "Produk Tanpa Batas",
-      "2 Akun Staf",
-      "Biaya transaksi 2% sampai 3%"
+      "1 Akun Staf",
+      "Biaya transaksi 3%",
+      "Cocok untuk bisnis yang mau mulai"
     ]
   },
   {
     "name": "Shopify",
     "price": {
-      "monthly": 1105
+      "monthly": 425
     },
     "features": [
-      "Laporan Profesional",
-      "Kartu Hadiah",
-      "5 Akun Staf",
-      "Biaya transaksi 2% sampai 3%"
+      "Situs Web menggunakan Shopify",
+      "Produk Tanpa Batas",
+      "2 Akun Staf",
+      "Biaya transaksi 3%",
+      "Cocok untuk bisnis yang mau scale up"
     ]
   },
   {
-    "name": "Lanjutan",
-    "price": {
-      "monthly": 6799
-    },
-    "features": [
-      "Laporan Tingkat Lanjut",
-      "Biaya Transaksi Lebih Rendah",
-      "15 Akun Staf",
-      "Biaya transaksi 2% sampai 3%"
-    ]
-  },
-  {
-    "name": "Plus",
+    "name": "Perlu Kustom?",
     "price": "Hubungi Tim Kami",
     "features": [
-      "Semua fitur di paket Lanjutan dengan tambahan fitur sesuai kebutuhan klien"
+      "Perlu fitur tambahan atau hal lain? hubungi kami?"
     ]
   }
 ]

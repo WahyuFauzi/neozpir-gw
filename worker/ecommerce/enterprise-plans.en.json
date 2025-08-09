@@ -1,6 +1,6 @@
 [
   {
-    "name": "Basic CRM & Sales",
+    "name": "Frappe CRM & Sales",
     "price": {
       "monthly": 9
     },
@@ -13,7 +13,7 @@
     "demoUrl": "https://frappecrm-demo.frappe.cloud/crm"
   },
   {
-    "name": "Inventory & Purchasing",
+    "name": "Frappe Inventory & Purchasing",
     "price": {
       "monthly": 9
     },
@@ -26,7 +26,7 @@
     "demoUrl": "https://frappe.io/books"
   },
   {
-    "name": "HR & Payroll Lite",
+    "name": "Frappe HR & Payroll Lite",
     "price": {
       "monthly": 9
     },
@@ -39,7 +39,7 @@
     "demoUrl": "https://frappe.io/hr"
   },
   {
-    "name": "Project Management Basic",
+    "name": "Frappe Project Management",
     "price": {
       "monthly": 9
     },
@@ -50,5 +50,44 @@
       "Basic Project Reporting"
     ],
     "demoUrl": "https://erpnext-demo.frappe.cloud/app/home"
+  },
+  {
+    "name": "Odoo - One App",
+    "price": {
+      "monthly": 0
+    },
+    "features": [
+      "One Odoo App of Your Choice",
+      "Unlimited Users",
+      "Ideal for a single process",
+      "Free Forever"
+    ],
+    "demoUrl": "https://demo.odoo.com/"
+  },
+  {
+    "name": "Odoo - Standard",
+    "price": {
+      "monthly": 9
+    },
+    "features": [
+      "All Odoo Apps",
+      "Manage all business areas",
+      "Standard Features",
+      "Per User / Month"
+    ],
+    "demoUrl": "https://demo.odoo.com/"
+  },
+  {
+    "name": "Odoo - Custom",
+    "price": {
+      "monthly": 12
+    },
+    "features": [
+      "All Odoo Apps",
+      "Multi-Company Management",
+      "Odoo Studio for Customization",
+      "External API Access"
+    ],
+    "demoUrl": "https://demo.odoo.com/"
   }
 ]

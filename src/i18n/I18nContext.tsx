@@ -16,7 +16,7 @@ export function I18nProvider(props: any) {
       debug: import.meta.env.MODE !== 'production',
       resources: {
         'en-US': englishJson,
-        id: indonesiaJson,
+        'id-ID': indonesiaJson,
       }
     });
     setIsReady(true);
@@ -28,7 +28,7 @@ export function I18nProvider(props: any) {
   };
 
   const changeLang = async (lang: string) => {
-    const newLang = lang == 'id' ? 'id' : 'en-US';
+    const newLang = lang == 'id-ID' ? 'id-ID' : 'en-US';
     await i18next.changeLanguage(newLang);
     setVersion(v => v + 1); // Increment version to trigger updates
   };

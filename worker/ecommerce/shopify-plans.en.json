@@ -1,45 +1,35 @@
 [
   {
-    "name": "Basic",
+    "name": "Vendure",
     "price": {
-      "monthly": 25
+      "monthly": 10 
     },
     "features": [
-      "eCommerce Website",
+      "Website using Vendure",
       "Unlimited Products",
-      "2 Staff Accounts",
-      "2% to 3% transaction fee"
+      "1 Staff Account",
+      "3% Transaction Fee",
+      "Suitable for businesses just starting out"
     ]
   },
   {
     "name": "Shopify",
     "price": {
-      "monthly": 65
+      "monthly": 29 
     },
     "features": [
-      "Professional Reports",
-      "Gift Cards",
-      "5 Staff Accounts",
-      "2% to 3% transaction fee"
+      "Website using Shopify",
+      "Unlimited Products",
+      "2 Staff Accounts",
+      "3% Transaction Fee",
+      "Suitable for businesses wanting to scale up"
     ]
   },
   {
-    "name": "Advanced",
-    "price": {
-      "monthly": 399
-    },
+    "name": "Custom Request",
+    "price": "Contact Us",
     "features": [
-      "Advanced Reporting",
-      "Lower Transaction Fees",
-      "15 Staff Accounts",
-      "2% to 3% transaction fee"
-    ]
-  },
-  {
-    "name": "Plus",
-    "price": "Contact Our Team",
-    "features": [
-      "Everything in Advanced with additional features according to client needs"
+      "Need custom feature or any additional? contact our team"
     ]
   }
 ]

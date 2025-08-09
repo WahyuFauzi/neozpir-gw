@@ -1,8 +1,8 @@
 [
   {
-    "name": "CRM & Penjualan Dasar",
+    "name": "Frappe CRM & Penjualan",
     "price": {
-      "monthly": 150
+      "monthly": 150000
     },
     "features": [
       "Manajemen Prospek & Peluang",
@@ -13,22 +13,22 @@
     "demoUrl": "https://frappecrm-demo.frappe.cloud/crm"
   },
   {
-    "name": "Akuntansi & Keuangan Inti",
+    "name": "Frappe Inventaris & Pembelian",
     "price": {
-      "monthly": 150
+      "monthly": 150000
     },
     "features": [
-      "Buku Besar Umum",
-      "Piutang/Hutang",
-      "Laporan Keuangan Dasar (Laba Rugi, Neraca)",
-      "Dukungan Multi-mata Uang"
+      "Manajemen Stok",
+      "Manajemen Pesanan Pembelian",
+      "Manajemen Pemasok",
+      "Operasi Gudang Dasar"
     ],
     "demoUrl": "https://frappe.io/books"
   },
   {
-    "name": "HR & Penggajian Ringan",
+    "name": "Frappe HR & Penggajian Ringan",
     "price": {
-      "monthly": 150
+      "monthly": 150000
     },
     "features": [
       "Data Induk Karyawan",
@@ -39,9 +39,9 @@
     "demoUrl": "https://frappe.io/hr"
   },
   {
-    "name": "Manajemen Proyek Dasar",
+    "name": "Frappe Manajemen Proyek",
     "price": {
-      "monthly": 150
+      "monthly": 150000
     },
     "features": [
       "Manajemen Tugas",
@@ -50,5 +50,44 @@
       "Pelaporan Proyek Dasar"
     ],
     "demoUrl": "https://erpnext-demo.frappe.cloud/app/home"
+  },
+  {
+    "name": "Odoo - Satu Aplikasi",
+    "price": {
+      "monthly": 0
+    },
+    "features": [
+      "Satu Aplikasi Odoo Pilihan Anda",
+      "Pengguna Tanpa Batas",
+      "Ideal untuk satu proses",
+      "Gratis Selamanya"
+    ],
+    "demoUrl": "https://demo.odoo.com/"
+  },
+  {
+    "name": "Odoo - Standar",
+    "price": {
+      "monthly": 150000
+    },
+    "features": [
+      "Semua Aplikasi Odoo",
+      "Kelola semua area bisnis",
+      "Fitur Standar",
+      "Per Pengguna / Bulan"
+    ],
+    "demoUrl": "https://demo.odoo.com/"
+  },
+  {
+    "name": "Odoo - Kustom",
+    "price": {
+      "monthly": 200000
+    },
+    "features": [
+      "Semua Aplikasi Odoo",
+      "Manajemen Multi-Perusahaan",
+      "Odoo Studio untuk Kustomisasi",
+      "Akses API Eksternal"
+    ],
+    "demoUrl": "https://demo.odoo.com/"
   }
 ]
