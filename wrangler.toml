@@ -1,12 +1,15 @@
 name = "neozpir-solid" # The name of your Pages project
 compatibility_date = "2024-04-05" # Use a recent date
+main = "./worker/index.ts"
+
+[assets]
+directory = "./dist/"
+not_found_handling = "single-page-application"
+binding = "ASSETS"
+run_worker_first = [ "/api/*", "!/api/docs/*" ]
 
 # D1 database binding
 [[d1_databases]]
-binding = "DB"
+binding = "BLOG"
 database_name = "neozpir-solid-blog"
 database_id = "eeabd6cf-839f-4b84-bbdc-8f10f78649c2"
-
-[pages_build]
-upload_dir = "dist"
-build = "npm run build"

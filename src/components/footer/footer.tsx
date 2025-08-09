@@ -49,7 +49,7 @@ function Footer()  {
 
       </div>
       <div class="mt-10 border-t border-gray-200 pt-6 text-center text-sm text-gray-500">
-        © 2025 Neozpir. All rights reserved.
+        © 2025 Neozpir. All rights reserved. Powered by Cloudflare Worker
       </div>
     </footer>
   )

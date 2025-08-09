@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Dasar",
+    "price": {
+      "monthly": 425
+    },
+    "features": [
+      "Situs Web eCommerce",
+      "Produk Tanpa Batas",
+      "2 Akun Staf",
+      "Biaya transaksi 2% sampai 3%"
+    ]
+  },
+  {
+    "name": "Shopify",
+    "price": {
+      "monthly": 1105
+    },
+    "features": [
+      "Laporan Profesional",
+      "Kartu Hadiah",
+      "5 Akun Staf",
+      "Biaya transaksi 2% sampai 3%"
+    ]
+  },
+  {
+    "name": "Lanjutan",
+    "price": {
+      "monthly": 6799
+    },
+    "features": [
+      "Laporan Tingkat Lanjut",
+      "Biaya Transaksi Lebih Rendah",
+      "15 Akun Staf",
+      "Biaya transaksi 2% sampai 3%"
+    ]
+  },
+  {
+    "name": "Plus",
+    "price": "Hubungi Tim Kami",
+    "features": [
+      "Semua fitur di paket Lanjutan dengan tambahan fitur sesuai kebutuhan klien"
+    ]
+  }
+]

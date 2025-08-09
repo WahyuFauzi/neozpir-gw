@@ -1,0 +1,54 @@
+[
+  {
+    "name": "CRM & Penjualan Dasar",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Manajemen Prospek & Peluang",
+      "Catatan Pelanggan",
+      "Pembuatan Penawaran & Pesanan Penjualan",
+      "Pelaporan Penjualan Dasar"
+    ],
+    "demoUrl": "https://frappecrm-demo.frappe.cloud/crm"
+  },
+  {
+    "name": "Akuntansi & Keuangan Inti",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Buku Besar Umum",
+      "Piutang/Hutang",
+      "Laporan Keuangan Dasar (Laba Rugi, Neraca)",
+      "Dukungan Multi-mata Uang"
+    ],
+    "demoUrl": "https://frappe.io/books"
+  },
+  {
+    "name": "HR & Penggajian Ringan",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Data Induk Karyawan",
+      "Manajemen Cuti",
+      "Pelacakan Kehadiran",
+      "Pemrosesan Penggajian Dasar"
+    ],
+    "demoUrl": "https://frappe.io/hr"
+  },
+  {
+    "name": "Manajemen Proyek Dasar",
+    "price": {
+      "monthly": 150
+    },
+    "features": [
+      "Manajemen Tugas",
+      "Pelacakan Proyek",
+      "Entri Lembar Waktu",
+      "Pelaporan Proyek Dasar"
+    ],
+    "demoUrl": "https://erpnext-demo.frappe.cloud/app/home"
+  }
+]
