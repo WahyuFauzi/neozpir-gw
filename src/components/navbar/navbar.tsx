@@ -1,6 +1,5 @@
 import { useI18n } from "../../i18n/I18nContext";
-import { createSignal, onMount } from "solid-js";
-import i18next from "i18next";
+import { createSignal } from "solid-js";
 import indonesiaFlag from "../../assets/indonesia.webp";
 import ukFlag from "../../assets/united-kingdom-flag.webp";
 

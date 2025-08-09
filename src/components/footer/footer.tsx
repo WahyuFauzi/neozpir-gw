@@ -42,7 +42,7 @@ function Footer()  {
               <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884l.342-.342a2.96 2.96 0 014.214 0l1.72 1.72a2.96 2.96 0 010 4.214l-.343.343a.75.75 0 00-.166.823c.22.58.502 1.137.84 1.653a.75.75 0 00.774.332l1.918-.48a2.96 2.96 0 012.85.777l2.131 2.132a2.96 2.96 0 010 4.214l-.342.342a2.96 2.96 0 01-4.214 0l-1.72-1.72a2.96 2.96 0 01-.777-2.85l.48-1.918a.75.75 0 00-.332-.774 10.15 10.15 0 01-1.653-.84.75.75 0 00-.823.166l-.343.343a2.96 2.96 0 01-4.214 0l-2.132-2.132a2.96 2.96 0 010-4.214z"/>
               </svg>
-              <a href="https://wa.me/6289670377077" class="hover:underline">{t('footer.contact.phone')}</a>
+              <a href={`https://wa.me/6289670377077?text=${t('whatsapp.footerMessage')}`} class="hover:underline">{t('footer.contact.phone')}</a>
             </li>
           </ul>
         </div>
