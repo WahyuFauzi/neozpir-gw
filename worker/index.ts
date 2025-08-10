@@ -42,7 +42,7 @@ app.get('/api/blog/:langkey', async (c) => {
   const langkey = c.req.param('langkey');
   try {
     console.log(`Executing query for langkey: ${langkey}`);
-    const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND is_publish = 1")
+    const { results } = await db.prepare("SELECT * FROM blog WHERE langkey = ?1 AND is_publish = 1 ORDER BY publish_date DESC")
       .bind(langkey)
       .all();
 

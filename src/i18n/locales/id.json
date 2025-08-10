@@ -181,7 +181,8 @@
       "loading": "Memuat postingan blog...",
       "fetchError": "Gagal memuat postingan blog. Silakan coba lagi nanti.",
       "notFound": "Tidak ada postingan blog ditemukan untuk bahasa ini.",
-      "noPosts": "Belum ada postingan blog tersedia."
+      "noPosts": "Belum ada postingan blog tersedia.",
+      "by": "dari"
     },
     "whatsapp": {
       "ctaMessage": "Halo, saya tertarik dengan layanan Anda. Bisakah kita menjadwalkan diskusi?",

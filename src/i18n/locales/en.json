@@ -185,7 +185,8 @@
       "loading": "Loading blog posts...",
       "fetchError": "Failed to load blog posts. Please try again later.",
       "notFound": "No blog posts found for this language.",
-      "noPosts": "No blog posts available yet."
+      "noPosts": "No blog posts available yet.",
+      "by": "by"
     },
     "whatsapp": {
       "ctaMessage": "Hello, I'm interested in your services. Can we schedule a discussion?",

@@ -2,7 +2,8 @@
   {
     "name": "Vendure",
     "price": {
-      "monthly": 150 
+      "monthly": 150,
+      "original_monthly": 200
     },
     "features": [
       "Situs Web menggunakan Vendure",
@@ -15,7 +16,8 @@
   {
     "name": "Shopify",
     "price": {
-      "monthly": 425
+      "monthly": 425,
+      "original_monthly": 550
     },
     "features": [
       "Situs Web menggunakan Shopify",

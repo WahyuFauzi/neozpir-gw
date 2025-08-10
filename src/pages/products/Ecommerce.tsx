@@ -1,4 +1,4 @@
-import { createSignal, createResource, For, createEffect } from 'solid-js';
+import { createSignal, createResource, For, createEffect, Show } from 'solid-js';
 import { CTASchedule } from '../../components/cta/cta';
 import shopifyLogo from '../../assets/shopify.webp';
 import { useI18n } from '../../i18n/I18nContext';
@@ -94,7 +94,12 @@ const ShopifyService = () => {
                 {(plan) => (
                   <div class="bg-white p-8 rounded-lg shadow-md text-center flex flex-col h-full">
                     <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
-                    <p class="text-4xl font-extrabold mb-4">{formatPrice(plan.price)}<span class="text-lg font-normal">{plan.name !== "Plus" ? `/${t('shopify.monthlyShort')}` : ""}</span></p>
+                    <div class="h-24">
+                      <p class="mb-4">{formatPrice(plan.price)}<span class="text-lg font-normal">{plan.name !== "Plus" ? `/${t('shopify.monthlyShort')}` : ""}</span></p>
+                      <Show when={plan.price.original_monthly}>
+                        <p class="text-gray-500 line-through">{isYearly() ? formatPrice({monthly: plan.price.original_monthly * 9}) : formatPrice({monthly: plan.price.original_monthly}) }<span class="text-lg font-normal">{plan.name !== "Plus" ? `/${t('shopify.monthlyShort')}` : ""}</span></p>
+                      </Show>
+                    </div>
                     <ul class="text-left space-y-2 mb-8 flex-grow">
                       <For each={plan.features}>
                         {(feature) => (

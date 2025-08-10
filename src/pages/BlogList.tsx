@@ -30,6 +30,8 @@ const BlogList = () => {
               <A href={`/blog/${post.langkey}/${post.title}`} class="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
                 <img src={defaultThumbnail} alt="Blog Thumbnail" class="w-full h-48 object-cover rounded-md mb-4" />
                 <h2 class="text-xl font-semibold mb-2">{formatTitleForDisplay(post.title_display)}</h2>
+                <p class="text-sm text-gray-700 mb-2">{t('blog.by')} {post.created_by}</p>
+                <p class="text-xs text-gray-500">{new Date(post.publish_date).toLocaleDateString()}</p>
               </A>
             )}
           </For>

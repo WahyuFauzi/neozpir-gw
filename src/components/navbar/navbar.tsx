@@ -26,7 +26,7 @@ const Navbar = () => {
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-[#3DDC97]">Neozpir</span>
         </a>
         <div class="flex md:hidden">
-          <div class="mr-2">
+          <div class="mt-1.5 mr-2">
             <button
               onClick={changeLanguage}
               class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors"

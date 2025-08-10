@@ -2,7 +2,8 @@
   {
     "name": "Frappe CRM & Sales",
     "price": {
-      "monthly": 9
+      "monthly": 9,
+      "original_monthly": 12
     },
     "features": [
       "Lead & Opportunity Management",
@@ -15,7 +16,8 @@
   {
     "name": "Frappe Inventory & Purchasing",
     "price": {
-      "monthly": 9
+      "monthly": 9,
+      "original_monthly": 12
     },
     "features": [
       "Stock Management",
@@ -28,7 +30,8 @@
   {
     "name": "Frappe HR & Payroll Lite",
     "price": {
-      "monthly": 9
+      "monthly": 9,
+      "original_monthly": 12
     },
     "features": [
       "Employee Master Data",
@@ -41,7 +44,8 @@
   {
     "name": "Frappe Project Management",
     "price": {
-      "monthly": 9
+      "monthly": 9,
+      "original_monthly": 12
     },
     "features": [
       "Task Management",
@@ -67,7 +71,8 @@
   {
     "name": "Odoo - Standard",
     "price": {
-      "monthly": 9
+      "monthly": 9,
+      "original_monthly": 12
     },
     "features": [
       "All Odoo Apps",
@@ -80,7 +85,8 @@
   {
     "name": "Odoo - Custom",
     "price": {
-      "monthly": 12
+      "monthly": 12,
+      "original_monthly": 15
     },
     "features": [
       "All Odoo Apps",

@@ -1,6 +1,10 @@
 [
   {
     "name": "Automating Your Business",
+    "price": {
+      "monthly": 1,
+      "original_monthly": 20
+    },
     "features": [
       "Send Message Automatically to Whatsapp",
       "Send Email Automatically",

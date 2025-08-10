@@ -1,6 +1,10 @@
 [
   {
     "name": "Mengotomatiskan Bisnis Anda",
+    "price": {
+      "monthly": 20000,
+      "original_monthly": 325000
+    },
     "features": [
       "Kirim Pesan Otomatis ke Whatsapp",
       "Kirim Email Otomatis",

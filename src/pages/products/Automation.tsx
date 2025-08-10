@@ -1,4 +1,4 @@
-import { createResource, For, createEffect } from 'solid-js';
+import { createSignal, createResource, For, createEffect, Show } from 'solid-js';
 import { CTASchedule } from '../../components/cta/cta';
 import automationLogo from '../../assets/configuration.webp';
 import { useI18n } from '../../i18n/I18nContext';
@@ -6,6 +6,7 @@ import { getAutomationPlans } from '../../service/product.service';
 
 const AutomationService = () => {
   const { t }  = useI18n();
+  const [isYearly, setIsYearly] = createSignal(false);
   const [productList] = createResource(() => t('selectedLanguage'), getAutomationPlans);
 
   // Optional: Effect to log language changes, without causing re-fetch loop
@@ -14,9 +15,12 @@ const AutomationService = () => {
     console.log('Current language:', currentLanguage);
   });
 
-  const formatPrice = (price: { monthly: number } | string) => {
+  const formatPrice = (price: { monthly: number; original_monthly?: number; } | string) => {
     if (typeof price === 'string') return price;
-    return "Contact for pricing";
+    const selectedPrice = isYearly() ? price.monthly * 9 : price.monthly;
+    const priceInK =  selectedPrice;
+    const formattedPrice = isYearly() ? Math.ceil(priceInK) : priceInK;
+    return (t('selectedLanguage') == "id-ID") ? `Rp.${formattedPrice.toLocaleString('id-ID')}k` : `$${formattedPrice}`;
   };
 
   return (
@@ -53,13 +57,26 @@ const AutomationService = () => {
       <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">{t('automation.pricingTitle')}</h2>
+          <div class="flex justify-center items-center space-x-4 mb-8">
+            <span>{t('enterprise.monthly')}</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" checked={isYearly()} onChange={() => setIsYearly(!isYearly())} class="sr-only peer" />
+              <div class="w-14 h-8 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
+            <span>{t('enterprise.yearly')}</span>
+          </div>
           <div id="automation-pricingplan" class="relative">
             <div class="flex flex-wrap justify-center gap-8">
               <For each={productList()}>
                 {(plan) => (
                   <div class="bg-white p-8 rounded-lg shadow-md text-center flex flex-col h-full w-full md:w-1/2 lg:w-1/4">
                     <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
-                    <p class="text-4xl font-extrabold mb-4">{formatPrice(plan.price)}</p>
+                    <div class="h-24">
+                      <p class="mb-4">{formatPrice(plan.price)}<span class="text-lg font-normal">/{t('enterprise.monthlyShort')}</span></p>
+                      <Show when={plan.price.original_monthly}>
+                        <p class="text-gray-500 line-through">{isYearly() ? formatPrice({monthly: plan.price.original_monthly * 9}) : formatPrice({monthly: plan.price.original_monthly}) }<span class="text-lg font-normal">/{t('enterprise.monthlyShort')}</span></p>
+                      </Show>
+                    </div>
                     <ul class="text-left space-y-2 mb-8 flex-grow">
                       <For each={plan.features}>
                         {(feature) => (

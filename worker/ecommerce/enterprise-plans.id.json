@@ -2,7 +2,8 @@
   {
     "name": "Frappe CRM & Penjualan",
     "price": {
-      "monthly": 150000
+      "monthly": 150000,
+      "original_monthly": 200000
     },
     "features": [
       "Manajemen Prospek & Peluang",
@@ -15,7 +16,8 @@
   {
     "name": "Frappe Inventaris & Pembelian",
     "price": {
-      "monthly": 150000
+      "monthly": 150000,
+      "original_monthly": 200000
     },
     "features": [
       "Manajemen Stok",
@@ -28,7 +30,8 @@
   {
     "name": "Frappe HR & Penggajian Ringan",
     "price": {
-      "monthly": 150000
+      "monthly": 150000,
+      "original_monthly": 200000
     },
     "features": [
       "Data Induk Karyawan",
@@ -41,7 +44,8 @@
   {
     "name": "Frappe Manajemen Proyek",
     "price": {
-      "monthly": 150000
+      "monthly": 150000,
+      "original_monthly": 200000
     },
     "features": [
       "Manajemen Tugas",
@@ -67,7 +71,8 @@
   {
     "name": "Odoo - Standar",
     "price": {
-      "monthly": 150000
+      "monthly": 150000,
+      "original_monthly": 200000
     },
     "features": [
       "Semua Aplikasi Odoo",
@@ -80,7 +85,8 @@
   {
     "name": "Odoo - Kustom",
     "price": {
-      "monthly": 200000
+      "monthly": 200000,
+      "original_monthly": 250000
     },
     "features": [
       "Semua Aplikasi Odoo",
