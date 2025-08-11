@@ -34,9 +34,9 @@ function Blog() {
   });
 
   return (
-    <div class="container mx-auto py-8">
-      <div class="max-w-prose mx-auto mb-4">
-        {title() && <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-4"> {title()} </h1>}
+    <div class="container mx-auto px-4 py-4 sm:py-8">
+      <div class="max-w-prose mx-auto mb-4 px-2">
+        {title() && <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mb-4"> {title()} </h1>}
         <div class="text-gray-600">
           {author() && <p>By: {author()}</p>}
           {publishDate() && <p>Published on: {new Date(publishDate()).toLocaleDateString()}</p>}
