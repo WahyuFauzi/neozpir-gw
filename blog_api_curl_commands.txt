@@ -1,0 +1,22 @@
+# Blog API cURL Commands
+
+# Base URL for the API: http://127.0.0.1:8787/api
+
+# 1. Get all blog posts for a specific language (e.g., English)
+# Replace 'en-US' with 'id-ID' for Indonesian posts.
+curl -X GET "http://127.0.0.1:8787/api/blog/en-US"
+
+# 2. Get a single blog post by language and title slug
+# Replace 'en-US' and 'my-first-dummy-post' with your desired langkey and title.
+curl -X GET "http://127.0.0.1:8787/api/blog/en-US/my-first-dummy-post"
+
+# 3. Create a new blog post
+# Adjust the JSON payload as needed.
+curl -X POST "http://127.0.0.1:8787/api/blog" -H "Content-Type: application/json" -d '{ "langkey": "en-US", "title": "my-new-blog-post", "titleDisplay": "My New Blog Post Title", "contentMarkdown": "# This is my new blog post!\n\nIts awesome.", "createdBy": "CLI Agent", "publishDate": "2025-08-13 10:00:00", "category": "development", "isPublish": true, "createdDate": "2025-08-13 09:00:00", "thumbnailSrc": "https://example.com/new-thumbnail.jpg" }'
+
+# 4. Update an existing blog post
+# Replace 'en-US' and 'my-first-dummy-post' with your desired langkey and title.
+# Only include the fields you want to update.
+curl -X PUT "http://127.0.0.1:8787/api/blog/en-US/my-first-dummy-post" \
+-H "Content-Type: application/json" \
+-d '{ "titleDisplay": "Updated Blog Post Title", "contentMarkdown": "# This content has been updated!\n\nNew and improved.", "isPublish": true, "thumbnailSrc": "https://example.com/updated-thumbnail.jpg" }'
