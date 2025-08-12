@@ -24,7 +24,8 @@ function Blog() {
       const res = await fetch(`/api/blog/${currentLangkey}/${title}`);
       if (res.ok) {
         const data = await res.json();
-        setTitle(data.titleDisplay);
+        setTitle(data.title);
+        setTitleDisplay(data.titleDisplay);
         setContent(data.html);
         setContentText(data.contentMarkdown);
         setAuthor(data.author);
@@ -48,6 +49,7 @@ function Blog() {
       author: author(),
       publishDate: publishDate(),
       category: category(),
+      isPublish: true, // TODO set this to be dynamic later
     };
 
     const res = await fetch(`/api/blog/${currentLangkey}/${paramTitle}`, {
