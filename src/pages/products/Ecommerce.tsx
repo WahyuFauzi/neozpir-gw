@@ -48,12 +48,7 @@ const ShopifyService = () => {
             <p class="text-gray-600 mb-6 text-lg">
               {t('shopify.description')}
             </p>
-            <div class="mt-8">
-                <a href="https://b2bdemoexperience.myshopify.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C3.732 4.943 7.522 3 10 3s6.268 1.943 9.542 7c-3.274 5.057-7.03 7-9.542 7S3.732 15.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
-                    {t('shopify.viewDemo')}
-                </a>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -110,9 +105,17 @@ const ShopifyService = () => {
                         )}
                       </For>
                     </ul>
-                    <a href="/contact" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition mt-auto">
-                      {t('shopify.getStarted')}
-                    </a>
+                    <div class="flex flex-col mt-auto">
+                      <a href="/contact" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition">
+                        {t('shopify.getStarted')}
+                      </a>
+                      <Show when={plan.demoUrl}>
+                        <a href={plan.demoUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+                          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C3.732 4.943 7.522 3 10 3s6.268 1.943 9.542 7c-3.274 5.057-7.03 7-9.542 7S3.732 15.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                          {t('shopify.viewDemo')}
+                        </a>
+                      </Show>
+                    </div>
                   </div>
                 )}
               </For>

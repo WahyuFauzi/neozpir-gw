@@ -11,7 +11,8 @@
       "1 Staff Account",
       "3% Transaction Fee",
       "Suitable for businesses just starting out"
-    ]
+    ],
+    "demoUrl": "https://example.com/vendure-demo"
   },
   {
     "name": "Shopify",
@@ -25,7 +26,8 @@
       "2 Staff Accounts",
       "3% Transaction Fee",
       "Suitable for businesses wanting to scale up"
-    ]
+    ],
+    "demoUrl": "https://example.com/shopify-demo"
   },
   {
     "name": "Custom Request",

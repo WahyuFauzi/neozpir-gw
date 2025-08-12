@@ -28,10 +28,40 @@
     ]
   },
   {
-    "name": "Perlu Kustom?",
-    "price": "Hubungi Tim Kami",
+    "name": "Dasar",
+    "price": {
+      "monthly": 10,
+      "original_monthly": 15
+    },
     "features": [
-      "Perlu fitur tambahan atau hal lain? hubungi kami?"
+      "Website menggunakan Vendure",
+      "Produk Tidak Terbatas",
+      "1 Akun Staff",
+      "Biaya Transaksi 3%",
+      "Cocok untuk bisnis yang baru memulai"
+    ],
+    "demoUrl": "https://example.com/vendure-demo"
+  },
+  {
+    "name": "Shopify",
+    "price": {
+      "monthly": 29,
+      "original_monthly": 39
+    },
+    "features": [
+      "Website menggunakan Shopify",
+      "Produk Tidak Terbatas",
+      "2 Akun Staff",
+      "Biaya Transaksi 3%",
+      "Cocok untuk bisnis yang ingin berkembang"
+    ],
+    "demoUrl": "https://example.com/shopify-demo"
+  },
+  {
+    "name": "Permintaan Kustom",
+    "price": "Hubungi Kami",
+    "features": [
+      "Butuh fitur kustom atau tambahan? hubungi tim kami"
     ]
   }
 ]
