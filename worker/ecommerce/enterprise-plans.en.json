@@ -65,7 +65,7 @@
       "Unlimited Users",
       "Ideal for a single process",
       "Free Forever"
-    ],
+    ]
   },
   {
     "name": "Odoo - Standard",
@@ -78,7 +78,7 @@
       "Manage all business areas",
       "Standard Features",
       "Per User / Month"
-    ],
+    ]
   },
   {
     "name": "Odoo - Custom",
@@ -91,6 +91,6 @@
       "Multi-Company Management",
       "Odoo Studio for Customization",
       "External API Access"
-    ],
+    ]
   }
 ]

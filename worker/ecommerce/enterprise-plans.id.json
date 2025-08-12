@@ -65,7 +65,7 @@
       "Pengguna Tanpa Batas",
       "Ideal untuk satu proses",
       "Gratis Selamanya"
-    ],
+    ]
   },
   {
     "name": "Odoo - Standar",
@@ -78,7 +78,7 @@
       "Kelola semua area bisnis",
       "Fitur Standar",
       "Per Pengguna / Bulan"
-    ],
+    ]
   },
   {
     "name": "Odoo - Kustom",
@@ -91,6 +91,6 @@
       "Manajemen Multi-Perusahaan",
       "Odoo Studio untuk Kustomisasi",
       "Akses API Eksternal"
-    ],
+    ]
   }
 ]

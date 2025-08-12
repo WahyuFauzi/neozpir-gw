@@ -45,7 +45,7 @@ const CustomService = () => {
               {t('customService.getStarted.description')}
             </p>
             <a
-              href="/contact"
+              href="/about"
               class="w-fit bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition"
             >
               {t('customService.getStarted.cta')}

@@ -25,34 +25,6 @@
       "2 Akun Staf",
       "Biaya transaksi 3%",
       "Cocok untuk bisnis yang mau scale up"
-    ]
-  },
-  {
-    "name": "Dasar",
-    "price": {
-      "monthly": 10,
-      "original_monthly": 15
-    },
-    "features": [
-      "Website menggunakan Vendure",
-      "Produk Tidak Terbatas",
-      "1 Akun Staff",
-      "Biaya Transaksi 3%",
-      "Cocok untuk bisnis yang baru memulai"
-    ],
-  },
-  {
-    "name": "Shopify",
-    "price": {
-      "monthly": 29,
-      "original_monthly": 39
-    },
-    "features": [
-      "Website menggunakan Shopify",
-      "Produk Tidak Terbatas",
-      "2 Akun Staff",
-      "Biaya Transaksi 3%",
-      "Cocok untuk bisnis yang ingin berkembang"
     ],
     "demoUrl": "https://www.shopify.com/b2b-demo-store"
   },

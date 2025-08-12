@@ -87,7 +87,7 @@ const AutomationService = () => {
                         )}
                       </For>
                     </ul>
-                    <a href="/contact" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition mt-auto">
+                    <a href="/about" class="bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition mt-auto">
                       {t('automation.getStarted')}
                     </a>
                   </div>
