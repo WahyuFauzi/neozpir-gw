@@ -66,7 +66,6 @@
       "Ideal untuk satu proses",
       "Gratis Selamanya"
     ],
-    "demoUrl": "https://demo.odoo.com/"
   },
   {
     "name": "Odoo - Standar",
@@ -80,7 +79,6 @@
       "Fitur Standar",
       "Per Pengguna / Bulan"
     ],
-    "demoUrl": "https://demo.odoo.com/"
   },
   {
     "name": "Odoo - Kustom",
@@ -94,6 +92,5 @@
       "Odoo Studio untuk Kustomisasi",
       "Akses API Eksternal"
     ],
-    "demoUrl": "https://demo.odoo.com/"
   }
 ]

@@ -40,7 +40,6 @@
       "Biaya Transaksi 3%",
       "Cocok untuk bisnis yang baru memulai"
     ],
-    "demoUrl": "https://example.com/vendure-demo"
   },
   {
     "name": "Shopify",
@@ -55,7 +54,7 @@
       "Biaya Transaksi 3%",
       "Cocok untuk bisnis yang ingin berkembang"
     ],
-    "demoUrl": "https://example.com/shopify-demo"
+    "demoUrl": "https://www.shopify.com/b2b-demo-store"
   },
   {
     "name": "Permintaan Kustom",

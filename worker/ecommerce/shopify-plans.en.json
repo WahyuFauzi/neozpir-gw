@@ -12,7 +12,6 @@
       "3% Transaction Fee",
       "Suitable for businesses just starting out"
     ],
-    "demoUrl": "https://example.com/vendure-demo"
   },
   {
     "name": "Shopify",
@@ -27,7 +26,7 @@
       "3% Transaction Fee",
       "Suitable for businesses wanting to scale up"
     ],
-    "demoUrl": "https://example.com/shopify-demo"
+    "demoUrl": "https://www.shopify.com/b2b-demo-store"
   },
   {
     "name": "Custom Request",
