@@ -2,6 +2,9 @@ name = "neozpir-solid" # The name of your Pages project
 compatibility_date = "2024-04-05" # Use a recent date
 main = "./worker/index.ts"
 
+[vars]
+NODE_ENV = "development"
+
 [assets]
 directory = "./dist/"
 not_found_handling = "single-page-application"
@@ -13,3 +16,15 @@ run_worker_first = [ "/api/*", "!/api/docs/*" ]
 binding = "BLOG"
 database_name = "neozpir-solid-blog"
 database_id = "eeabd6cf-839f-4b84-bbdc-8f10f78649c2"
+
+[env.production]
+vars = { NODE_ENV = "production" }
+# You would typically set these as secrets in production, but for demonstration:
+# APPWRITE_ENDPOINT = "https://cloud.appwrite.io/v1"
+# APPWRITE_PROJECT_ID = "your_prod_project_id"
+# APPWRITE_API_KEY = "your_prod_api_key"
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = false
+

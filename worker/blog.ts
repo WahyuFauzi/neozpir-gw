@@ -2,8 +2,9 @@ import { Hono } from 'hono';
 import { marked } from 'marked';
 import { getDb } from './db/index.ts';
 import { blog as blogSchema } from './db/schema.ts';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, desc } from 'drizzle-orm';
 import { blogPostSchema, blogPostUpdateSchema } from './schemas.ts';
+import { authMiddleware } from './middleware.ts';
 
 const blog = new Hono();
 
@@ -29,7 +30,7 @@ blog.get('/:langkey', async (c) => {
     const results = await db.select()
       .from(blogSchema)
       .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.is_publish, 1)))
-      .orderBy(blogSchema.publish_date);
+      .orderBy(desc(blogSchema.publish_date));
 
     if (results.length === 0) {
       return c.notFound();
@@ -116,7 +117,7 @@ blog.get('/:langkey/:title', async (c) => {
  * @apiError (Error 500) DatabaseError The database binding is not configured or an error occurred during update/query execution.
  * @apiError (Error 404) NotFound No blog post found for the specified language key and title after update.
  */
-blog.put('/:langkey/:title', async (c) => {
+blog.put('/:langkey/:title', authMiddleware, async (c) => {
   // @ts-ignore
   const db = getDb(c.env.BLOG);
   if (!db) {
@@ -209,7 +210,7 @@ blog.put('/:langkey/:title', async (c) => {
  * @apiError (Error 400) BadRequest Invalid request body.
  * @apiError (Error 500) DatabaseError The database binding is not configured or an error occurred during insertion.
  */
-blog.post('/', async (c) => {
+blog.post('/', authMiddleware, async (c) => {
   // @ts-ignore
   const db = getDb(c.env.BLOG);
   if (!db) {

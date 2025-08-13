@@ -11,7 +11,7 @@ export const blogPostSchema = z.object({
   createdBy: z.string(),
   category: z.string(),
   createdDate: z.string(),
-  thumbnailSrc: z.string().optional(),
+  thumbnailSrc: z.string().nullable().optional(),
 });
 
 export const blogPostUpdateSchema = z.object({
@@ -22,7 +22,7 @@ export const blogPostUpdateSchema = z.object({
   isPublish: z.boolean().optional(),
   category: z.string().optional(),
   createdDate: z.string().optional(),
-  thumbnailSrc: z.string().optional(),
+  thumbnailSrc: z.string().nullable().optional(),
 });
 
 export type BlogPost = z.infer<typeof blogPostSchema>;

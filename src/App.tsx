@@ -11,6 +11,8 @@ import Navbar from './components/navbar/navbar';
 import Footer from "./components/footer/footer";
 import Blog from "./pages/Blog";
 import BlogList from "./pages/BlogList";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { I18nProvider } from "./i18n/I18nContext";
 
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/blog" component={BlogList} />
           <Route path="/blog/:langkey" component={BlogList} />
           <Route path="/blog/:langkey/:title" component={Blog} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           <Route path="*" component={NotFound} />
         </Router>
         <Footer></Footer>
