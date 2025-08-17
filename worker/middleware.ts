@@ -24,14 +24,11 @@ export const authMiddleware = createMiddleware<{ Bindings: Env }>(async (c, next
 
     try {
         const user = await account.get();
-        if (user) {
-            // @ts-ignore
-            c.set('user', user);
-            await next();
-        } else {
-            return c.text("Unauthorized", 401);
-        }
+        // @ts-ignore
+        c.set('user', user); // Set user in context
+        await next();
     } catch (err) {
+        console.error("Authentication error:", err);
         return c.text("Unauthorized", 401);
     }
 });

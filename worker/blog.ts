@@ -128,6 +128,29 @@ blog.put('/:langkey/:title', authMiddleware, async (c) => {
   const langkey = c.req.param('langkey');
   const title = c.req.param('title');
   const body = await c.req.json();
+  const user = c.get('user'); // Get user from context
+
+  if (!user || !user.$id) {
+    return c.text("Unauthorized: User ID not found in context", 403);
+  }
+
+  // Fetch the existing blog post to check ownership
+  try {
+    const existingPost = await db.select()
+      .from(blogSchema)
+      .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.title, title)));
+
+    if (existingPost.length === 0) {
+      return c.notFound();
+    }
+
+    if (existingPost[0].created_by !== user.$id) {
+      return c.text("Forbidden: You are not the creator of this blog post", 403);
+    }
+  } catch (e) {
+    console.error("Error checking blog post ownership:", e);
+    return c.text("Error checking ownership", 500);
+  }
 
   const parsedBody = blogPostUpdateSchema.safeParse(body);
   if (!parsedBody.success) {
@@ -226,7 +249,12 @@ blog.post('/', authMiddleware, async (c) => {
     return c.json({ error: "Invalid request body", details: parsedBody.error }, 400);
   }
 
-  const { langkey, title, titleDisplay, contentMarkdown, createdBy, publishDate, category, isPublish, createdDate, thumbnailSrc } = parsedBody.data;
+  const { langkey, title, titleDisplay, contentMarkdown, publishDate, category, isPublish, createdDate, thumbnailSrc } = parsedBody.data;
+  const user = c.get('user'); // Get user from context
+
+  if (!user || !user.$id) {
+    return c.text("Unauthorized: User ID not found in context", 403);
+  }
 
   try {
     await db.insert(blogSchema).values({
@@ -234,7 +262,7 @@ blog.post('/', authMiddleware, async (c) => {
       title,
       title_display: titleDisplay,
       content_markdown: contentMarkdown,
-      created_by: createdBy,
+      created_by: user.$id, // Set createdBy from authenticated user
       publish_date: publishDate,
       category,
       is_publish: isPublish ? 1 : 0,
