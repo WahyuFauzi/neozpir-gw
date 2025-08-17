@@ -1,5 +1,7 @@
 import { useI18n } from "../../i18n/I18nContext";
-import { createSignal } from "solid-js";
+import { createSignal, createEffect, Show } from "solid-js";
+import { useAuthContext } from "../../context/auth.context";
+import { logoutUser } from "../../service/auth.service";
 import indonesiaFlag from "../../assets/indonesia.webp";
 import ukFlag from "../../assets/united-kingdom-flag.webp";
 
@@ -7,6 +9,7 @@ const Navbar = () => {
   const { t, changeLang } = useI18n();
   const [menuOpen, setMenuOpen] = createSignal(false);
   const [lang, setLang] = createSignal(t('selectedLanguage'));
+  const { auth, setAuth } = useAuthContext();
 
   const changeLanguage = () => {
     if(lang() == 'en-US') {
@@ -18,6 +21,23 @@ const Navbar = () => {
       changeLang('en-US') 
     }
   }
+
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      setAuth({ session: null, providedToken: null });
+    } catch (error) {
+      console.error("Error logging out:", error);
+      alert("Logout failed.");
+    }
+  };
+
+  createEffect(() => {
+    if (!auth()?.session) {
+      // Optionally redirect to login if session becomes null
+      // navigate("/login");
+    }
+  });
   
   return (
     <nav class="bg-white border-gray-200 sticky top-0 z-50">
@@ -65,9 +85,27 @@ const Navbar = () => {
             <li>
                <a href="/blog" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.blog')}</a>
             </li>
+            <Show when={auth()?.session}>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  class="block py-2 px-3 text-gray-900 rounded-sm cursor-pointer"
+                >
+                  Logout (Dev)
+                </button>
+              </li>
+            </Show>
           </ul>
         </div>
         <div class="hidden md:flex items-center">
+          <Show when={auth()?.session}>
+            <button
+              onClick={handleLogout}
+              class="px-4 py-2 mr-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
+            >
+              Logout (Dev)
+            </button>
+          </Show>
           <button
             onClick={changeLanguage}
             class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors"

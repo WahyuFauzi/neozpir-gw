@@ -1,5 +1,4 @@
 import { Hono } from 'hono';
-import { blogSchema } from './schemas';
 
 const admin = new Hono();
 

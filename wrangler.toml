@@ -20,9 +20,6 @@ database_id = "eeabd6cf-839f-4b84-bbdc-8f10f78649c2"
 [env.production]
 vars = { NODE_ENV = "production" }
 # You would typically set these as secrets in production, but for demonstration:
-# APPWRITE_ENDPOINT = "https://cloud.appwrite.io/v1"
-# APPWRITE_PROJECT_ID = "your_prod_project_id"
-# APPWRITE_API_KEY = "your_prod_api_key"
 
 # wrangler.toml (wrangler v3.88.0^)
 [observability.logs]

@@ -18,9 +18,29 @@ const account = new Account(client);
 export const createUser = async (email: string, password: string, name?: string) => {
     try {
         const user = await account.create(ID.unique(), email, password, name);
+        // After creating the user, send a verification email
+        await account.createVerification(
+            `${window.location.origin}/verify-email`, // Success URL
+        );
         return user;
     } catch (error) {
         console.error("Error creating user:", error);
+        throw error;
+    }
+};
+
+/**
+ * Completes the email verification process.
+ * @param userId The user ID from the verification link.
+ * @param secret The secret from the verification link.
+ * @returns Promise resolving when the verification is updated.
+ */
+export const completeEmailVerification = async (userId: string, secret: string) => {
+    try {
+        await account.updateVerification(userId, secret);
+        console.log("Email verification successful.");
+    } catch (error) {
+        console.error("Error completing email verification:", error);
         throw error;
     }
 };
@@ -80,7 +100,7 @@ export const getJwt = async (): Promise<string | null> => {
         const jwt = await account.createJWT();
         return jwt.jwt;
     } catch (error) {
-        console.error("Error getting JWT:", error);
+        console.error("Appwrite: Error getting JWT:", error);
         return null;
     }
 };
