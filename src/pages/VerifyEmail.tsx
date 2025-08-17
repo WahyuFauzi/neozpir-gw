@@ -14,7 +14,7 @@ const VerifyEmail: Component = () => {
 
     if (userId && secret) {
       try {
-        await completeEmailVerification(userId, secret);
+        await completeEmailVerification(userId as string, secret as string);
         setVerificationStatus("Email verified successfully! Redirecting to login...");
         setTimeout(() => {
           navigate("/login");

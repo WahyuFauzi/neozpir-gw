@@ -21,7 +21,6 @@ export const createUser = async (email: string, password: string, name?: string)
         // After creating the user, send a verification email
         await account.createVerification(
             `${window.location.origin}/verify-email`, // Success URL
-            `${window.location.origin}/verify-email`  // Failure URL (can be the same or different)
         );
         return user;
     } catch (error) {

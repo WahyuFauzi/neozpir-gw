@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { createUser, loginUser, getJwt } from "../service/auth.service";
+import { createUser } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 
 const Register: Component = () => {
@@ -9,12 +9,12 @@ const Register: Component = () => {
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
   const [confirmPassword, setConfirmPassword] = createSignal("");
-  const { auth, setAuth } = useAuthContext();
+  const { auth } = useAuthContext();
   const navigate = useNavigate();
 
   createEffect(() => {
     if (auth()?.session) {
-      navigate("/");
+      navigate("/login");
     }
   });
 
@@ -96,7 +96,7 @@ const Register: Component = () => {
           </div>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 

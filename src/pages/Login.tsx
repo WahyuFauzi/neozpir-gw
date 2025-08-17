@@ -76,7 +76,7 @@ const Login: Component = () => {
           </div>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 
