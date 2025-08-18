@@ -19,7 +19,11 @@ export default defineConfig({
         target: 'http://localhost:8787',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-      }
+      },
+      '/sitemap.xml': {
+        target: 'http://localhost:8787',
+        changeOrigin: true,
+      },
     },
   },
 })
