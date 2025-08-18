@@ -1,33 +1,28 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
-import { useNavigate } from "@solidjs/router";
-import { createUser } from "../service/auth.service";
-import { useAuthContext } from "../context/auth.context";
+import { useSearchParams, useNavigate } from "@solidjs/router";
+import { resetPassword } from "../service/auth.service";
 
-const Register: Component = () => {
-  const [name, setName] = createSignal("");
-  const [email, setEmail] = createSignal("");
-  const [emailError, setEmailError] = createSignal("");
-  const [password, setPassword] = createSignal("");
-  const [confirmPassword, setConfirmPassword] = createSignal("");
-  const [passwordError, setPasswordError] = createSignal("");
-  const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
-  const { auth } = useAuthContext();
+const ResetPassword: Component = () => {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
+  const [password, setPassword] = createSignal("");
+  const [confirmPassword, setConfirmPassword] = createSignal("");
+  const [message, setMessage] = createSignal("");
+  const [error, setError] = createSignal("");
+
+  const [passwordError, setPasswordError] = createSignal("");
+  const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
+
+  const userId = searchParams.userId;
+  const secret = searchParams.secret;
+
   createEffect(() => {
-    if (auth()?.session) {
-      navigate("/");
+    if (!userId || !secret) {
+      setError("Invalid or missing password reset link.");
     }
   });
-
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-      return "Please enter a valid email address.";
-    }
-    return "";
-  };
 
   const validatePassword = (pwd: string) => {
     if (pwd.length < 8) {
@@ -44,14 +39,8 @@ const Register: Component = () => {
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
-
-    const emailValidationMessage = validateEmail(email());
-    if (emailValidationMessage) {
-      setEmailError(emailValidationMessage);
-      return;
-    } else {
-      setEmailError("");
-    }
+    setMessage("");
+    setError("");
 
     const pwdValidationMessage = validatePassword(password());
     if (pwdValidationMessage) {
@@ -68,52 +57,34 @@ const Register: Component = () => {
       setConfirmPasswordError("");
     }
 
+    if (!userId || !secret) {
+      setError("Invalid password reset link.");
+      return;
+    }
+
     try {
-      await createUser(email(), password(), name());
-      alert("Registration successful! Please check your email for a verification link.");
-      navigate("/login"); // Redirect to login page after registration
-    } catch (error) {
-      alert("Registration failed: " + error);
-      console.error("Registration error:", error);
+      await resetPassword(userId, secret, password());
+      setMessage("Your password has been reset successfully. You can now log in.");
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+    } catch (err) {
+      setError("Failed to reset password. The link might be expired or invalid.");
+      console.error("Reset password error:", err);
     }
   };
 
   return (
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
       <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
-        <h3 class="text-2xl font-bold text-center">Create a new account</h3>
+        <h3 class="text-2xl font-bold text-center">Reset Password</h3>
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <div>
-              <label class="block" for="name">Name</label>
-              <input
-                type="text"
-                placeholder="Name"
-                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                value={name()}
-                onInput={(e) => setName(e.currentTarget.value)}
-                required
-              />
-            </div>
-            <div class="mt-4">
-              <label class="block" for="email">Email</label>
-              <input
-                type="email"
-                placeholder="Email"
-                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                value={email()}
-                onInput={(e) => setEmail(e.currentTarget.value)}
-                required
-              />
-              {emailError() && (
-                <p class="text-red-500 text-xs mt-1">{emailError()}</p>
-              )}
-            </div>
-            <div class="mt-4">
-              <label class="block">Password</label>
+              <label class="block">New Password</label>
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="New Password"
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={password()}
                 onInput={(e) => setPassword(e.currentTarget.value)}
@@ -124,10 +95,10 @@ const Register: Component = () => {
               )}
             </div>
             <div class="mt-4">
-              <label class="block">Confirm Password</label>
+              <label class="block">Confirm New Password</label>
               <input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Confirm New Password"
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={confirmPassword()}
                 onInput={(e) => setConfirmPassword(e.currentTarget.value)}
@@ -137,12 +108,14 @@ const Register: Component = () => {
                 <p class="text-red-500 text-xs mt-1">{confirmPasswordError()}</p>
               )}
             </div>
+            {message() && <p class="text-green-500 text-sm mt-4">{message()}</p>}
+            {error() && <p class="text-red-500 text-sm mt-4">{error()}</p>}
             <div class="mt-6">
               <button
                 type="submit"
                 class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Register
+                Reset Password
               </button>
             </div>
           </div>
@@ -152,4 +125,4 @@ const Register: Component = () => {
   );
 };
 
-export default Register;
+export default ResetPassword;

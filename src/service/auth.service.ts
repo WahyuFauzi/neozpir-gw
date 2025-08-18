@@ -17,11 +17,10 @@ const account = new Account(client);
  */
 export const createUser = async (email: string, password: string, name?: string) => {
     try {
-        const user = await account.create(ID.unique(), email, password, name);
-        // After creating the user, send a verification email
-        await account.createVerification(
-            `${window.location.origin}/verify-email`, // Success URL
-        );
+        const userId = ID.unique()
+        const user = await account.create(userId, email, password, name);
+        await account.createEmailPasswordSession(email, password);
+        await account.createVerification(`${import.meta.env.VITE_BASE_URL}/verify-email`);
         return user;
     } catch (error) {
         console.error("Error creating user:", error);
@@ -102,5 +101,38 @@ export const getJwt = async (): Promise<string | null> => {
     } catch (error) {
         console.error("Appwrite: Error getting JWT:", error);
         return null;
+    }
+};
+
+/**
+ * Initiates the password recovery process.
+ * @param email User's email for password recovery.
+ * @param url The URL to redirect the user to after successful recovery initiation.
+ * @returns Promise resolving when the recovery email is sent.
+ */
+export const forgotPassword = async (email: string, url: string) => {
+    try {
+        await account.createRecovery(email, url);
+        console.log("Password recovery email sent.");
+    } catch (error) {
+        console.error("Error initiating password recovery:", error);
+        throw error;
+    }
+};
+
+/**
+ * Completes the password reset process.
+ * @param userId The user ID from the recovery link.
+ * @param secret The secret from the recovery link.
+ * @param password The new password.
+ * @returns Promise resolving when the password is updated.
+ */
+export const resetPassword = async (userId: string, secret: string, password: string) => {
+    try {
+        await account.updateRecovery(userId, secret, password, password);
+        console.log("Password reset successful.");
+    } catch (error) {
+        console.error("Error resetting password:", error);
+        throw error;
     }
 };

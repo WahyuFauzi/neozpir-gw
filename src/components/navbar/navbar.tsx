@@ -85,27 +85,40 @@ const Navbar = () => {
             <li>
                <a href="/blog" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.blog')}</a>
             </li>
-            <Show when={auth()?.session}>
+            { /*<Show when={auth()?.session}>
               <li>
                 <button
                   onClick={handleLogout}
                   class="block py-2 px-3 text-gray-900 rounded-sm cursor-pointer"
                 >
-                  Logout (Dev)
+                  Logout
                 </button>
               </li>
             </Show>
+            <Show when={!auth()?.session}>
+              <li>
+                <a href="/login" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
+              </li>
+              <li>
+                <a href="/register" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+              </li>
+            </Show> */ }
           </ul>
         </div>
         <div class="hidden md:flex items-center">
-          <Show when={auth()?.session}>
+          {/* <Show when={auth()?.session}>
             <button
               onClick={handleLogout}
               class="px-4 py-2 mr-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
             >
-              Logout (Dev)
+              Logout
             </button>
           </Show>
+          <Show when={!auth()?.session}>
+            <a href="/login" class="px-4 py-2 mr-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">{t('navbar.login')}</a>
+            <a href="/register" class="px-4 py-2 mr-2 text-white bg-green-600 rounded-lg hover:bg-green-700">{t('navbar.register')}</a>
+          </Show>
+          */}
           <button
             onClick={changeLanguage}
             class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors"
