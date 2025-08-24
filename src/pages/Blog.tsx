@@ -68,7 +68,7 @@ function Blog() {
       setCategory(data.category);
       setIsEditing(false);
     } else {
-      alert('Failed to save post');
+      console.error('Failed to save post');
     }
   };
 

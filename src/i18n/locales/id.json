@@ -6,8 +6,9 @@
       "about": "Tentang kami",
       "blog": "Blog",
       "services": "Produk Kami",
-      "blog": "Blog",
       "language": "Bahasa",
+      "login": "Masuk",
+      "register": "Daftar",
       "languageOptions": {
         "en": "Inggris",
         "id": "Indonesia"

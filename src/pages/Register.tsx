@@ -1,36 +1,82 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { createUser } from "../service/auth.service";
+import { createUser, getCurrentUser, getJwt } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 
 const Register: Component = () => {
   const [name, setName] = createSignal("");
   const [email, setEmail] = createSignal("");
+  const [emailError, setEmailError] = createSignal("");
   const [password, setPassword] = createSignal("");
   const [confirmPassword, setConfirmPassword] = createSignal("");
-  const { auth } = useAuthContext();
+  const [passwordError, setPasswordError] = createSignal("");
+  const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
+  const { auth, setAuth } = useAuthContext();
   const navigate = useNavigate();
 
   createEffect(() => {
     if (auth()?.session) {
-      navigate("/login");
+      navigate("/");
     }
   });
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      return "Please enter a valid email address.";
+    }
+    return "";
+  };
+
+  const validatePassword = (pwd: string) => {
+    if (pwd.length < 8) {
+      return "Password must be at least 8 characters long.";
+    }
+    if (!/[0-9]/.test(pwd)) {
+      return "Password must contain at least one number.";
+    }
+    if (!/[a-zA-Z]/.test(pwd)) {
+      return "Password must contain at least one letter.";
+    }
+    return "";
+  };
+
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
-    if (password() !== confirmPassword()) {
-      alert("Passwords do not match!");
+
+    const emailValidationMessage = validateEmail(email());
+    if (emailValidationMessage) {
+      setEmailError(emailValidationMessage);
       return;
+    } else {
+      setEmailError("");
+    }
+
+    const pwdValidationMessage = validatePassword(password());
+    if (pwdValidationMessage) {
+      setPasswordError(pwdValidationMessage);
+      return;
+    } else {
+      setPasswordError("");
+    }
+
+    if (password() !== confirmPassword()) {
+      setConfirmPasswordError("Passwords do not match!");
+      return;
+    } else {
+      setConfirmPasswordError("");
     }
 
     try {
       await createUser(email(), password(), name());
-      alert("Registration successful! Please check your email for a verification link.");
-      navigate("/login"); // Redirect to login page after registration
+      const user = await getCurrentUser();
+      if (user) {
+        const jwt = await getJwt();
+        setAuth({ session: user, providedToken: jwt });
+      }
+      navigate("/");
     } catch (error) {
-      alert("Registration failed: " + error);
       console.error("Registration error:", error);
     }
   };
@@ -62,6 +108,9 @@ const Register: Component = () => {
                 onInput={(e) => setEmail(e.currentTarget.value)}
                 required
               />
+              {emailError() && (
+                <p class="text-red-500 text-xs mt-1">{emailError()}</p>
+              )}
             </div>
             <div class="mt-4">
               <label class="block">Password</label>
@@ -73,6 +122,9 @@ const Register: Component = () => {
                 onInput={(e) => setPassword(e.currentTarget.value)}
                 required
               />
+              {passwordError() && (
+                <p class="text-red-500 text-xs mt-1">{passwordError()}</p>
+              )}
             </div>
             <div class="mt-4">
               <label class="block">Confirm Password</label>
@@ -84,11 +136,14 @@ const Register: Component = () => {
                 onInput={(e) => setConfirmPassword(e.currentTarget.value)}
                 required
               />
+              {confirmPasswordError() && (
+                <p class="text-red-500 text-xs mt-1">{confirmPasswordError()}</p>
+              )}
             </div>
-            <div>
+            <div class="mt-6">
               <button
                 type="submit"
-                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md cursor-pointer bg-[#3DDC97] hover:bg-[#36c285] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Register
               </button>

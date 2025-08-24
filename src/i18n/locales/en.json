@@ -6,8 +6,9 @@
       "about": "About",
       "blog": "Blog",
       "services": "Products",
-      "blog": "Blog",
       "language": "Language",
+      "login": "Login",
+      "register": "Register",
       "languageOptions": {
         "en": "English",
         "id": "Indonesia"
