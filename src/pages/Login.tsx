@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
-import { useNavigate, A as Link } from "@solidjs/router";
+import { useNavigate } from "@solidjs/router";
 import { loginUser, getJwt, getCurrentUser } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 
