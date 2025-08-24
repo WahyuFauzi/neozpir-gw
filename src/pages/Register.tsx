@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { createUser } from "../service/auth.service";
+import { createUser, getCurrentUser, getJwt } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 
 const Register: Component = () => {
@@ -12,7 +12,7 @@ const Register: Component = () => {
   const [confirmPassword, setConfirmPassword] = createSignal("");
   const [passwordError, setPasswordError] = createSignal("");
   const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
-  const { auth } = useAuthContext();
+  const { auth, setAuth } = useAuthContext();
   const navigate = useNavigate();
 
   createEffect(() => {
@@ -70,10 +70,13 @@ const Register: Component = () => {
 
     try {
       await createUser(email(), password(), name());
-      alert("Registration successful! Please check your email for a verification link.");
-      navigate("/login"); // Redirect to login page after registration
+      const user = await getCurrentUser();
+      if (user) {
+        const jwt = await getJwt();
+        setAuth({ session: user, providedToken: jwt });
+      }
+      navigate("/");
     } catch (error) {
-      alert("Registration failed: " + error);
       console.error("Registration error:", error);
     }
   };
@@ -140,7 +143,7 @@ const Register: Component = () => {
             <div class="mt-6">
               <button
                 type="submit"
-                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md cursor-pointer bg-[#3DDC97] hover:bg-[#36c285] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Register
               </button>

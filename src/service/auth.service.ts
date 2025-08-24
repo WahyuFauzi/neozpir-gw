@@ -129,7 +129,7 @@ export const forgotPassword = async (email: string, url: string) => {
  */
 export const resetPassword = async (userId: string, secret: string, password: string) => {
     try {
-        await account.updateRecovery(userId, secret, password, password);
+        await account.updateRecovery(userId, secret, password);
         console.log("Password reset successful.");
     } catch (error) {
         console.error("Error resetting password:", error);

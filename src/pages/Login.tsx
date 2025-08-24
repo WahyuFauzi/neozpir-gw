@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useNavigate, A as Link } from "@solidjs/router";
-import { loginUser, getJwt } from "../service/auth.service";
+import { loginUser, getJwt, getCurrentUser } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 
 const Login: Component = () => {
@@ -59,12 +59,14 @@ const Login: Component = () => {
     }
 
     try {
-      const session = await loginUser(email(), password());
-      const jwt = await getJwt();
-      setAuth({ session, providedToken: jwt });
+      await loginUser(email(), password()); // setup session
+      const user = await getCurrentUser();
+      if (user) {
+        const jwt = await getJwt();
+        setAuth({ session: user, providedToken: jwt });
+      }
       navigate("/");
     } catch (error) {
-      alert("Login failed: " + error);
       console.error("Login error:", error);
     }
   };
@@ -103,7 +105,7 @@ const Login: Component = () => {
                 <p class="text-red-500 text-xs mt-1">{passwordError()}</p>
               )}
             </div>
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between mt-2">
               <div class="text-sm">
                 <a id="go-to-forgot-password" href="/forgot-password" class="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
@@ -111,10 +113,10 @@ const Login: Component = () => {
               </div>
             </div>
 
-            <div class="mt-6">
+            <div class="mt-4">
               <button
                 type="submit"
-                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md cursor-pointer bg-[#3DDC97] hover:bg-[#36c285] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Login
               </button>

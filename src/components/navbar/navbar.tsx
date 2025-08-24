@@ -28,25 +28,87 @@ const Navbar = () => {
       setAuth({ session: null, providedToken: null });
     } catch (error) {
       console.error("Error logging out:", error);
-      alert("Logout failed.");
     }
   };
-
-  createEffect(() => {
-    if (!auth()?.session) {
-      // Optionally redirect to login if session becomes null
-      // navigate("/login");
-    }
-  });
   
   return (
     <nav class="bg-white border-gray-200 sticky top-0 z-50">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse w-1/2 md:w-auto">
+          <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-[#3DDC97]">Neozpir</span>
-        </a>
-        <div class="flex md:hidden">
-          <div class="mt-1.5 mr-2">
+          </a>
+        </div>
+        <div class="flex md:hidden items-center justify-end w-1/2">
+          <Show when={auth()?.session}>
+            <li class="flex justify-center md:hidden">
+              <button
+                onClick={() => {handleLogout(); setMenuOpen(false);}}
+                class="px-4 py-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer"
+              >
+                Logout
+              </button>
+            </li>
+          </Show>
+          <Show when={!auth()?.session}>
+            <li class="flex md:flex-row items-center gap-2 md:hidden">
+              <a href="/login" class="px-4 py-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
+              <a href="/register" class="px-4 py-2 rounded-full bg-[#3DDC97] hover:bg-[#36c285] cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+            </li>
+          </Show>
+          <button
+            onClick={changeLanguage}
+            class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors mx-4"
+            aria-label={lang() === 'id-ID' ? "Switch to English" : "Switch to Indonesian"}
+          >
+            <img
+              src={lang() === 'en-US' ? ukFlag : indonesiaFlag}
+              alt={lang() === 'en-US' ? "United Kingdom Flag" : "Indonesian Flag"}
+              class="w-6 h-4"
+            />
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen())}
+            class="inline-flex w-10 h-10 justify-center items-center text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            aria-controls="navbar-default"
+            aria-expanded={menuOpen()}
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+          </button>
+        </div>
+        <div class={`w-full mx-auto md:block md:w-auto ${menuOpen() ? 'block' : 'hidden'}`} id="navbar-default">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+            <li>
+              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.home')}</a>
+            </li>
+            <li>
+              <a href="/products" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.services')}</a>
+            </li>
+            <li>
+              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.about')}</a>
+            </li>
+            <li>
+               <a href="/blog" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.blog')}</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="hidden md:flex items-center">
+            <Show when={auth()?.session}>
+              <button
+                onClick={handleLogout}
+                class="px-4 py-2 mr-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer"
+              >
+                Logout
+              </button>
+            </Show>
+            <Show when={!auth()?.session}>
+              <a href="/login" class="px-4 py-2 mr-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
+              <a href="/register" class="px-4 py-2 mr-2 rounded-full bg-[#3DDC97] hover:bg-[#36c285] cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+            </Show>
             <button
               onClick={changeLanguage}
               class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors"
@@ -59,77 +121,6 @@ const Navbar = () => {
               />
             </button>
           </div>
-          <button
-            onClick={() => setMenuOpen(!menuOpen())}
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-controls="navbar-default"
-            aria-expanded={menuOpen()}
-          >
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-            </svg>
-          </button>
-        </div>
-        <div class={`w-full md:block md:w-auto absolute md:relative ${menuOpen() ? 'block top-20' : 'hidden'}`} id="navbar-default">
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-            <li>
-              <a href="/" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.home')}</a>
-            </li>
-            <li>
-              <a href="/products" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.services')}</a>
-            </li>
-            <li>
-              <a href="/about" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.about')}</a>
-            </li>
-            <li>
-               <a href="/blog" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false); setMenuOpen(false)}}>{t('navbar.blog')}</a>
-            </li>
-            { /*<Show when={auth()?.session}>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  class="block py-2 px-3 text-gray-900 rounded-sm cursor-pointer"
-                >
-                  Logout
-                </button>
-              </li>
-            </Show>
-            <Show when={!auth()?.session}>
-              <li>
-                <a href="/login" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
-              </li>
-              <li>
-                <a href="/register" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
-              </li>
-            </Show> */ }
-          </ul>
-        </div>
-        <div class="hidden md:flex items-center">
-          {/* <Show when={auth()?.session}>
-            <button
-              onClick={handleLogout}
-              class="px-4 py-2 mr-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
-            >
-              Logout
-            </button>
-          </Show>
-          <Show when={!auth()?.session}>
-            <a href="/login" class="px-4 py-2 mr-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">{t('navbar.login')}</a>
-            <a href="/register" class="px-4 py-2 mr-2 text-white bg-green-600 rounded-lg hover:bg-green-700">{t('navbar.register')}</a>
-          </Show>
-          */}
-          <button
-            onClick={changeLanguage}
-            class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors"
-            aria-label={lang() === 'id-ID' ? "Switch to English" : "Switch to Indonesian"}
-          >
-            <img
-              src={lang() === 'en-US' ? ukFlag : indonesiaFlag}
-              alt={lang() === 'en-US' ? "United Kingdom Flag" : "Indonesian Flag"}
-              class="w-6 h-4"
-            />
-          </button>
         </div>
       </div>
     </nav>
