@@ -63,7 +63,7 @@ const ResetPassword: Component = () => {
     }
 
     try {
-      await resetPassword(userId, secret, password());
+      await resetPassword(userId as string, secret as string, password());
       setMessage("Your password has been reset successfully. You can now log in.");
       setTimeout(() => {
         navigate("/login");
@@ -113,7 +113,7 @@ const ResetPassword: Component = () => {
             <div class="mt-6">
               <button
                 type="submit"
-                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md cursor-pointer bg-[#3DDC97] hover:bg-[#36c285] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Reset Password
               </button>

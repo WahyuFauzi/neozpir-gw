@@ -1,5 +1,5 @@
 import { useI18n } from "../../i18n/I18nContext";
-import { createSignal, createEffect, Show } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import { useAuthContext } from "../../context/auth.context";
 import { logoutUser } from "../../service/auth.service";
 import indonesiaFlag from "../../assets/indonesia.webp";
