@@ -9,6 +9,7 @@
       "language": "Bahasa",
       "login": "Masuk",
       "register": "Daftar",
+      "partnership": "Kemitraan",
       "languageOptions": {
         "en": "Inggris",
         "id": "Indonesia"
@@ -187,7 +188,13 @@
     },
     "whatsapp": {
       "ctaMessage": "Halo, saya tertarik dengan layanan Neozpir. Bisakah kita menjadwalkan diskusi?",
-      "footerMessage": "Halo, saya punya pertanyaan tentang Neozpir."
-    }
+      "footerMessage": "Halo, saya punya pertanyaan tentang Neozpir.",
+      "partnershipMessage": "Halo, saya tertarik untuk menjadi mitra Neozpir."
+    },
+    "partnershipTitle": "Menjadi Mitra",
+    "partnershipSubtitle": "Bergabunglah bersama kami untuk membuat internet bermanfaat bagi semua orang",
+    "whyPartner": "Mengapa Bermitra dengan Kami?",
+    "partnerBenefit": "Bergabunglah dengan misi kami untuk membuat internet bermanfaat bagi semua orang. Dengan menjadi mitra, Anda tidak hanya akan berkontribusi pada tujuan ini tetapi juga mendapatkan komisi yang kompetitif untuk setiap klien baru yang Anda referensikan. Tim kami yang berdedikasi akan memberi Anda semua sumber daya dan dukungan yang diperlukan untuk berhasil. Tidak ada biaya untuk bergabung, dan Anda bisa langsung mulai menghasilkan.",
+    "becomePartner": "Menjadi Mitra"
   }
 }

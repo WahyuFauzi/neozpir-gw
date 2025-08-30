@@ -9,6 +9,7 @@
       "language": "Language",
       "login": "Login",
       "register": "Register",
+      "partnership": "Partnership",
       "languageOptions": {
         "en": "English",
         "id": "Indonesia"
@@ -191,7 +192,13 @@
     },
     "whatsapp": {
       "ctaMessage": "Hello, I'm interested in Neozpir services. Can we schedule a discussion?",
-      "footerMessage": "Hello, I have a question about Neozpir."
-    }
+      "footerMessage": "Hello, I have a question about Neozpir.",
+      "partnershipMessage": "Hello, I'm interested in becoming a Neozpir partner."
+    },
+    "partnershipTitle": "Become a Partner",
+    "partnershipSubtitle": "Join us to make the internet useful for everyone",
+    "whyPartner": "Why Partner with Us?",
+    "partnerBenefit": "Join our mission to make the internet useful for everyone. By becoming a partner, you'll not only contribute to this goal but also earn a competitive commission for every new client you refer. Our dedicated team will provide you with all the necessary resources and support to succeed. There's no cost to join, and you can start earning right away.",
+    "becomePartner": "Become a Partner"
   }
 }
