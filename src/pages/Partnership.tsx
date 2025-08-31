@@ -1,5 +1,5 @@
 import { useI18n } from '../i18n/I18nContext';
-
+import teamLogo from '../assets/team-amico.webp';
 const Partnership = () => {
   const { t } = useI18n();
 
@@ -15,7 +15,7 @@ const Partnership = () => {
         <div class="flex flex-col items-center justify-center">
           <div class="w-full md:w-1/2">
             <img
-              src="/src/assets/team-amico.webp"
+              src={teamLogo}
               alt="Partnership"
               class="w-full h-auto"
             />

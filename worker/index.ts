@@ -43,6 +43,7 @@ app.get('/sitemap.xml', async (c) => {
   const posts = await getPosts(c);
   const staticPages = [
     { url: 'https://neozpir.com/about', lastmod: '2025-08-18', priority: '0.8' },
+    { url: 'https://neozpir.com/partnership', lastmod: '2025-08-31', priority: '0.8' },
     { url: 'https://neozpir.com/products', lastmod: '2025-08-18', priority: '0.8' },
     { url: 'https://neozpir.com/products/ecommerce', lastmod: '2025-08-18', priority: '0.9' },
     { url: 'https://neozpir.com/products/enterprise', lastmod: '2025-08-18', priority: '0.9' },

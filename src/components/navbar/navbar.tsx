@@ -50,12 +50,6 @@ const Navbar = () => {
               </button>
             </li>
           </Show>
-          <Show when={!auth()?.session}>
-            <li class="flex md:flex-row items-center gap-2 md:hidden">
-              <a href="/login" class="px-4 py-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
-              <a href="/register" class="px-4 py-2 rounded-full bg-[#3DDC97] hover:bg-[#36c285] cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
-            </li>
-          </Show>
           <button
             onClick={changeLanguage}
             class="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-colors mx-4"
@@ -96,6 +90,14 @@ const Navbar = () => {
             <li>
               <a href="/partnership" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.partnership')}</a>
             </li>
+            <Show when={!auth()?.session}>
+              <li class="max-w-32 rounded-full outline-2 outline-gray-500/50 cursor-pointer text-center my-2 md:my-0">
+                <a href="/login" class="block py-2 px-3 hover:bg-gray-200 rounded-full" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
+              </li>
+              <li class="max-w-32 rounded-full cursor-pointer text-center my-2 md:my-0">
+                <a href="/register" class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[#3DDC97] hover:bg-[#36c285]" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+              </li>
+            </Show>
           </ul>
         </div>
         <div>
@@ -107,10 +109,6 @@ const Navbar = () => {
               >
                 Logout
               </button>
-            </Show>
-            <Show when={!auth()?.session}>
-              <a href="/login" class="px-4 py-2 mr-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
-              <a href="/register" class="px-4 py-2 mr-2 rounded-full bg-[#3DDC97] hover:bg-[#36c285] cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
             </Show>
             <button
               onClick={changeLanguage}
