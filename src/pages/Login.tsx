@@ -3,7 +3,7 @@ import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { authService } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
-import { useI18nContext } from "../i18n/I18nContext";
+import { useI18n } from "../i18n/I18nContext";
 
 const Login: Component = () => {
   const [email, setEmail] = createSignal("");
@@ -11,7 +11,7 @@ const Login: Component = () => {
   const [password, setPassword] = createSignal("");
   const [passwordError, setPasswordError] = createSignal("");
   const { auth, setAuth } = useAuthContext();
-  const { t } = useI18nContext();
+  const { t } = useI18n();
   const navigate = useNavigate();
 
   createEffect(() => {
@@ -75,7 +75,7 @@ const Login: Component = () => {
 
   return (
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
-      <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+      <div class="min-w-lg px-8 py-6 mt-4 text-left bg-white shadow-lg">
         <h3 class="text-2xl font-bold text-center">{t('loginPage.title')}</h3>
         <form onSubmit={handleSubmit}>
           <div class="mt-4">

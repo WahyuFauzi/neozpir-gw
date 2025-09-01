@@ -1,13 +1,13 @@
 import type { Component } from "solid-js";
 import { createEffect, createSignal } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
-import { useI18nContext } from "../i18n/I18nContext";
+import { useI18n } from "../i18n/I18nContext";
 import { authService } from "../service/auth.service";
 
 const VerifyEmail: Component = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { t } = useI18nContext();
+  const { t } = useI18n();
   const [verificationStatus, setVerificationStatus] = createSignal(t("verifyEmailPage.verifying"));
 
   createEffect(async () => {
@@ -32,7 +32,7 @@ const VerifyEmail: Component = () => {
 
   return (
     <section class="relative flex flex-col items-center justify-center min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-md w-full space-y-8 p-8 bg-white rounded-xl shadow-lg z-10">
+      <div class="max-w-lg w-full space-y-8 p-8 bg-white rounded-xl shadow-lg z-10">
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
           {t('verifyEmailPage.title')}
         </h2>

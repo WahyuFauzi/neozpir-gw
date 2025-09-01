@@ -3,7 +3,7 @@ import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { authService } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
-import { useI18nContext } from "../i18n/I18nContext";
+import { useI18n } from "../i18n/I18nContext";
 
 const Register: Component = () => {
   const [name, setName] = createSignal("");
@@ -14,7 +14,7 @@ const Register: Component = () => {
   const [passwordError, setPasswordError] = createSignal("");
   const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
   const { auth, setAuth } = useAuthContext();
-  const { t } = useI18nContext();
+  const { t } = useI18n();
   const navigate = useNavigate();
 
   createEffect(() => {
@@ -85,7 +85,7 @@ const Register: Component = () => {
 
   return (
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
-      <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+      <div class="min-w-lg px-8 py-6 mt-4 text-left bg-white shadow-lg">
         <h3 class="text-2xl font-bold text-center">{t('registerPage.title')}</h3>
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
