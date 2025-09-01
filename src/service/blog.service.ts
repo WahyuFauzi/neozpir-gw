@@ -1,47 +1,55 @@
 import axios from 'axios';
-import { getJwt } from './auth.service';
+import { authService } from './auth.service';
 
-const baseUrl = ''; // You might want to configure this properly, e.g., from environment variables
+class BlogService {
+  private baseUrl: string;
 
-export async function getBlogByLangkey(langKey: string): Promise<any> {
-  try {
-    const response = await axios.get(`${baseUrl}/api/blog/${langKey}`); // Example API endpoint
-    return response.data;
-  } catch (error) {
-    throw error; // Re-throw the error for further handling
+  constructor() {
+    this.baseUrl = ''; // You might want to configure this properly, e.g., from environment variables
   }
-}
 
-export async function createBlogPost(postData: any): Promise<any> {
-  try {
-    const token = await getJwt();
-    if (!token) {
-      throw new Error('Not authenticated');
+  async getBlogByLangkey(langKey: string): Promise<any> {
+    try {
+      const response = await axios.get(`${this.baseUrl}/api/blog/${langKey}`); // Example API endpoint
+      return response.data;
+    } catch (error) {
+      throw error; // Re-throw the error for further handling
     }
-    const response = await axios.post(`${baseUrl}/api/blog`, postData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
+  }
+
+  async createBlogPost(postData: any): Promise<any> {
+    try {
+      const token = await authService.getJwt();
+      if (!token) {
+        throw new Error('Not authenticated');
+      }
+      const response = await axios.post(`${this.baseUrl}/api/blog`, postData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateBlogPost(langKey: string, title: string, postData: any): Promise<any> {
+    try {
+      const token = await authService.getJwt();
+      if (!token) {
+        throw new Error('Not authenticated');
+      }
+      const response = await axios.put(`${this.baseUrl}/api/blog/${langKey}/${title}`, postData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 }
 
-export async function updateBlogPost(langKey: string, title: string, postData: any): Promise<any> {
-  try {
-    const token = await getJwt();
-    if (!token) {
-      throw new Error('Not authenticated');
-    }
-    const response = await axios.put(`${baseUrl}/api/blog/${langKey}/${title}`, postData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-}
+export const blogService = new BlogService();

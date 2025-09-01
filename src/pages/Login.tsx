@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { loginUser, getJwt, getCurrentUser } from "../service/auth.service";
+import { authService } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 
 const Login: Component = () => {
@@ -59,10 +59,10 @@ const Login: Component = () => {
     }
 
     try {
-      await loginUser(email(), password()); // setup session
-      const user = await getCurrentUser();
+      await authService.loginUser(email(), password()); // setup session
+      const user = await authService.getCurrentUser();
       if (user) {
-        const jwt = await getJwt();
+        const jwt = await authService.getJwt();
         setAuth({ session: user, providedToken: jwt });
       }
       navigate("/");

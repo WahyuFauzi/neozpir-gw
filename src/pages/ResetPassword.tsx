@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
-import { resetPassword } from "../service/auth.service";
+import { authService } from "../service/auth.service";
 
 const ResetPassword: Component = () => {
   const [searchParams] = useSearchParams();
@@ -63,7 +63,7 @@ const ResetPassword: Component = () => {
     }
 
     try {
-      await resetPassword(userId as string, secret as string, password());
+      await authService.resetPassword(userId as string, secret as string, password());
       setMessage("Your password has been reset successfully. You can now log in.");
       setTimeout(() => {
         navigate("/login");

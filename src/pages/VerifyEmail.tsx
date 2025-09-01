@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createEffect, createSignal } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
-import { completeEmailVerification } from "../service/auth.service";
+import { authService } from "../service/auth.service";
 
 const VerifyEmail: Component = () => {
   const [searchParams] = useSearchParams();
@@ -14,7 +14,7 @@ const VerifyEmail: Component = () => {
 
     if (userId && secret) {
       try {
-        await completeEmailVerification(userId as string, secret as string);
+        await authService.completeEmailVerification(userId as string, secret as string);
         setVerificationStatus("Email verified successfully! Redirecting to login...");
         setTimeout(() => {
           navigate("/login");

@@ -1,6 +1,6 @@
 import { createSignal, onMount } from "solid-js";
 import { createContext, useContext } from "solid-js";
-import { getCurrentUser, getJwt } from "../service/auth.service";
+import { authService } from "../service/auth.service";
 
 const AuthContext = createContext();
 
@@ -14,9 +14,9 @@ export function AuthProvider(props: any) {
 
   onMount(async () => {
     try {
-      const user = await getCurrentUser();
+      const user = await authService.getCurrentUser();
       if (user) {
-        const jwt = await getJwt();
+        const jwt = await authService.getJwt();
         setAuth({ session: user, providedToken: jwt });
       }
     } catch (error) {
