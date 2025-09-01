@@ -2,12 +2,12 @@ import { createSignal, createResource, For, createEffect, Show } from 'solid-js'
 import { CTASchedule } from '../../components/cta/cta';
 import shopifyLogo from '../../assets/shopify.webp';
 import { useI18n } from '../../i18n/I18nContext';
-import { getAllPlans } from '../../service/product.service';
+import { productService } from '../../service/product.service';
 
 const ShopifyService = () => {
   const { t }  = useI18n();
   const [isYearly, setIsYearly] = createSignal(false);
-  const [productList] = createResource(() => t('selectedLanguage'), getAllPlans);
+  const [productList] = createResource(() => t('selectedLanguage'), productService.getAllPlans);
 
   // Optional: Effect to log language changes, without causing re-fetch loop
   createEffect(() => {

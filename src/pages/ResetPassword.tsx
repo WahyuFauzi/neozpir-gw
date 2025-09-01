@@ -1,8 +1,8 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
-import { resetPassword } from "../service/auth.service";
 import { useI18nContext } from "../i18n/I18nContext";
+import { authService } from "../service/auth.service";
 
 const ResetPassword: Component = () => {
   const [searchParams] = useSearchParams();
@@ -65,8 +65,8 @@ const ResetPassword: Component = () => {
     }
 
     try {
-      await resetPassword(userId as string, secret as string, password());
-      setMessage(t("resetPasswordPage.successMessage"));
+      await authService.resetPassword(userId as string, secret as string, password());
+      setMessage("Your password has been reset successfully. You can now log in.");
       setTimeout(() => {
         navigate("/login");
       }, 3000);
@@ -115,7 +115,7 @@ const ResetPassword: Component = () => {
             <div class="mt-6">
               <button
                 type="submit"
-                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md cursor-pointer bg-[#3DDC97] hover:bg-[#36c285] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 {t('resetPasswordPage.resetButton')}
               </button>

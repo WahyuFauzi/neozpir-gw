@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { createUser, getCurrentUser, getJwt } from "../service/auth.service";
+import { authService } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
 import { useI18nContext } from "../i18n/I18nContext";
 
@@ -71,10 +71,10 @@ const Register: Component = () => {
     }
 
     try {
-      await createUser(email(), password(), name());
-      const user = await getCurrentUser();
+      await authService.createUser(email(), password(), name());
+      const user = await authService.getCurrentUser();
       if (user) {
-        const jwt = await getJwt();
+        const jwt = await authService.getJwt();
         setAuth({ session: user, providedToken: jwt });
       }
       navigate("/");

@@ -1,7 +1,7 @@
 import { useI18n } from "../../i18n/I18nContext";
-import { createSignal, createEffect, Show } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import { useAuthContext } from "../../context/auth.context";
-import { logoutUser } from "../../service/auth.service";
+import { authService } from "../../service/auth.service";
 import indonesiaFlag from "../../assets/indonesia.webp";
 import ukFlag from "../../assets/united-kingdom-flag.webp";
 
@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await logoutUser();
+      await authService.logoutUser();
       setAuth({ session: null, providedToken: null });
     } catch (error) {
       console.error("Error logging out:", error);
@@ -48,12 +48,6 @@ const Navbar = () => {
               >
                 Logout
               </button>
-            </li>
-          </Show>
-          <Show when={!auth()?.session}>
-            <li class="flex md:flex-row items-center gap-2 md:hidden">
-              <a href="/login" class="px-4 py-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
-              <a href="/register" class="px-4 py-2 rounded-full bg-[#3DDC97] hover:bg-[#36c285] cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
             </li>
           </Show>
           <button
@@ -93,6 +87,17 @@ const Navbar = () => {
             <li>
                <a href="/blog" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.blog')}</a>
             </li>
+            <li>
+              <a href="/partnership" class="block py-2 px-3 text-gray-900 rounded-sm" onClick={() => {setMenuOpen(false)}}>{t('navbar.partnership')}</a>
+            </li>
+            <Show when={!auth()?.session}>
+              <li class="max-w-32 rounded-full outline-2 outline-gray-500/50 cursor-pointer text-center my-2 md:my-0 md:hidden">
+                <a href="/login" class="block py-2 px-3 hover:bg-gray-200 rounded-full" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
+              </li>
+              <li class="max-w-32 rounded-full cursor-pointer text-center my-2 md:my-0 md:hidden">
+                <a href="/register" class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[#3DDC97] hover:bg-[#36c285]" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+              </li>
+            </Show>
           </ul>
         </div>
         <div>
@@ -106,8 +111,12 @@ const Navbar = () => {
               </button>
             </Show>
             <Show when={!auth()?.session}>
-              <a href="/login" class="px-4 py-2 mr-2 rounded-full hover:bg-gray-200 outline-2 outline-gray-500/50 cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
-              <a href="/register" class="px-4 py-2 mr-2 rounded-full bg-[#3DDC97] hover:bg-[#36c285] cursor-pointer" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+              <div class="max-w-32 rounded-full outline-2 outline-gray-500/50 cursor-pointer text-center my-2 mx-2 hidden md:my-0 md:block">
+                <a href="/login" class="block py-2 px-3 hover:bg-gray-200 rounded-full" onClick={() => setMenuOpen(false)}>{t('navbar.login')}</a>
+              </div>
+              <div class="max-w-32 rounded-full cursor-pointer text-center my-2 hidden md:my-0 md:block mx-2">
+                <a href="/register" class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[#3DDC97] hover:bg-[#36c285]" onClick={() => setMenuOpen(false)}>{t('navbar.register')}</a>
+              </div>
             </Show>
             <button
               onClick={changeLanguage}

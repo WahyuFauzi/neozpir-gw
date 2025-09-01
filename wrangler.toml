@@ -9,7 +9,7 @@ NODE_ENV = "development"
 directory = "./dist/"
 not_found_handling = "single-page-application"
 binding = "ASSETS"
-run_worker_first = [ "/api/*", "!/api/docs/*" ]
+run_worker_first = [ "/api/*", "/sitemap.xml", "!/api/docs/*" ]
 
 # D1 database binding
 [[d1_databases]]

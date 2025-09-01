@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 import { createSignal } from "solid-js";
-import { forgotPassword } from "../service/auth.service";
+import { authService } from "../service/auth.service";
 
 const ForgotPassword: Component = () => {
   const [email, setEmail] = createSignal("");
@@ -16,7 +16,7 @@ const ForgotPassword: Component = () => {
       // The URL below should be the full URL to your reset password page
       // For example: https://yourdomain.com/reset-password
       const resetUrl = `${window.location.origin}/reset-password`;
-      await forgotPassword(email(), resetUrl);
+      await authService.forgotPassword(email(), resetUrl);
       setMessage("If an account with that email exists, a password reset link has been sent to your email address.");
     } catch (err) {
       setError("Failed to send password reset email. Please try again.");

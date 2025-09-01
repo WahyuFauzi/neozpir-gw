@@ -2,12 +2,12 @@ import { createSignal, createResource, For, createEffect, Show } from 'solid-js'
 import { CTASchedule } from '../../components/cta/cta';
 import automationLogo from '../../assets/configuration.webp';
 import { useI18n } from '../../i18n/I18nContext';
-import { getAutomationPlans } from '../../service/product.service';
+import { productService } from '../../service/product.service';
 
 const AutomationService = () => {
   const { t }  = useI18n();
   const [isYearly, setIsYearly] = createSignal(false);
-  const [productList] = createResource(() => t('selectedLanguage'), getAutomationPlans);
+  const [productList] = createResource(() => t('selectedLanguage'), productService.getAutomationPlans);
 
   // Optional: Effect to log language changes, without causing re-fetch loop
   createEffect(() => {
