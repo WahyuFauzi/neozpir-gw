@@ -2,10 +2,12 @@ import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
 import { resetPassword } from "../service/auth.service";
+import { useI18nContext } from "../i18n/I18nContext";
 
 const ResetPassword: Component = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { t } = useI18nContext();
 
   const [password, setPassword] = createSignal("");
   const [confirmPassword, setConfirmPassword] = createSignal("");
@@ -20,19 +22,19 @@ const ResetPassword: Component = () => {
 
   createEffect(() => {
     if (!userId || !secret) {
-      setError("Invalid or missing password reset link.");
+      setError(t("resetPasswordPage.invalidOrMissingLink"));
     }
   });
 
   const validatePassword = (pwd: string) => {
     if (pwd.length < 8) {
-      return "Password must be at least 8 characters long.";
+      return "resetPasswordPage.passwordTooShort";
     }
     if (!/[0-9]/.test(pwd)) {
-      return "Password must contain at least one number.";
+      return "resetPasswordPage.passwordNoNumber";
     }
     if (!/[a-zA-Z]/.test(pwd)) {
-      return "Password must contain at least one letter.";
+      return "resetPasswordPage.passwordNoLetter";
     }
     return "";
   };
@@ -51,25 +53,25 @@ const ResetPassword: Component = () => {
     }
 
     if (password() !== confirmPassword()) {
-      setConfirmPasswordError("Passwords do not match!");
+      setConfirmPasswordError(t("resetPasswordPage.passwordMismatch"));
       return;
     } else {
       setConfirmPasswordError("");
     }
 
     if (!userId || !secret) {
-      setError("Invalid password reset link.");
+      setError(t("resetPasswordPage.invalidLink"));
       return;
     }
 
     try {
-      await resetPassword(userId, secret, password());
-      setMessage("Your password has been reset successfully. You can now log in.");
+      await resetPassword(userId as string, secret as string, password());
+      setMessage(t("resetPasswordPage.successMessage"));
       setTimeout(() => {
         navigate("/login");
       }, 3000);
     } catch (err) {
-      setError("Failed to reset password. The link might be expired or invalid.");
+      setError(t("resetPasswordPage.failedMessage"));
       console.error("Reset password error:", err);
     }
   };
@@ -77,35 +79,35 @@ const ResetPassword: Component = () => {
   return (
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
       <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
-        <h3 class="text-2xl font-bold text-center">Reset Password</h3>
+        <h3 class="text-2xl font-bold text-center">{t('resetPasswordPage.title')}</h3>
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <div>
-              <label class="block">New Password</label>
+              <label class="block">{t('resetPasswordPage.newPasswordLabel')}</label>
               <input
                 type="password"
-                placeholder="New Password"
+                placeholder={t('resetPasswordPage.newPasswordPlaceholder')}
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={password()}
                 onInput={(e) => setPassword(e.currentTarget.value)}
                 required
               />
               {passwordError() && (
-                <p class="text-red-500 text-xs mt-1">{passwordError()}</p>
+                <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>
               )}
             </div>
             <div class="mt-4">
-              <label class="block">Confirm New Password</label>
+              <label class="block">{t('resetPasswordPage.confirmNewPasswordLabel')}</label>
               <input
                 type="password"
-                placeholder="Confirm New Password"
+                placeholder={t('resetPasswordPage.confirmNewPasswordPlaceholder')}
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={confirmPassword()}
                 onInput={(e) => setConfirmPassword(e.currentTarget.value)}
                 required
               />
               {confirmPasswordError() && (
-                <p class="text-red-500 text-xs mt-1">{confirmPasswordError()}</p>
+                <p class="text-red-500 text-xs mt-1">{t(confirmPasswordError())}</p>
               )}
             </div>
             {message() && <p class="text-green-500 text-sm mt-4">{message()}</p>}
@@ -115,7 +117,7 @@ const ResetPassword: Component = () => {
                 type="submit"
                 class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Reset Password
+                {t('resetPasswordPage.resetButton')}
               </button>
             </div>
           </div>

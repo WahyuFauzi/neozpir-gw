@@ -3,6 +3,7 @@ import { createSignal, createEffect } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { createUser, getCurrentUser, getJwt } from "../service/auth.service";
 import { useAuthContext } from "../context/auth.context";
+import { useI18nContext } from "../i18n/I18nContext";
 
 const Register: Component = () => {
   const [name, setName] = createSignal("");
@@ -13,6 +14,7 @@ const Register: Component = () => {
   const [passwordError, setPasswordError] = createSignal("");
   const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
   const { auth, setAuth } = useAuthContext();
+  const { t } = useI18nContext();
   const navigate = useNavigate();
 
   createEffect(() => {
@@ -24,20 +26,20 @@ const Register: Component = () => {
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-      return "Please enter a valid email address.";
+      return "registerPage.emailInvalid";
     }
     return "";
   };
 
   const validatePassword = (pwd: string) => {
     if (pwd.length < 8) {
-      return "Password must be at least 8 characters long.";
+      return "registerPage.passwordTooShort";
     }
     if (!/[0-9]/.test(pwd)) {
-      return "Password must contain at least one number.";
+      return "registerPage.passwordNoNumber";
     }
     if (!/[a-zA-Z]/.test(pwd)) {
-      return "Password must contain at least one letter.";
+      return "registerPage.passwordNoLetter";
     }
     return "";
   };
@@ -62,7 +64,7 @@ const Register: Component = () => {
     }
 
     if (password() !== confirmPassword()) {
-      setConfirmPasswordError("Passwords do not match!");
+      setConfirmPasswordError("registerPage.confirmPasswordMismatch");
       return;
     } else {
       setConfirmPasswordError("");
@@ -84,14 +86,14 @@ const Register: Component = () => {
   return (
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
       <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
-        <h3 class="text-2xl font-bold text-center">Create a new account</h3>
+        <h3 class="text-2xl font-bold text-center">{t('registerPage.title')}</h3>
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <div>
-              <label class="block" for="name">Name</label>
+              <label class="block" for="name">{t('registerPage.nameLabel')}</label>
               <input
                 type="text"
-                placeholder="Name"
+                placeholder={t('registerPage.namePlaceholder')}
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={name()}
                 onInput={(e) => setName(e.currentTarget.value)}
@@ -99,45 +101,45 @@ const Register: Component = () => {
               />
             </div>
             <div class="mt-4">
-              <label class="block" for="email">Email</label>
+              <label class="block" for="email">{t('registerPage.emailLabel')}</label>
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t('registerPage.emailPlaceholder')}
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={email()}
                 onInput={(e) => setEmail(e.currentTarget.value)}
                 required
               />
               {emailError() && (
-                <p class="text-red-500 text-xs mt-1">{emailError()}</p>
+                <p class="text-red-500 text-xs mt-1">{t(emailError())}</p>
               )}
             </div>
             <div class="mt-4">
-              <label class="block">Password</label>
+              <label class="block">{t('registerPage.passwordLabel')}</label>
               <input
                 type="password"
-                placeholder="Password"
+                placeholder={t('registerPage.passwordPlaceholder')}
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={password()}
                 onInput={(e) => setPassword(e.currentTarget.value)}
                 required
               />
               {passwordError() && (
-                <p class="text-red-500 text-xs mt-1">{passwordError()}</p>
+                <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>
               )}
             </div>
             <div class="mt-4">
-              <label class="block">Confirm Password</label>
+              <label class="block">{t('registerPage.confirmPasswordLabel')}</label>
               <input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder={t('registerPage.confirmPasswordPlaceholder')}
                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 value={confirmPassword()}
                 onInput={(e) => setConfirmPassword(e.currentTarget.value)}
                 required
               />
               {confirmPasswordError() && (
-                <p class="text-red-500 text-xs mt-1">{confirmPasswordError()}</p>
+                <p class="text-red-500 text-xs mt-1">{t(confirmPasswordError())}</p>
               )}
             </div>
             <div class="mt-6">
@@ -145,7 +147,7 @@ const Register: Component = () => {
                 type="submit"
                 class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md cursor-pointer bg-[#3DDC97] hover:bg-[#36c285] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Register
+                {t('registerPage.registerButton')}
               </button>
             </div>
           </div>

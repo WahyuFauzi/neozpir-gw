@@ -191,7 +191,66 @@
     },
     "whatsapp": {
       "ctaMessage": "Hello, I'm interested in Neozpir services. Can we schedule a discussion?",
-      "footerMessage": "Hello, I have a question about Neozpir."
-    }
+      "footerMessage": "Hello, I have a question about Neozpir.",
+      "partnershipMessage": "Hello, I'm interested in becoming a Neozpir partner."
+    },
+    "partnershipTitle": "Become a Partner",
+    "partnershipSubtitle": "Join us to make the internet useful for everyone",
+    "whyPartner": "Why Partner with Us?",
+    "partnerBenefit": "Join our mission to make the internet useful for everyone. By becoming a partner, you'll not only contribute to this goal but also earn a competitive commission for every new client you refer. Our dedicated team will provide you with all the necessary resources and support to succeed. There's no cost to join, and you can start earning right away.",
+    "becomePartner": "Become a Partner"
+  },
+  "loginPage": {
+    "title": "Login to your account",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Email",
+    "emailInvalid": "Please enter a valid email address.",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password",
+    "passwordTooShort": "Password must be at least 8 characters long.",
+    "passwordNoNumber": "Password must contain at least one number.",
+    "passwordNoLetter": "Password must contain at least one letter.",
+    "forgotPassword": "Forgot your password?",
+    "loginButton": "Login"
+  },
+  "registerPage": {
+    "title": "Create a new account",
+    "nameLabel": "Name",
+    "namePlaceholder": "Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Email",
+    "emailInvalid": "Please enter a valid email address.",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password",
+    "passwordTooShort": "Password must be at least 8 characters long.",
+    "passwordNoNumber": "Password must contain at least one number.",
+    "passwordNoLetter": "Password must contain at least one letter.",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "confirmPasswordMismatch": "Passwords do not match!",
+    "registerButton": "Register"
+  },
+  "verifyEmailPage": {
+    "title": "Email Verification",
+    "verifying": "Verifying...",
+    "success": "Email verified successfully! Redirecting to login...",
+    "failed": "Email verification failed. Please try again or contact support.",
+    "invalidLink": "Invalid verification link."
+  },
+  "resetPasswordPage": {
+    "title": "Reset Password",
+    "invalidOrMissingLink": "Invalid or missing password reset link.",
+    "passwordTooShort": "Password must be at least 8 characters long.",
+    "passwordNoNumber": "Password must contain at least one number.",
+    "passwordNoLetter": "Password must contain at least one letter.",
+    "passwordMismatch": "Passwords do not match!",
+    "invalidLink": "Invalid password reset link.",
+    "successMessage": "Your password has been reset successfully. You can now log in.",
+    "failedMessage": "Failed to reset password. The link might be expired or invalid.",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "New Password",
+    "confirmNewPasswordLabel": "Confirm New Password",
+    "confirmNewPasswordPlaceholder": "Confirm New Password",
+    "resetButton": "Reset Password"
   }
 }
