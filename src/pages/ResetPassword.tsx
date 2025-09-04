@@ -2,12 +2,13 @@ import type { Component } from "solid-js";
 import { createSignal, createEffect } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
 import { useI18n } from "../i18n/I18nContext";
-import { authService } from "../service/auth.service";
+import AuthService from "../service/auth.service";
 
 const ResetPassword: Component = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { t } = useI18n();
+  const authService = new AuthService();
 
   const [password, setPassword] = createSignal("");
   const [confirmPassword, setConfirmPassword] = createSignal("");

@@ -1,6 +1,6 @@
 import { createSignal, onMount } from "solid-js";
 import { createContext, useContext } from "solid-js";
-import { authService } from "../service/auth.service";
+import AuthService from "../service/auth.service";
 
 const AuthContext = createContext();
 
@@ -11,6 +11,7 @@ interface IAuth {
 
 export function AuthProvider(props: any) {
   const [auth, setAuth] = createSignal({ session: null, providedToken: null } as IAuth);
+  const authService = new AuthService();
 
   onMount(async () => {
     try {

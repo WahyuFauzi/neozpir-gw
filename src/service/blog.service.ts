@@ -1,8 +1,14 @@
 import axios from 'axios';
-import { authService } from './auth.service';
+import AuthService from './auth.service';
 
 class BlogService {
   private baseUrl: string;
+  private authService: AuthService;
+
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl; // You might want to configure this properly, e.g., from environment variables
+    this.authService = new AuthService();
+  }
 
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl; // You might want to configure this properly, e.g., from environment variables
@@ -19,7 +25,7 @@ class BlogService {
 
   async createBlogPost(postData: any): Promise<any> {
     try {
-      const token = await authService.getJwt();
+      const token = await this.authService.getJwt();
       if (!token) {
         throw new Error('Not authenticated');
       }
@@ -36,7 +42,7 @@ class BlogService {
 
   async updateBlogPost(langKey: string, title: string, postData: any): Promise<any> {
     try {
-      const token = await authService.getJwt();
+      const token = await this.authService.getJwt();
       if (!token) {
         throw new Error('Not authenticated');
       }

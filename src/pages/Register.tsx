@@ -16,6 +16,7 @@ const Register: Component = () => {
   const { auth, setAuth } = useAuthContext();
   const { t } = useI18n();
   const navigate = useNavigate();
+  const authService = new AuthService();
 
   createEffect(() => {
     if (auth()?.session) {

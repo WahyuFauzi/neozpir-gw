@@ -2,13 +2,14 @@ import type { Component } from "solid-js";
 import { createEffect, createSignal } from "solid-js";
 import { useSearchParams, useNavigate } from "@solidjs/router";
 import { useI18n } from "../i18n/I18nContext";
-import { authService } from "../service/auth.service";
+import AuthService from "../service/auth.service";
 
 const VerifyEmail: Component = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { t } = useI18n();
   const [verificationStatus, setVerificationStatus] = createSignal(t("verifyEmailPage.verifying"));
+  const authService = new AuthService();
 
   createEffect(async () => {
     const userId = searchParams.userId;

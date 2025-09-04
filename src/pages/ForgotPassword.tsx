@@ -1,11 +1,12 @@
 import type { Component } from "solid-js";
 import { createSignal } from "solid-js";
-import { authService } from "../service/auth.service";
+import AuthService from "../service/auth.service";
 
 const ForgotPassword: Component = () => {
   const [email, setEmail] = createSignal("");
   const [message, setMessage] = createSignal("");
   const [error, setError] = createSignal("");
+  const authService = new AuthService();
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 import { useI18n } from "../../i18n/I18nContext";
 import { createSignal, Show } from "solid-js";
 import { useAuthContext } from "../../context/auth.context";
-import { authService } from "../../service/auth.service";
+import AuthService from "../../service/auth.service";
 import indonesiaFlag from "../../assets/indonesia.webp";
 import ukFlag from "../../assets/united-kingdom-flag.webp";
 
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = createSignal(false);
   const [lang, setLang] = createSignal(t('selectedLanguage'));
   const { auth, setAuth } = useAuthContext();
+  const authService = new AuthService();
 
   const changeLanguage = () => {
     if(lang() == 'en-US') {
