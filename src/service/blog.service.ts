@@ -5,7 +5,7 @@ class BlogService {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = ''; // You might want to configure this properly, e.g., from environment variables
+    this.baseUrl = import.meta.env.VITE_BASE_URL || ''; // You might want to configure this properly, e.g., from environment variables
   }
 
   async getBlogByLangkey(langKey: string): Promise<any> {

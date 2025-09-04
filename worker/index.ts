@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 import admin from './admin.ts';
 import product from './product.ts';
 import blog from './blog.ts';
@@ -7,6 +8,18 @@ import { blog as blogSchema } from './db/schema.ts';
 import { eq, and } from 'drizzle-orm';
 
 const app = new Hono();
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://neozpir.com", "https://www.neozpir.com"],
+    allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests', 'Content-Type'],
+    allowMethods: ['POST', 'GET', 'PUT', 'DELETE', 'OPTIONS'],
+    exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
+    maxAge: 600,
+    credentials: true,
+  })
+);
+
 app.route('/api/admin', admin);
 app.route('/api/product', product);
 app.route('/api/blog', blog);

@@ -3,8 +3,8 @@ import axios from 'axios';
 class ProductService {
   private baseUrl: string;
 
-  constructor() {
-    this.baseUrl = ''; // You might want to configure this properly, e.g., from environment variables
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl; // You might want to configure this properly, e.g., from environment variables
   }
 
   async getAllPlans(langKey: string): Promise<any> {
@@ -35,4 +35,4 @@ class ProductService {
   }
 }
 
-export const productService = new ProductService();
+export default ProductService;
