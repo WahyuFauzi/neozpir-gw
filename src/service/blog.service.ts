@@ -4,8 +4,8 @@ import { authService } from './auth.service';
 class BlogService {
   private baseUrl: string;
 
-  constructor() {
-    this.baseUrl = import.meta.env.VITE_BASE_URL || ''; // You might want to configure this properly, e.g., from environment variables
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl; // You might want to configure this properly, e.g., from environment variables
   }
 
   async getBlogByLangkey(langKey: string): Promise<any> {
@@ -52,4 +52,4 @@ class BlogService {
   }
 }
 
-export const blogService = new BlogService();
+export default BlogService;

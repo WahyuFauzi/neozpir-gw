@@ -1,6 +1,6 @@
 import { createResource, For, createEffect } from 'solid-js';
 import { useI18n } from '../i18n/I18nContext';
-import { blogService } from '../service/blog.service';
+import BlogService from '../service/blog.service';
 import defaultThumbnail from '../assets/default-thumbnail.jpeg';
 import { A } from '@solidjs/router';
 
@@ -13,7 +13,11 @@ const formatTitleForDisplay = (title: string) => {
 
 const BlogList = () => {
   const { t } = useI18n();
-  const [blogPosts] = createResource(() => t('selectedLanguage'), blogService.getBlogByLangkey);
+  const blogService = new BlogService(import.meta.env.VITE_BASE_URL);
+  const [blogPosts] = createResource(
+    () => t('selectedLanguage'),
+    (langKey) => blogService.getBlogByLangkey(langKey)
+  );
 
   createEffect(() => {
     const currentLanguage = t('selectedLanguage');

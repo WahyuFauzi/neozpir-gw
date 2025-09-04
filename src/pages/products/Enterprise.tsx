@@ -7,7 +7,6 @@ import ProductService from '../../service/product.service';
 const EnterpriseService = () => {
   const { t }  = useI18n();
   const [isYearly, setIsYearly] = createSignal(false);
-  console.log(import.meta.env.VITE_BASE_URL);
   const productService = new ProductService(import.meta.env.VITE_BASE_URL);
   const [productList] = createResource(
     () => t('selectedLanguage'),

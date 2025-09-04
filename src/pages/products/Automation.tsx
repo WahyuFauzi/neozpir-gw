@@ -6,7 +6,6 @@ import ProductService from '../../service/product.service';
 
 const AutomationService = () => {
   const { t }  = useI18n();
-  console.log(import.meta.env.VITE_BASE_URL);
   const productService = new ProductService(import.meta.env.VITE_BASE_URL);
   const [isYearly, setIsYearly] = createSignal(false);
   const [productList] = createResource(
