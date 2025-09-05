@@ -1,17 +1,17 @@
-import { createSignal, createEffect, Show } from "solid-js";
-import { useParams } from "@solidjs/router";
+import { createSignal, createEffect, Show } from 'solid-js';
+import { useParams } from '@solidjs/router';
 import { useI18n } from '../i18n/I18nContext.tsx';
 
 function Blog() {
-  const [content, setContent] = createSignal("");
-  const [contentText, setContentText] = createSignal("");
-  const [title, setTitle] = createSignal("");
-  const [titleDisplay, setTitleDisplay] = createSignal("");
-  const [author, setAuthor] = createSignal("");
-  const [publishDate, setPublishDate] = createSignal("");
-  const [category, setCategory] = createSignal("");
+  const [content, setContent] = createSignal('');
+  const [contentText, setContentText] = createSignal('');
+  const [title, setTitle] = createSignal('');
+  const [titleDisplay, setTitleDisplay] = createSignal('');
+  const [author, setAuthor] = createSignal('');
+  const [publishDate, setPublishDate] = createSignal('');
+  const [category, setCategory] = createSignal('');
   const [isEditing, setIsEditing] = createSignal(false);
-  const isAdmin = localStorage.getItem("adminToken") === "tempStupidKey101";
+  const isAdmin = localStorage.getItem('adminToken') === 'tempStupidKey101';
 
   const params = useParams();
   const { t } = useI18n();
@@ -32,11 +32,11 @@ function Blog() {
         setPublishDate(data.publishDate);
         setCategory(data.category);
       } else {
-        console.error("Failed to fetch blog post:", res.status, res.statusText);
-        setContent("<p>Error loading blog post.</p>");
+        console.error('Failed to fetch blog post:', res.status, res.statusText);
+        setContent('<p>Error loading blog post.</p>');
       }
     } else {
-      setContent("<p>Blog post not specified.</p>");
+      setContent('<p>Blog post not specified.</p>');
     }
   });
 
@@ -79,16 +79,43 @@ function Blog() {
           when={!isEditing()}
           fallback={
             <div>
-              <input type="text" value={titleDisplay()} onInput={(e) => setTitleDisplay(e.currentTarget.value)} class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mb-4 w-full" />
+              <input
+                type="text"
+                value={titleDisplay()}
+                onInput={(e) => setTitleDisplay(e.currentTarget.value)}
+                class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mb-4 w-full"
+              />
               <div class="text-gray-600">
-                <input type="text" value={author()} onInput={(e) => setAuthor(e.currentTarget.value)} class="w-full mb-2" placeholder="Author" />
-                <input type="date" value={publishDate()} onInput={(e) => setPublishDate(e.currentTarget.value)} class="w-full mb-2" />
-                <input type="text" value={category()} onInput={(e) => setCategory(e.currentTarget.value)} class="w-full mb-2" placeholder="Category" />
+                <input
+                  type="text"
+                  value={author()}
+                  onInput={(e) => setAuthor(e.currentTarget.value)}
+                  class="w-full mb-2"
+                  placeholder="Author"
+                />
+                <input
+                  type="date"
+                  value={publishDate()}
+                  onInput={(e) => setPublishDate(e.currentTarget.value)}
+                  class="w-full mb-2"
+                />
+                <input
+                  type="text"
+                  value={category()}
+                  onInput={(e) => setCategory(e.currentTarget.value)}
+                  class="w-full mb-2"
+                  placeholder="Category"
+                />
               </div>
             </div>
           }
         >
-          {title() && <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mb-4"> {title()} </h1>}
+          {title() && (
+            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mb-4">
+              {' '}
+              {title()}{' '}
+            </h1>
+          )}
           <div class="text-gray-600">
             {author() && <p>By: {author()}</p>}
             {publishDate() && <p>Published on: {new Date(publishDate()).toLocaleDateString()}</p>}
@@ -101,7 +128,11 @@ function Blog() {
         when={!isEditing()}
         fallback={
           <div class="max-w-prose mx-auto">
-            <textarea class="w-full h-96 border rounded-md p-2" value={contentText()} onInput={(e) => setContentText(e.currentTarget.value)} />
+            <textarea
+              class="w-full h-96 border rounded-md p-2"
+              value={contentText()}
+              onInput={(e) => setContentText(e.currentTarget.value)}
+            />
           </div>
         }
       >

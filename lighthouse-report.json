@@ -201,9 +201,7 @@
     }
   },
   "configSettings": {
-    "output": [
-      "json"
-    ],
+    "output": ["json"],
     "maxWaitForFcp": 30000,
     "maxWaitForLoad": 45000,
     "pauseAfterFcpMs": 1000,
@@ -230,12 +228,7 @@
     "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
     "auditMode": false,
     "gatherMode": false,
-    "clearStorageTypes": [
-      "file_systems",
-      "shader_cache",
-      "service_workers",
-      "cache_storage"
-    ],
+    "clearStorageTypes": ["file_systems", "shader_cache", "service_workers", "cache_storage"],
     "disableStorageReset": false,
     "debugNavigation": false,
     "channel": "cli",
@@ -250,9 +243,7 @@
     "extraHeaders": null,
     "precomputedLanternData": null,
     "onlyAudits": null,
-    "onlyCategories": [
-      "seo"
-    ],
+    "onlyCategories": ["seo"],
     "skipAudits": null
   },
   "categories": {
@@ -260,10 +251,7 @@
       "title": "SEO",
       "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769).",
       "manualDescription": "Run these additional validators on your site to check additional SEO best practices.",
-      "supportedModes": [
-        "navigation",
-        "snapshot"
-      ],
+      "supportedModes": ["navigation", "snapshot"],
       "auditRefs": [
         {
           "id": "is-crawlable",
@@ -400,67 +388,50 @@
   "entities": [
     {
       "name": "neozpir.com",
-      "origins": [
-        "https://neozpir.com"
-      ],
+      "origins": ["https://neozpir.com"],
       "isFirstParty": true,
       "isUnrecognized": true
     },
     {
       "name": "Google Tag Manager",
       "homepage": "https://marketingplatform.google.com/about/tag-manager/",
-      "origins": [
-        "https://www.googletagmanager.com"
-      ],
+      "origins": ["https://www.googletagmanager.com"],
       "category": "tag-manager"
     },
     {
       "name": "Google Fonts",
       "homepage": "https://fonts.google.com/",
-      "origins": [
-        "https://fonts.googleapis.com",
-        "https://fonts.gstatic.com"
-      ],
+      "origins": ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
       "category": "cdn"
     },
     {
       "name": "Cloudflare CDN",
       "homepage": "https://cdnjs.com/",
-      "origins": [
-        "https://cdnjs.cloudflare.com"
-      ],
+      "origins": ["https://cdnjs.cloudflare.com"],
       "category": "cdn"
     },
     {
       "name": "Cloudflare",
       "homepage": "https://www.cloudflare.com/website-optimization/",
-      "origins": [
-        "https://static.cloudflareinsights.com"
-      ],
+      "origins": ["https://static.cloudflareinsights.com"],
       "category": "utility"
     },
     {
       "name": "Google Analytics",
       "homepage": "https://marketingplatform.google.com/about/analytics/",
-      "origins": [
-        "https://analytics.google.com"
-      ],
+      "origins": ["https://analytics.google.com"],
       "category": "analytics"
     },
     {
       "name": "Google/Doubleclick Ads",
       "homepage": "https://marketingplatform.google.com/about/enterprise/",
-      "origins": [
-        "https://stats.g.doubleclick.net"
-      ],
+      "origins": ["https://stats.g.doubleclick.net"],
       "category": "ad"
     },
     {
       "name": "Other Google APIs/SDKs",
       "homepage": "https://developers.google.com/apis-explorer/#p/",
-      "origins": [
-        "https://www.google.co.id"
-      ],
+      "origins": ["https://www.google.co.id"],
       "category": "utility"
     }
   ],
@@ -1008,9 +979,7 @@
       "warningHeader": "Warnings: "
     },
     "icuMessagePaths": {
-      "core/audits/accessibility/document-title.js | title": [
-        "audits[document-title].title"
-      ],
+      "core/audits/accessibility/document-title.js | title": ["audits[document-title].title"],
       "core/audits/accessibility/document-title.js | description": [
         "audits[document-title].description"
       ],
@@ -1018,90 +987,44 @@
         "audits[document-title].details.headings[0].label",
         "audits[image-alt].details.headings[0].label"
       ],
-      "core/audits/accessibility/image-alt.js | title": [
-        "audits[image-alt].title"
-      ],
-      "core/audits/accessibility/image-alt.js | description": [
-        "audits[image-alt].description"
-      ],
-      "core/audits/seo/meta-description.js | title": [
-        "audits[meta-description].title"
-      ],
-      "core/audits/seo/meta-description.js | description": [
-        "audits[meta-description].description"
-      ],
-      "core/audits/seo/http-status-code.js | title": [
-        "audits[http-status-code].title"
-      ],
-      "core/audits/seo/http-status-code.js | description": [
-        "audits[http-status-code].description"
-      ],
-      "core/audits/seo/link-text.js | title": [
-        "audits[link-text].title"
-      ],
-      "core/audits/seo/link-text.js | description": [
-        "audits[link-text].description"
-      ],
-      "core/audits/seo/crawlable-anchors.js | title": [
-        "audits[crawlable-anchors].title"
-      ],
+      "core/audits/accessibility/image-alt.js | title": ["audits[image-alt].title"],
+      "core/audits/accessibility/image-alt.js | description": ["audits[image-alt].description"],
+      "core/audits/seo/meta-description.js | title": ["audits[meta-description].title"],
+      "core/audits/seo/meta-description.js | description": ["audits[meta-description].description"],
+      "core/audits/seo/http-status-code.js | title": ["audits[http-status-code].title"],
+      "core/audits/seo/http-status-code.js | description": ["audits[http-status-code].description"],
+      "core/audits/seo/link-text.js | title": ["audits[link-text].title"],
+      "core/audits/seo/link-text.js | description": ["audits[link-text].description"],
+      "core/audits/seo/crawlable-anchors.js | title": ["audits[crawlable-anchors].title"],
       "core/audits/seo/crawlable-anchors.js | description": [
         "audits[crawlable-anchors].description"
       ],
       "core/audits/seo/crawlable-anchors.js | columnFailingLink": [
         "audits[crawlable-anchors].details.headings[0].label"
       ],
-      "core/audits/seo/is-crawlable.js | title": [
-        "audits[is-crawlable].title"
-      ],
-      "core/audits/seo/is-crawlable.js | description": [
-        "audits[is-crawlable].description"
-      ],
-      "core/audits/seo/robots-txt.js | title": [
-        "audits[robots-txt].title"
-      ],
-      "core/audits/seo/robots-txt.js | description": [
-        "audits[robots-txt].description"
-      ],
-      "core/audits/seo/hreflang.js | title": [
-        "audits.hreflang.title"
-      ],
-      "core/audits/seo/hreflang.js | description": [
-        "audits.hreflang.description"
-      ],
-      "core/audits/seo/canonical.js | title": [
-        "audits.canonical.title"
-      ],
-      "core/audits/seo/canonical.js | description": [
-        "audits.canonical.description"
-      ],
-      "core/audits/seo/manual/structured-data.js | title": [
-        "audits[structured-data].title"
-      ],
+      "core/audits/seo/is-crawlable.js | title": ["audits[is-crawlable].title"],
+      "core/audits/seo/is-crawlable.js | description": ["audits[is-crawlable].description"],
+      "core/audits/seo/robots-txt.js | title": ["audits[robots-txt].title"],
+      "core/audits/seo/robots-txt.js | description": ["audits[robots-txt].description"],
+      "core/audits/seo/hreflang.js | title": ["audits.hreflang.title"],
+      "core/audits/seo/hreflang.js | description": ["audits.hreflang.description"],
+      "core/audits/seo/canonical.js | title": ["audits.canonical.title"],
+      "core/audits/seo/canonical.js | description": ["audits.canonical.description"],
+      "core/audits/seo/manual/structured-data.js | title": ["audits[structured-data].title"],
       "core/audits/seo/manual/structured-data.js | description": [
         "audits[structured-data].description"
       ],
-      "core/config/default-config.js | seoCategoryTitle": [
-        "categories.seo.title"
-      ],
-      "core/config/default-config.js | seoCategoryDescription": [
-        "categories.seo.description"
-      ],
+      "core/config/default-config.js | seoCategoryTitle": ["categories.seo.title"],
+      "core/config/default-config.js | seoCategoryDescription": ["categories.seo.description"],
       "core/config/default-config.js | seoCategoryManualDescription": [
         "categories.seo.manualDescription"
       ],
-      "core/config/default-config.js | metricGroupTitle": [
-        "categoryGroups.metrics.title"
-      ],
-      "core/config/default-config.js | insightsGroupTitle": [
-        "categoryGroups.insights.title"
-      ],
+      "core/config/default-config.js | metricGroupTitle": ["categoryGroups.metrics.title"],
+      "core/config/default-config.js | insightsGroupTitle": ["categoryGroups.insights.title"],
       "core/config/default-config.js | insightsGroupDescription": [
         "categoryGroups.insights.description"
       ],
-      "core/config/default-config.js | diagnosticsGroupTitle": [
-        "categoryGroups.diagnostics.title"
-      ],
+      "core/config/default-config.js | diagnosticsGroupTitle": ["categoryGroups.diagnostics.title"],
       "core/config/default-config.js | diagnosticsGroupDescription": [
         "categoryGroups.diagnostics.description"
       ],
@@ -1129,9 +1052,7 @@
       "core/config/default-config.js | a11yNavigationGroupDescription": [
         "categoryGroups[a11y-navigation].description"
       ],
-      "core/config/default-config.js | a11yAriaGroupTitle": [
-        "categoryGroups[a11y-aria].title"
-      ],
+      "core/config/default-config.js | a11yAriaGroupTitle": ["categoryGroups[a11y-aria].title"],
       "core/config/default-config.js | a11yAriaGroupDescription": [
         "categoryGroups[a11y-aria].description"
       ],
@@ -1153,21 +1074,15 @@
       "core/config/default-config.js | a11yTablesListsVideoGroupDescription": [
         "categoryGroups[a11y-tables-lists].description"
       ],
-      "core/config/default-config.js | seoMobileGroupTitle": [
-        "categoryGroups[seo-mobile].title"
-      ],
+      "core/config/default-config.js | seoMobileGroupTitle": ["categoryGroups[seo-mobile].title"],
       "core/config/default-config.js | seoMobileGroupDescription": [
         "categoryGroups[seo-mobile].description"
       ],
-      "core/config/default-config.js | seoContentGroupTitle": [
-        "categoryGroups[seo-content].title"
-      ],
+      "core/config/default-config.js | seoContentGroupTitle": ["categoryGroups[seo-content].title"],
       "core/config/default-config.js | seoContentGroupDescription": [
         "categoryGroups[seo-content].description"
       ],
-      "core/config/default-config.js | seoCrawlingGroupTitle": [
-        "categoryGroups[seo-crawl].title"
-      ],
+      "core/config/default-config.js | seoCrawlingGroupTitle": ["categoryGroups[seo-crawl].title"],
       "core/config/default-config.js | seoCrawlingGroupDescription": [
         "categoryGroups[seo-crawl].description"
       ],

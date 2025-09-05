@@ -1,15 +1,15 @@
-import type { Component } from "solid-js";
-import { createSignal, createEffect } from "solid-js";
-import { useNavigate } from "@solidjs/router";
-import { authService } from "../service/auth.service";
-import { useAuthContext } from "../context/auth.context";
-import { useI18n } from "../i18n/I18nContext";
+import type { Component } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
+import { useNavigate } from '@solidjs/router';
+import AuthService from '../service/auth.service';
+import { useAuthContext } from '../context/auth.context';
+import { useI18n } from '../i18n/I18nContext';
 
 const Login: Component = () => {
-  const [email, setEmail] = createSignal("");
-  const [emailError, setEmailError] = createSignal("");
-  const [password, setPassword] = createSignal("");
-  const [passwordError, setPasswordError] = createSignal("");
+  const [email, setEmail] = createSignal('');
+  const [emailError, setEmailError] = createSignal('');
+  const [password, setPassword] = createSignal('');
+  const [passwordError, setPasswordError] = createSignal('');
   const { auth, setAuth } = useAuthContext();
   const { t } = useI18n();
   const navigate = useNavigate();
@@ -17,29 +17,29 @@ const Login: Component = () => {
 
   createEffect(() => {
     if (auth()?.session) {
-      navigate("/");
+      navigate('/');
     }
   });
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-      return "loginPage.emailInvalid";
+      return 'loginPage.emailInvalid';
     }
-    return "";
+    return '';
   };
 
   const validatePassword = (pwd: string) => {
     if (pwd.length < 8) {
-      return "loginPage.passwordTooShort";
+      return 'loginPage.passwordTooShort';
     }
     if (!/[0-9]/.test(pwd)) {
-      return "loginPage.passwordNoNumber";
+      return 'loginPage.passwordNoNumber';
     }
     if (!/[a-zA-Z]/.test(pwd)) {
-      return "loginPage.passwordNoLetter";
+      return 'loginPage.passwordNoLetter';
     }
-    return "";
+    return '';
   };
 
   const handleSubmit = async (e: Event) => {
@@ -50,7 +50,7 @@ const Login: Component = () => {
       setEmailError(emailValidationMessage);
       return;
     } else {
-      setEmailError("");
+      setEmailError('');
     }
 
     const pwdValidationMessage = validatePassword(password());
@@ -58,7 +58,7 @@ const Login: Component = () => {
       setPasswordError(pwdValidationMessage);
       return;
     } else {
-      setPasswordError("");
+      setPasswordError('');
     }
 
     try {
@@ -68,9 +68,9 @@ const Login: Component = () => {
         const jwt = await authService.getJwt();
         setAuth({ session: user, providedToken: jwt });
       }
-      navigate("/");
+      navigate('/');
     } catch (error) {
-      console.error("Login error:", error);
+      console.error('Login error:', error);
     }
   };
 
@@ -81,7 +81,9 @@ const Login: Component = () => {
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <div>
-              <label class="block" for="email">{t('loginPage.emailLabel')}</label>
+              <label class="block" for="email">
+                {t('loginPage.emailLabel')}
+              </label>
               <input
                 type="email"
                 placeholder={t('loginPage.emailPlaceholder')}
@@ -90,9 +92,7 @@ const Login: Component = () => {
                 onInput={(e) => setEmail(e.currentTarget.value)}
                 required
               />
-              {emailError() && (
-                <p class="text-red-500 text-xs mt-1">{t(emailError())}</p>
-              )}
+              {emailError() && <p class="text-red-500 text-xs mt-1">{t(emailError())}</p>}
             </div>
             <div class="mt-4">
               <label class="block">{t('loginPage.passwordLabel')}</label>
@@ -104,13 +104,15 @@ const Login: Component = () => {
                 onInput={(e) => setPassword(e.currentTarget.value)}
                 required
               />
-              {passwordError() && (
-                <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>
-              )}
+              {passwordError() && <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>}
             </div>
             <div class="flex items-center justify-between mt-2">
               <div class="text-sm">
-                <a id="go-to-forgot-password" href="/forgot-password" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a
+                  id="go-to-forgot-password"
+                  href="/forgot-password"
+                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                >
                   {t('loginPage.forgotPassword')}
                 </a>
               </div>

@@ -1,18 +1,18 @@
-import type { Component } from "solid-js";
-import { createSignal, createEffect } from "solid-js";
-import { useNavigate } from "@solidjs/router";
-import { authService } from "../service/auth.service";
-import { useAuthContext } from "../context/auth.context";
-import { useI18n } from "../i18n/I18nContext";
+import type { Component } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
+import { useNavigate } from '@solidjs/router';
+import AuthService from '../service/auth.service';
+import { useAuthContext } from '../context/auth.context';
+import { useI18n } from '../i18n/I18nContext';
 
 const Register: Component = () => {
-  const [name, setName] = createSignal("");
-  const [email, setEmail] = createSignal("");
-  const [emailError, setEmailError] = createSignal("");
-  const [password, setPassword] = createSignal("");
-  const [confirmPassword, setConfirmPassword] = createSignal("");
-  const [passwordError, setPasswordError] = createSignal("");
-  const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
+  const [name, setName] = createSignal('');
+  const [email, setEmail] = createSignal('');
+  const [emailError, setEmailError] = createSignal('');
+  const [password, setPassword] = createSignal('');
+  const [confirmPassword, setConfirmPassword] = createSignal('');
+  const [passwordError, setPasswordError] = createSignal('');
+  const [confirmPasswordError, setConfirmPasswordError] = createSignal('');
   const { auth, setAuth } = useAuthContext();
   const { t } = useI18n();
   const navigate = useNavigate();
@@ -20,29 +20,29 @@ const Register: Component = () => {
 
   createEffect(() => {
     if (auth()?.session) {
-      navigate("/");
+      navigate('/');
     }
   });
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-      return "registerPage.emailInvalid";
+      return 'registerPage.emailInvalid';
     }
-    return "";
+    return '';
   };
 
   const validatePassword = (pwd: string) => {
     if (pwd.length < 8) {
-      return "registerPage.passwordTooShort";
+      return 'registerPage.passwordTooShort';
     }
     if (!/[0-9]/.test(pwd)) {
-      return "registerPage.passwordNoNumber";
+      return 'registerPage.passwordNoNumber';
     }
     if (!/[a-zA-Z]/.test(pwd)) {
-      return "registerPage.passwordNoLetter";
+      return 'registerPage.passwordNoLetter';
     }
-    return "";
+    return '';
   };
 
   const handleSubmit = async (e: Event) => {
@@ -53,7 +53,7 @@ const Register: Component = () => {
       setEmailError(emailValidationMessage);
       return;
     } else {
-      setEmailError("");
+      setEmailError('');
     }
 
     const pwdValidationMessage = validatePassword(password());
@@ -61,14 +61,14 @@ const Register: Component = () => {
       setPasswordError(pwdValidationMessage);
       return;
     } else {
-      setPasswordError("");
+      setPasswordError('');
     }
 
     if (password() !== confirmPassword()) {
-      setConfirmPasswordError("registerPage.confirmPasswordMismatch");
+      setConfirmPasswordError('registerPage.confirmPasswordMismatch');
       return;
     } else {
-      setConfirmPasswordError("");
+      setConfirmPasswordError('');
     }
 
     try {
@@ -78,9 +78,9 @@ const Register: Component = () => {
         const jwt = await authService.getJwt();
         setAuth({ session: user, providedToken: jwt });
       }
-      navigate("/");
+      navigate('/');
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error('Registration error:', error);
     }
   };
 
@@ -91,7 +91,9 @@ const Register: Component = () => {
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <div>
-              <label class="block" for="name">{t('registerPage.nameLabel')}</label>
+              <label class="block" for="name">
+                {t('registerPage.nameLabel')}
+              </label>
               <input
                 type="text"
                 placeholder={t('registerPage.namePlaceholder')}
@@ -102,7 +104,9 @@ const Register: Component = () => {
               />
             </div>
             <div class="mt-4">
-              <label class="block" for="email">{t('registerPage.emailLabel')}</label>
+              <label class="block" for="email">
+                {t('registerPage.emailLabel')}
+              </label>
               <input
                 type="email"
                 placeholder={t('registerPage.emailPlaceholder')}
@@ -111,9 +115,7 @@ const Register: Component = () => {
                 onInput={(e) => setEmail(e.currentTarget.value)}
                 required
               />
-              {emailError() && (
-                <p class="text-red-500 text-xs mt-1">{t(emailError())}</p>
-              )}
+              {emailError() && <p class="text-red-500 text-xs mt-1">{t(emailError())}</p>}
             </div>
             <div class="mt-4">
               <label class="block">{t('registerPage.passwordLabel')}</label>
@@ -125,9 +127,7 @@ const Register: Component = () => {
                 onInput={(e) => setPassword(e.currentTarget.value)}
                 required
               />
-              {passwordError() && (
-                <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>
-              )}
+              {passwordError() && <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>}
             </div>
             <div class="mt-4">
               <label class="block">{t('registerPage.confirmPasswordLabel')}</label>

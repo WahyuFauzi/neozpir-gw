@@ -31,8 +31,6 @@
   {
     "name": "Custom Request",
     "price": "Contact Us",
-    "features": [
-      "Need custom feature or any additional? contact our team"
-    ]
+    "features": ["Need custom feature or any additional? contact our team"]
   }
 ]

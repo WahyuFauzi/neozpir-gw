@@ -78,11 +78,7 @@
       "tagline": "Mengubah bisnis melalui solusi konsultasi TI yang inovatif.",
       "services": {
         "title": "Layanan",
-        "items": [
-          "Situs Web eCommerce",
-          "Perangkat Lunak Perusahaan",
-          "Pengembangan Kustom"
-        ]
+        "items": ["Situs Web eCommerce", "Perangkat Lunak Perusahaan", "Pengembangan Kustom"]
       },
       "company": {
         "title": "Perusahaan",

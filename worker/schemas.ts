@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const blogPostSchema = z.object({
   id: z.number().optional(),
-  langkey: z.enum(["en-US", "id-ID"]),
+  langkey: z.enum(['en-US', 'id-ID']),
   title: z.string(),
   isPublish: z.boolean(),
   publishDate: z.string(),

@@ -8,17 +8,17 @@ The application appears to be a company website, featuring pages for products/se
 
 The following commands are available in `package.json` to manage the application:
 
-*   **`npm run dev:frontend`**: Starts the frontend development server using Vite.
-*   **`npm run dev:backend`**: Starts the backend development server using Wrangler.
-*   **`npm run build`**: Builds the application for production.
-*   **`npm run deploy:worker`**: Deploys the application to Cloudflare.
+- **`npm run dev:frontend`**: Starts the frontend development server using Vite.
+- **`npm run dev:backend`**: Starts the backend development server using Wrangler.
+- **`npm run build`**: Builds the application for production.
+- **`npm run deploy:worker`**: Deploys the application to Cloudflare.
 
 ## Development Conventions
 
 ### Routing
 
-*   **Frontend**: Client-side routing is handled by `@solidjs/router`. All routes are defined in `src/App.tsx`.
-*   **Backend**: API routing is managed by `hono`. The API endpoints are defined in `worker/index.ts`.
+- **Frontend**: Client-side routing is handled by `@solidjs/router`. All routes are defined in `src/App.tsx`.
+- **Backend**: API routing is managed by `hono`. The API endpoints are defined in `worker/index.ts`.
 
 ### Internationalization (i18n)
 
@@ -36,6 +36,6 @@ The frontend fetches data from the backend's API endpoints. The backend serves p
 
 The backend exposes a RESTful API under the `/api` path. The available endpoints include:
 
-*   `/api/product/:product?langKey=:langKey`: Fetches product information.
-*   `/api/blog/:langkey`: Fetches a list of blog posts for a given language.
-*   `/api/blog/:langkey/:title`: Fetches a specific blog post.
+- `/api/product/:product?langKey=:langKey`: Fetches product information.
+- `/api/blog/:langkey`: Fetches a list of blog posts for a given language.
+- `/api/blog/:langkey/:title`: Fetches a specific blog post.

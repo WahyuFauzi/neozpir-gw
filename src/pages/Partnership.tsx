@@ -14,22 +14,16 @@ const Partnership = () => {
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="w-full md:w-1/2">
-            <img
-              src={teamLogo}
-              alt="Partnership"
-              class="w-full h-auto"
-            />
+            <img src={teamLogo} alt="Partnership" class="w-full h-auto" />
           </div>
           <div class="w-full md:w-1/2 mt-8">
-            <h2 class="text-2xl font-bold text-primary-focus">
-              {t('whyPartner')}
-            </h2>
+            <h2 class="text-2xl font-bold text-primary-focus">{t('whyPartner')}</h2>
             <p class="w-full mt-4 text-lg text-justify">{t('partnerBenefit')}</p>
           </div>
           <div class="w-full flex md:w-1/2 my-4">
             <a
               href={`https://wa.me/6289670377077?text=${encodeURIComponent(
-                t('whatsapp.partnershipMessage')
+                t('whatsapp.partnershipMessage'),
               )}`}
               target="_blank"
               rel="noopener noreferrer"

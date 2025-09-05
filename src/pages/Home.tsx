@@ -5,7 +5,7 @@ import shopifyLogo from '../assets/shopify.webp';
 import softwareLogo from '../assets/software.webp';
 import configurationLogo from '../assets/configuration.webp';
 import speechBubbleLogo from '../assets/speech-bubble.webp';
-import contactLogo from '../assets/contact-us-amico.webp'
+import contactLogo from '../assets/contact-us-amico.webp';
 import { useI18n } from '../i18n/I18nContext';
 
 function Home() {
@@ -15,15 +15,41 @@ function Home() {
       <Banner></Banner>
       <section class="w-full h-[12rem]"></section>
       <section class="px-24">
-        <h3 class="my-12 text-center text-5xl" >{t('serviceSection.title')}</h3>
-        <p class="text-gray text-center text-xl mb-8">
-          {t('serviceSection.description')}
-        </p>
+        <h3 class="my-12 text-center text-5xl">{t('serviceSection.title')}</h3>
+        <p class="text-gray text-center text-xl mb-8">{t('serviceSection.description')}</p>
         <div class="flex flex-wrap w-full justify-center gap-y-4">
-          <Card href="/products/ecommerce" imgSrc={shopifyLogo} imgAlt="shopify-icon" title={t('serviceSection.cards.ecommerce.title')} text={t('serviceSection.cards.ecommerce.desc')} cardCTA="Detail" ></Card>
-          <Card href="/products/enterprise" imgSrc={softwareLogo} imgAlt="software-icon" title={t('serviceSection.cards.enterprise.title')} text={t('serviceSection.cards.enterprise.desc')} cardCTA="Detail"></Card>
-          <Card href="/products/automation" imgSrc={configurationLogo} imgAlt="configuration-icon" title={t('serviceSection.cards.automation.title')} text={t('serviceSection.cards.automation.desc')} cardCTA="Detail"></Card>
-          <Card href="/products/custom" imgSrc={speechBubbleLogo} imgAlt="speech-bubble-icon" title={t('serviceSection.cards.custom.title')} text={t('serviceSection.cards.custom.desc')} cardCTA="Detail"></Card>
+          <Card
+            href="/products/ecommerce"
+            imgSrc={shopifyLogo}
+            imgAlt="shopify-icon"
+            title={t('serviceSection.cards.ecommerce.title')}
+            text={t('serviceSection.cards.ecommerce.desc')}
+            cardCTA="Detail"
+          ></Card>
+          <Card
+            href="/products/enterprise"
+            imgSrc={softwareLogo}
+            imgAlt="software-icon"
+            title={t('serviceSection.cards.enterprise.title')}
+            text={t('serviceSection.cards.enterprise.desc')}
+            cardCTA="Detail"
+          ></Card>
+          <Card
+            href="/products/automation"
+            imgSrc={configurationLogo}
+            imgAlt="configuration-icon"
+            title={t('serviceSection.cards.automation.title')}
+            text={t('serviceSection.cards.automation.desc')}
+            cardCTA="Detail"
+          ></Card>
+          <Card
+            href="/products/custom"
+            imgSrc={speechBubbleLogo}
+            imgAlt="speech-bubble-icon"
+            title={t('serviceSection.cards.custom.title')}
+            text={t('serviceSection.cards.custom.desc')}
+            cardCTA="Detail"
+          ></Card>
         </div>
       </section>
       <section class="py-20 px-8 bg-white">
@@ -37,26 +63,24 @@ function Home() {
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
               {t('whyChooseSection.title')}
             </h2>
-            <p class="text-gray-600 mb-6">
-              {t('whyChooseSection.description')}
-            </p>
+            <p class="text-gray-600 mb-6">{t('whyChooseSection.description')}</p>
 
             <ul class="space-y-4 text-gray-800">
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-gray-900 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/>
+                  <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
                 </svg>
                 {t('whyChooseSection.points.team')}
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-gray-900 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/>
+                  <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
                 </svg>
                 {t('whyChooseSection.points.solutions')}
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-gray-900 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/>
+                  <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
                 </svg>
                 {t('whyChooseSection.points.support')}
               </li>

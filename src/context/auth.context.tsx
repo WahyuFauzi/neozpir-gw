@@ -1,12 +1,12 @@
-import { createSignal, onMount } from "solid-js";
-import { createContext, useContext } from "solid-js";
-import AuthService from "../service/auth.service";
+import { createSignal, onMount } from 'solid-js';
+import { createContext, useContext } from 'solid-js';
+import AuthService from '../service/auth.service';
 
 const AuthContext = createContext();
 
 interface IAuth {
-  session: Object | null,
-  providedToken: string | null
+  session: Object | null;
+  providedToken: string | null;
 }
 
 export function AuthProvider(props: any) {
@@ -21,21 +21,17 @@ export function AuthProvider(props: any) {
         setAuth({ session: user, providedToken: jwt });
       }
     } catch (error) {
-      console.error("Error initializing auth context:", error);
+      console.error('Error initializing auth context:', error);
       setAuth({ session: null, providedToken: null });
     }
   });
 
   const store = {
     auth,
-    setAuth 
+    setAuth,
   };
 
-  return (
-    <AuthContext.Provider value={store}>
-      {props.children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={store}>{props.children}</AuthContext.Provider>;
 }
 
 export const useAuthContext = () => {

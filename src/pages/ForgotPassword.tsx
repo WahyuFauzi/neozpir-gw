@@ -1,27 +1,29 @@
-import type { Component } from "solid-js";
-import { createSignal } from "solid-js";
-import AuthService from "../service/auth.service";
+import type { Component } from 'solid-js';
+import { createSignal } from 'solid-js';
+import AuthService from '../service/auth.service';
 
 const ForgotPassword: Component = () => {
-  const [email, setEmail] = createSignal("");
-  const [message, setMessage] = createSignal("");
-  const [error, setError] = createSignal("");
+  const [email, setEmail] = createSignal('');
+  const [message, setMessage] = createSignal('');
+  const [error, setError] = createSignal('');
   const authService = new AuthService();
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
-    setMessage("");
-    setError("");
+    setMessage('');
+    setError('');
 
     try {
       // The URL below should be the full URL to your reset password page
       // For example: https://yourdomain.com/reset-password
       const resetUrl = `${window.location.origin}/reset-password`;
       await authService.forgotPassword(email(), resetUrl);
-      setMessage("If an account with that email exists, a password reset link has been sent to your email address.");
+      setMessage(
+        'If an account with that email exists, a password reset link has been sent to your email address.',
+      );
     } catch (err) {
-      setError("Failed to send password reset email. Please try again.");
-      console.error("Forgot password error:", err);
+      setError('Failed to send password reset email. Please try again.');
+      console.error('Forgot password error:', err);
     }
   };
 
@@ -32,7 +34,9 @@ const ForgotPassword: Component = () => {
         <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <div>
-              <label class="block" for="email">Email</label>
+              <label class="block" for="email">
+                Email
+              </label>
               <input
                 type="email"
                 placeholder="Enter your email"

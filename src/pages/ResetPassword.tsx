@@ -1,8 +1,8 @@
-import type { Component } from "solid-js";
-import { createSignal, createEffect } from "solid-js";
-import { useSearchParams, useNavigate } from "@solidjs/router";
-import { useI18n } from "../i18n/I18nContext";
-import AuthService from "../service/auth.service";
+import type { Component } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
+import { useSearchParams, useNavigate } from '@solidjs/router';
+import { useI18n } from '../i18n/I18nContext';
+import AuthService from '../service/auth.service';
 
 const ResetPassword: Component = () => {
   const [searchParams] = useSearchParams();
@@ -10,70 +10,70 @@ const ResetPassword: Component = () => {
   const { t } = useI18n();
   const authService = new AuthService();
 
-  const [password, setPassword] = createSignal("");
-  const [confirmPassword, setConfirmPassword] = createSignal("");
-  const [message, setMessage] = createSignal("");
-  const [error, setError] = createSignal("");
+  const [password, setPassword] = createSignal('');
+  const [confirmPassword, setConfirmPassword] = createSignal('');
+  const [message, setMessage] = createSignal('');
+  const [error, setError] = createSignal('');
 
-  const [passwordError, setPasswordError] = createSignal("");
-  const [confirmPasswordError, setConfirmPasswordError] = createSignal("");
+  const [passwordError, setPasswordError] = createSignal('');
+  const [confirmPasswordError, setConfirmPasswordError] = createSignal('');
 
   const userId = searchParams.userId;
   const secret = searchParams.secret;
 
   createEffect(() => {
     if (!userId || !secret) {
-      setError(t("resetPasswordPage.invalidOrMissingLink"));
+      setError(t('resetPasswordPage.invalidOrMissingLink'));
     }
   });
 
   const validatePassword = (pwd: string) => {
     if (pwd.length < 8) {
-      return "resetPasswordPage.passwordTooShort";
+      return 'resetPasswordPage.passwordTooShort';
     }
     if (!/[0-9]/.test(pwd)) {
-      return "resetPasswordPage.passwordNoNumber";
+      return 'resetPasswordPage.passwordNoNumber';
     }
     if (!/[a-zA-Z]/.test(pwd)) {
-      return "resetPasswordPage.passwordNoLetter";
+      return 'resetPasswordPage.passwordNoLetter';
     }
-    return "";
+    return '';
   };
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
-    setMessage("");
-    setError("");
+    setMessage('');
+    setError('');
 
     const pwdValidationMessage = validatePassword(password());
     if (pwdValidationMessage) {
       setPasswordError(pwdValidationMessage);
       return;
     } else {
-      setPasswordError("");
+      setPasswordError('');
     }
 
     if (password() !== confirmPassword()) {
-      setConfirmPasswordError(t("resetPasswordPage.passwordMismatch"));
+      setConfirmPasswordError(t('resetPasswordPage.passwordMismatch'));
       return;
     } else {
-      setConfirmPasswordError("");
+      setConfirmPasswordError('');
     }
 
     if (!userId || !secret) {
-      setError(t("resetPasswordPage.invalidLink"));
+      setError(t('resetPasswordPage.invalidLink'));
       return;
     }
 
     try {
       await authService.resetPassword(userId as string, secret as string, password());
-      setMessage("Your password has been reset successfully. You can now log in.");
+      setMessage('Your password has been reset successfully. You can now log in.');
       setTimeout(() => {
-        navigate("/login");
+        navigate('/login');
       }, 3000);
     } catch (err) {
-      setError(t("resetPasswordPage.failedMessage"));
-      console.error("Reset password error:", err);
+      setError(t('resetPasswordPage.failedMessage'));
+      console.error('Reset password error:', err);
     }
   };
 
@@ -93,9 +93,7 @@ const ResetPassword: Component = () => {
                 onInput={(e) => setPassword(e.currentTarget.value)}
                 required
               />
-              {passwordError() && (
-                <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>
-              )}
+              {passwordError() && <p class="text-red-500 text-xs mt-1">{t(passwordError())}</p>}
             </div>
             <div class="mt-4">
               <label class="block">{t('resetPasswordPage.confirmNewPasswordLabel')}</label>

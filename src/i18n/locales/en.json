@@ -82,11 +82,7 @@
       "tagline": "Transforming businesses through innovative IT consulting solutions.",
       "services": {
         "title": "Services",
-        "items": [
-          "Ecommerce Website",
-          "Enterprise Software",
-          "Custom Development"
-        ]
+        "items": ["Ecommerce Website", "Enterprise Software", "Custom Development"]
       },
       "company": {
         "title": "Company",

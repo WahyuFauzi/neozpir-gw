@@ -10,10 +10,6 @@ class BlogService {
     this.authService = new AuthService();
   }
 
-  constructor(baseUrl: string) {
-    this.baseUrl = baseUrl; // You might want to configure this properly, e.g., from environment variables
-  }
-
   async getBlogByLangkey(langKey: string): Promise<any> {
     try {
       const response = await axios.get(`${this.baseUrl}/api/blog/${langKey}`); // Example API endpoint

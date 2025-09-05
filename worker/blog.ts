@@ -21,13 +21,14 @@ blog.get('/:langkey', async (c) => {
   // @ts-ignore
   const db = getDb(c.env.BLOG);
   if (!db) {
-    console.error("DB binding not found. Check wrangler.toml configuration.");
-    return c.text("Database binding not configured", 500);
+    console.error('DB binding not found. Check wrangler.toml configuration.');
+    return c.text('Database binding not configured', 500);
   }
 
   const langkey = c.req.param('langkey');
   try {
-    const results = await db.select()
+    const results = await db
+      .select()
       .from(blogSchema)
       .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.is_publish, 1)))
       .orderBy(desc(blogSchema.publish_date));
@@ -37,10 +38,10 @@ blog.get('/:langkey', async (c) => {
     }
     return c.json(results);
   } catch (e) {
-    console.error("Error fetching blog posts by langkey:", e);
-    return c.text("Error fetching data", 500);
+    console.error('Error fetching blog posts by langkey:', e);
+    return c.text('Error fetching data', 500);
   }
-})
+});
 
 /**
  * @api {get} /api/blog/:langkey/:title Get Single Blog Post by Language and Title
@@ -56,16 +57,23 @@ blog.get('/:langkey/:title', async (c) => {
   // @ts-ignore
   const db = getDb(c.env.BLOG);
   if (!db) {
-    console.error("DB binding not found. Check wrangler.toml configuration.");
-    return c.text("Database binding not configured", 500);
+    console.error('DB binding not found. Check wrangler.toml configuration.');
+    return c.text('Database binding not configured', 500);
   }
 
   const langkey = c.req.param('langkey');
   const title = c.req.param('title');
   try {
-    const results = await db.select()
+    const results = await db
+      .select()
       .from(blogSchema)
-      .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.title, title), eq(blogSchema.is_publish, 1)));
+      .where(
+        and(
+          eq(blogSchema.langkey, langkey),
+          eq(blogSchema.title, title),
+          eq(blogSchema.is_publish, 1),
+        ),
+      );
 
     if (results.length === 0) {
       return c.notFound();
@@ -96,10 +104,10 @@ blog.get('/:langkey/:title', async (c) => {
 
     return c.json(responsePayload);
   } catch (e) {
-    console.error("Error fetching blog post by langkey/title:", e);
-    return c.text("Error fetching data", 500);
+    console.error('Error fetching blog post by langkey/title:', e);
+    return c.text('Error fetching data', 500);
   }
-})
+});
 
 /**
  * @api {put} /api/blog/:langkey/:title Update Blog Post
@@ -121,8 +129,8 @@ blog.put('/:langkey/:title', authMiddleware, async (c) => {
   // @ts-ignore
   const db = getDb(c.env.BLOG);
   if (!db) {
-    console.error("DB binding not found. Check wrangler.toml configuration.");
-    return c.text("Database binding not configured", 500);
+    console.error('DB binding not found. Check wrangler.toml configuration.');
+    return c.text('Database binding not configured', 500);
   }
 
   const langkey = c.req.param('langkey');
@@ -131,12 +139,13 @@ blog.put('/:langkey/:title', authMiddleware, async (c) => {
   const user = c.get('user'); // Get user from context
 
   if (!user || !user.$id) {
-    return c.text("Unauthorized: User ID not found in context", 403);
+    return c.text('Unauthorized: User ID not found in context', 403);
   }
 
   // Fetch the existing blog post to check ownership
   try {
-    const existingPost = await db.select()
+    const existingPost = await db
+      .select()
       .from(blogSchema)
       .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.title, title)));
 
@@ -145,23 +154,33 @@ blog.put('/:langkey/:title', authMiddleware, async (c) => {
     }
 
     if (existingPost[0].created_by !== user.$id) {
-      return c.text("Forbidden: You are not the creator of this blog post", 403);
+      return c.text('Forbidden: You are not the creator of this blog post', 403);
     }
   } catch (e) {
-    console.error("Error checking blog post ownership:", e);
-    return c.text("Error checking ownership", 500);
+    console.error('Error checking blog post ownership:', e);
+    return c.text('Error checking ownership', 500);
   }
 
   const parsedBody = blogPostUpdateSchema.safeParse(body);
   if (!parsedBody.success) {
-    console.error("Invalid request body:", parsedBody.error);
-    return c.json({ error: "Invalid request body", details: parsedBody.error }, 400);
+    console.error('Invalid request body:', parsedBody.error);
+    return c.json({ error: 'Invalid request body', details: parsedBody.error }, 400);
   }
 
-  const { titleDisplay, contentMarkdown, author, publishDate, category, isPublish, createdDate, thumbnailSrc } = parsedBody.data;
+  const {
+    titleDisplay,
+    contentMarkdown,
+    author,
+    publishDate,
+    category,
+    isPublish,
+    createdDate,
+    thumbnailSrc,
+  } = parsedBody.data;
 
   try {
-    await db.update(blogSchema)
+    await db
+      .update(blogSchema)
       .set({
         title_display: titleDisplay,
         content_markdown: contentMarkdown,
@@ -174,14 +193,15 @@ blog.put('/:langkey/:title', authMiddleware, async (c) => {
       })
       .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.title, title)));
   } catch (e) {
-    console.error("Error updating blog post:", e);
-    return c.text("Error updating data", 500);
+    console.error('Error updating blog post:', e);
+    return c.text('Error updating data', 500);
   }
 
   try {
-    const results = await db.select()
+    const results = await db
+      .select()
       .from(blogSchema)
-      .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.title, title)))
+      .where(and(eq(blogSchema.langkey, langkey), eq(blogSchema.title, title)));
 
     if (results.length === 0) {
       return c.notFound();
@@ -212,8 +232,8 @@ blog.put('/:langkey/:title', authMiddleware, async (c) => {
 
     return c.json(responsePayload);
   } catch (e) {
-    console.error("Error fetching blog post after update:", e);
-    return c.text("Error fetching data after update", 500);
+    console.error('Error fetching blog post after update:', e);
+    return c.text('Error fetching data after update', 500);
   }
 });
 
@@ -237,23 +257,33 @@ blog.post('/', authMiddleware, async (c) => {
   // @ts-ignore
   const db = getDb(c.env.BLOG);
   if (!db) {
-    console.error("DB binding not found. Check wrangler.toml configuration.");
-    return c.text("Database binding not configured", 500);
+    console.error('DB binding not found. Check wrangler.toml configuration.');
+    return c.text('Database binding not configured', 500);
   }
 
   const body = await c.req.json();
   const parsedBody = blogPostSchema.safeParse(body);
 
   if (!parsedBody.success) {
-    console.error("Invalid request body:", parsedBody.error);
-    return c.json({ error: "Invalid request body", details: parsedBody.error }, 400);
+    console.error('Invalid request body:', parsedBody.error);
+    return c.json({ error: 'Invalid request body', details: parsedBody.error }, 400);
   }
 
-  const { langkey, title, titleDisplay, contentMarkdown, publishDate, category, isPublish, createdDate, thumbnailSrc } = parsedBody.data;
+  const {
+    langkey,
+    title,
+    titleDisplay,
+    contentMarkdown,
+    publishDate,
+    category,
+    isPublish,
+    createdDate,
+    thumbnailSrc,
+  } = parsedBody.data;
   const user = c.get('user'); // Get user from context
 
   if (!user || !user.$id) {
-    return c.text("Unauthorized: User ID not found in context", 403);
+    return c.text('Unauthorized: User ID not found in context', 403);
   }
 
   try {
@@ -270,10 +300,10 @@ blog.post('/', authMiddleware, async (c) => {
       thumbnail_src: thumbnailSrc,
     });
 
-    return c.json({ message: "Blog post created successfully", post: parsedBody.data }, 201);
+    return c.json({ message: 'Blog post created successfully', post: parsedBody.data }, 201);
   } catch (e) {
-    console.error("Error creating blog post:", e);
-    return c.text("Error creating blog post", 500);
+    console.error('Error creating blog post:', e);
+    return c.text('Error creating blog post', 500);
   }
 });
 
