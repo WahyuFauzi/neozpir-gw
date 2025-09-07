@@ -10,6 +10,7 @@ function Blog() {
   const [author, setAuthor] = createSignal('');
   const [publishDate, setPublishDate] = createSignal('');
   const [category, setCategory] = createSignal('');
+  const [thumbnailSrc, setThumbnailSrc] = createSignal('');
   const [isEditing, setIsEditing] = createSignal(false);
   const isAdmin = localStorage.getItem('adminToken') === 'tempStupidKey101';
 
@@ -31,6 +32,7 @@ function Blog() {
         setAuthor(data.author);
         setPublishDate(data.publishDate);
         setCategory(data.category);
+        setThumbnailSrc(data.thumbnailSrc);
       } else {
         console.error('Failed to fetch blog post:', res.status, res.statusText);
         setContent('<p>Error loading blog post.</p>');
@@ -50,6 +52,7 @@ function Blog() {
       publishDate: publishDate(),
       category: category(),
       isPublish: true, // TODO set this to be dynamic later
+      thumbnailSrc: thumbnailSrc(),
     };
 
     const res = await fetch(`/api/blog/${currentLangkey}/${paramTitle}`, {
@@ -66,6 +69,7 @@ function Blog() {
       setAuthor(data.author);
       setPublishDate(data.publishDate);
       setCategory(data.category);
+      setThumbnailSrc(data.thumbnailSrc);
       setIsEditing(false);
     } else {
       console.error('Failed to save post');
@@ -75,6 +79,9 @@ function Blog() {
   return (
     <div class="container mx-auto px-4 py-4 sm:py-8">
       <div class="max-w-prose mx-auto mb-4 px-2">
+        <Show when={thumbnailSrc()}>
+          <img src={thumbnailSrc()} alt="Blog Thumbnail" class="w-full h-64 object-cover rounded-md mb-4" />
+        </Show>
         <Show
           when={!isEditing()}
           fallback={
@@ -105,6 +112,13 @@ function Blog() {
                   onInput={(e) => setCategory(e.currentTarget.value)}
                   class="w-full mb-2"
                   placeholder="Category"
+                />
+                <input
+                  type="text"
+                  value={thumbnailSrc()}
+                  onInput={(e) => setThumbnailSrc(e.currentTarget.value)}
+                  class="w-full mb-2"
+                  placeholder="Thumbnail URL"
                 />
               </div>
             </div>

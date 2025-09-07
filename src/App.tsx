@@ -11,7 +11,6 @@ import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
 import Blog from './pages/Blog';
 import BlogList from './pages/BlogList';
-import CreateBlog from './pages/CreateBlog';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';

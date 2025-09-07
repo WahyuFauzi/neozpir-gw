@@ -16,7 +16,7 @@ const Card = (props: any) => {
         <Show when={props.cardCTA != undefined}>
           <div class="w-fit flex flex-col sm:flex-row justify-center lg:justify-center gap-4 mx-auto">
             <button
-              class="w-full h-full bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition cursor-pointer"
+              class="w-full h-full bg-[var(--color-primary)] text-[var(--color-textMain)] px-6 py-3 rounded hover:bg-gray-700 transition cursor-pointer"
               onClick={() => {
                 navigate(props.href);
               }}

@@ -8,7 +8,7 @@ function CTASchedule() {
       <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
         <a
           href={`https://wa.me/6289670377077?text=${t('whatsapp.ctaMessage')}`}
-          class="bg-[#3DDC97] text-[#2C2C2C] font-medium px-6 py-3 rounded hover:bg-gray-200 transition"
+          class="bg-[var(--color-primary)] text-[var(--color-customDark)] font-medium px-6 py-3 rounded hover:bg-gray-200 transition"
         >
           {t('CTASection.button')}
         </a>

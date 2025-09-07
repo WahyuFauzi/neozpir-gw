@@ -15,7 +15,7 @@ const Banner = () => {
           <div class="w-fit flex flex-col sm:flex-row justify-center lg:justify-start gap-4 max-lg:mx-auto">
             <a
               href="/products"
-              class="w-full h-full bg-[#3DDC97] text-[#2C2C2C] px-6 py-3 rounded hover:bg-gray-700 transition"
+              class="w-full h-full bg-[var(--color-primary)] text-[var(--color-customDark)] px-6 py-3 rounded hover:bg-gray-700 transition"
             >
               {t('banner.CTAText')}
             </a>

@@ -163,7 +163,7 @@ const Navbar = () => {
               <li class="max-w-32 rounded-full cursor-pointer text-center my-2 md:my-0 md:hidden">
                 <a
                   href="/register"
-                  class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[#3DDC97] hover:bg-[#36c285]"
+                  class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)]"
                   onClick={() => setMenuOpen(false)}
                 >
                   {t('navbar.register')}
@@ -195,7 +195,7 @@ const Navbar = () => {
               <div class="max-w-32 rounded-full cursor-pointer text-center my-2 hidden md:my-0 md:block mx-2">
                 <a
                   href="/register"
-                  class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[#3DDC97] hover:bg-[#36c285]"
+                  class="w-full block py-2 px-3 text-gray-900 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)]"
                   onClick={() => setMenuOpen(false)}
                 >
                   {t('navbar.register')}

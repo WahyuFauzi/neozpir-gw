@@ -27,7 +27,7 @@ const Partnership = () => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="bg-[#3DDC97] text-[#2C2C2C] font-medium px-6 py-3 mx-auto rounded hover:bg-gray-200 transition mt-6"
+              class="bg-[var(--color-primary)] text-[var(--color-customDark)] font-medium px-6 py-3 mx-auto rounded hover:bg-gray-200 transition mt-6"
             >
               {t('becomePartner')}
             </a>

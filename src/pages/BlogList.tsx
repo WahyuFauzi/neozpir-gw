@@ -1,7 +1,7 @@
 import { createResource, For, createEffect } from 'solid-js';
 import { useI18n } from '../i18n/I18nContext';
 import BlogService from '../service/blog.service';
-import defaultThumbnail from '../assets/default-thumbnail.jpeg';
+const defaultThumbnail = 'https://cdn.no-restrict.neozpir.com/default-thumbnail.jpeg'; 
 import { A } from '@solidjs/router';
 
 const formatTitleForDisplay = (title: string) => {
@@ -36,7 +36,7 @@ const BlogList = () => {
                 class="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200"
               >
                 <img
-                  src={defaultThumbnail}
+                  src={post.thumbnail_src || defaultThumbnail}
                   alt="Blog Thumbnail"
                   class="w-full h-48 object-cover rounded-md mb-4"
                 />

@@ -11,3 +11,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+:root {
+  --color-primary: #3DDC97;
+  --color-secondary: #4A4A4A;
+  --color-background: #FFFFFF;
+  --color-textMain: #2C2C2C;
+  --color-textSecondary: #B0B0B0;
+  --color-accent: #0F9D58;
+  --color-linkHover: #2BBBAD;
+  --color-customGreen: #3DDC97;
+  --color-customDark: #2C2C2C;
+  --color-primary-hover: #36c285;
+}
