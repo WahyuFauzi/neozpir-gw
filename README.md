@@ -23,6 +23,44 @@ It correctly bundles Solid in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
+## Running Playwright Tests in Docker
+
+To run Playwright tests in a consistent environment, you can use the provided Dockerfile.
+
+1.  **Build the Docker Image**:
+    Navigate to the root of your project and build the Docker image. This will create an image named `neozpir-solid-dev` based on the `Dockerfile` in the `.devcontainer` directory.
+
+    ```bash
+    docker build -t neozpir-solid-dev -f .devcontainer/Dockerfile .
+    ```
+
+2.  **Run the Docker Container**:
+    Start a container from the image. This command will mount your current project directory into the container, allowing you to work on your files from within the container.
+
+    ```bash
+    docker run -it --rm -v "$(pwd)":/workspaces/neozpir-solid neozpir-solid-dev bash
+    ```
+    *   `-it`: Runs the container in interactive mode with a pseudo-TTY.
+    *   `--rm`: Automatically removes the container when it exits.
+    *   `-v "$(pwd)":/workspaces/neozpir-solid`: Mounts your current host directory into the container at `/workspaces/neozpir-solid`.
+    *   `neozpir-solid-dev`: The name of the Docker image to use.
+    *   `bash`: Starts a bash shell inside the container.
+
+3.  **Install Project Dependencies (inside the container)**:
+    Once inside the container's bash shell, navigate to your project directory and install the Node.js dependencies.
+
+    ```bash
+    cd /workspaces/neozpir-solid
+    npm install
+    ```
+
+4.  **Run Playwright Tests (inside the container)**:
+    After installing dependencies, you can run your Playwright tests.
+
+    ```bash
+    npx playwright test
+    ```
+
 ## Deployment
 
 Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
