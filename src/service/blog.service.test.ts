@@ -18,7 +18,7 @@ vi.mock('./auth.service', () => {
 
 describe('BlogService', () => {
     let blogService: BlogService;
-    let mockAuthService: ReturnType<typeof AuthService>;
+    let mockAuthService: AuthService;
     const baseUrl = 'http://localhost:8787';
 
     beforeEach(() => {
